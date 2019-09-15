@@ -1,0 +1,79 @@
+@import 'app/assets/scss/variables';
+
+.homeContainer {
+    position: relative;
+    background-color: $background;
+    min-height: 100vh;
+}
+.appHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary;
+    height: 100px;
+    padding: 0 4rem;
+    z-index: 900;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.logoSpan {
+    display: inline-block;
+    border: 2px solid $white;
+    padding: $spacing-sm;
+}
+.appHeaderMenuContainer {
+    display: flex;
+}
+.menuLink {
+    padding: $spacing-sm;
+    margin: 0 $spacing-md;
+}
+.landingContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.ctaContainer {
+    position: relative;
+    z-index: 800;
+}
+.faceContainer {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: 100;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutContainer {
+    position: relative;
+    z-index: 800;
+    background-color: $offwhite;
+    display: flex;
+}
+.aboutPhotoContainer,
+.aboutBioContainer {
+    display: inline-block;
+    width: 50%;
+}
+.aboutPhoto {
+    width: 100%;
+    display: block;
+    border: 3rem solid $white;
+}
+.aboutBioContainer {
+    padding: $spacing-lg;
+}
+
+.projectsContainer {
+    background-color: $gray;
+    height: 100vh;
+}
