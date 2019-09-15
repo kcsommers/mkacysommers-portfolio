@@ -1,0 +1,19 @@
+@import 'app/assets/scss/variables';
+
+.sliderThumbsContainer {
+    display: flex;
+    padding: calc(#{$spacing-lg} + #{$spacing-lg});
+}
+.thumbContainer {
+    flex: 1;
+    cursor: pointer;
+}
+.slideContainer {
+    display: flex;
+}
+.sliderProjectInfo {
+    flex: 1;
+}
+.sliderProjectImages {
+    flex: 1;
+}
