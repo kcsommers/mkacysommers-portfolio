@@ -2,7 +2,7 @@
 
 .sliderThumbsContainer {
     display: flex;
-    padding: calc(#{$spacing-lg} + #{$spacing-lg});
+    padding: $spacing-xl;
 }
 .thumbContainer {
     flex: 1;
@@ -13,7 +13,26 @@
 }
 .sliderProjectInfo {
     flex: 1;
+    padding: $spacing-xl;
 }
 .sliderProjectImages {
     flex: 1;
+    padding: $spacing-xl;
+}
+.sliderNav {
+    border-top: 1px solid $offwhite;
+    border-bottom: 1px solid $offwhite;
+    background-color: rgba($offwhite, 0.7);
+    padding: 0 $spacing-xl;
+    display: flex;
+}
+.sliderNavArrowsContainer {
+    flex: 0.2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sliderNavArrow {
+    padding: $spacing-md;
+    cursor: pointer;
 }

@@ -6,6 +6,17 @@ import Face from 'app/assets/images/mkacysommers_logo.png';
 import LookLeft from 'app/assets/images/look_left.jpg';
 import { Colors } from 'app/core/Colors.enum';
 import { SliderComponent } from 'app/lib/components/slider/slider.component';
+import { toolIcons } from 'app/core/toolIcons';
+import LazyLoadedImage from 'app/lib/components/lazy-loaded-image/lazy-loaded-image.component';
+
+const toolImages = toolIcons.map((tool: string) => (
+  <div key={Math.floor(Math.random() * 10000)} className={styles.toolIconContainer}>
+    <LazyLoadedImage
+      folder={'tools'}
+      imageName={tool}
+    ></LazyLoadedImage>
+  </div>
+));
 
 const Home: React.FC = () => {
   return (
@@ -50,6 +61,19 @@ const Home: React.FC = () => {
           <TextComponent color={'$background'} content={'Projects'}></TextComponent>
         </div>
         <SliderComponent></SliderComponent>
+      </section>
+
+      <section className={styles.skillsContainer}>
+        <div className={styles.sectionHeaderContainer}>
+          <TextComponent color={'$primary'} content={'Skills'}></TextComponent>
+        </div>
+        <div className={styles.toolImagesContainer}>
+          {toolImages}
+        </div>
+      </section>
+
+      <section className={styles.getInTouchContainer}>
+        <CtaComponent title={'Get in touch!'} body={'I am always on the lookout for new projects, fresh challenges and kind folks to collaborate with. If you have an idea, an open position or just want to talk code, please get in touch.'} buttonText={'Contact Kacy'}></CtaComponent>
       </section>
     </div>
   );

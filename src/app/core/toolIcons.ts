@@ -1,0 +1,20 @@
+export const toolIcons = [
+  'bootstrap.png',
+  'chai.png',
+  'css.png',
+  'django.png',
+  'express.png',
+  'git.png',
+  'github.png',
+  'html.png',
+  'javaScript.png',
+  'jquery.png',
+  'materialize.png',
+  'mocha.png',
+  'node.png',
+  'postgres.png',
+  'python.png',
+  'react.png',
+  'sass.png',
+  'sequelize.png'
+];

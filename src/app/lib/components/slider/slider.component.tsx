@@ -5,19 +5,30 @@ import LazyLoadedImage from '../lazy-loaded-image/lazy-loaded-image.component';
 import { SlideComponent } from './slide.component';
 
 type SliderState = {
-  current: Project
+  currentIndex: number
 }
 
 export class SliderComponent extends React.Component<{}, SliderState> {
   constructor(props: {}) {
     super(props);
-    this.state = { current: projects[0] }
+    this.state = { currentIndex: 0 }
+  }
+  private next() {
+    this.setState((prevState: SliderState) => ({
+      currentIndex: prevState.currentIndex === projects.length - 1 ? 0 : prevState.currentIndex + 1
+    }))
+  }
+  private prev() {
+    this.setState((prevState: SliderState) => ({
+      currentIndex: prevState.currentIndex === 0 ? projects.length - 1 : prevState.currentIndex - 1
+    }))
   }
   render() {
+    const { currentIndex } = this.state;
     const thumbs = projects.map(p => (
-      <div className={styles.thumbContainer}>
+      <div key={Math.floor(Math.random() * 10000)} className={styles.thumbContainer}>
         <LazyLoadedImage
-          key={Math.floor(Math.random() * 10000)}
+          folder={'projects'}
           imageName={p.images[0]}
         ></LazyLoadedImage>
       </div>
@@ -27,8 +38,24 @@ export class SliderComponent extends React.Component<{}, SliderState> {
         <section className={styles.sliderThumbsContainer}>
           {thumbs}
         </section>
+        <div className={styles.sliderNav}>
+          <div className={styles.sliderNavArrowsContainer}>
+            <span
+              className={styles.sliderNavArrow}
+              onClick={this.next.bind(this)}
+            >
+              Prev Project
+            </span>
+            <span
+              className={styles.sliderNavArrow}
+              onClick={this.prev.bind(this)}
+            >
+              Next Project
+            </span>
+          </div>
+        </div>
         <section className={styles.slider}>
-          <SlideComponent project={this.state.current}></SlideComponent>
+          <SlideComponent project={projects[currentIndex]}></SlideComponent>
         </section>
       </div>
     );

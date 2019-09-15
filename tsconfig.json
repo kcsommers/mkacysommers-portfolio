@@ -19,7 +19,8 @@
     "jsx": "react",
     "baseUrl": "src",
     "noImplicitAny": false,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "strictPropertyInitialization": false
   },
   "include": [
     "src"

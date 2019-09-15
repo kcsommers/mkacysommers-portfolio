@@ -75,8 +75,19 @@
 .aboutBioContainer {
     padding: $spacing-lg;
 }
-
 .projectsContainer {
     background-color: $gray;
-    height: 100vh;
+    min-height: 100vh;
+}
+.skillsContainer {
+    background-color: $background;
+}
+.toolImagesContainer {
+    padding: $spacing-lg;
+    flex-wrap: wrap;
+    display: flex;
+}
+.toolIconContainer {
+    flex: 1;
+    width: 100px;
 }
