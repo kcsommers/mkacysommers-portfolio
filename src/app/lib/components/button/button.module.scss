@@ -1,0 +1,10 @@
+@import 'app/assets/scss/variables';
+
+.button-primary {
+    border: 2px solid $primary;
+    padding: $spacing-md;
+}
+
+.buttonText-primary {
+    color: $primary;
+}
