@@ -1,10 +1,21 @@
 @import 'app/assets/scss/variables';
 
 .button-primary {
+    display: inline-block;
     border: 2px solid $primary;
     padding: $spacing-md;
 }
 
 .buttonText-primary {
     color: $primary;
+}
+
+.button-dark {
+    display: inline-block;
+    border: 2px solid $background;
+    padding: $spacing-md;
+}
+
+.buttonText-dark {
+    color: $background
 }
