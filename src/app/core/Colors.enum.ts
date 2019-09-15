@@ -3,5 +3,6 @@ export enum Colors {
   $primary = '#ddeaf0',
   $accent = '#aac6e7',
   $white = '#ffffff',
-  $gray = '#dfdce5'
+  $gray = '#dfdce5',
+  $error = '#974c48'
 };

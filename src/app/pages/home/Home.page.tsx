@@ -3,8 +3,9 @@ import styles from './Home.module.scss';
 import { TextComponent } from 'app/lib/components/text/text.component';
 import { CtaComponent } from 'app/lib/components/cta/cta.component';
 import Face from 'app/assets/images/mkacysommers_logo.png';
-import LookLeft from 'app/assets/images/look_left.jpeg';
+import LookLeft from 'app/assets/images/look_left.jpg';
 import { Colors } from 'app/core/Colors.enum';
+import { SliderComponent } from 'app/lib/components/slider/slider.component';
 
 const Home: React.FC = () => {
   return (
@@ -44,7 +45,12 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className={styles.projectsContainer}></section>
+      <section className={styles.projectsContainer}>
+        <div className={styles.sectionHeaderContainer}>
+          <TextComponent color={'$background'} content={'Projects'}></TextComponent>
+        </div>
+        <SliderComponent></SliderComponent>
+      </section>
     </div>
   );
 }

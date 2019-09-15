@@ -52,7 +52,10 @@
     justify-content: center;
     align-items: center;
 }
-
+.sectionHeaderContainer {
+    text-align: center;
+    padding: $spacing-lg 0;
+}
 .aboutContainer {
     position: relative;
     z-index: 800;
