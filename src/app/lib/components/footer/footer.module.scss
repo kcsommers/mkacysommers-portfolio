@@ -1,1 +1,9 @@
-@import 'app/assets/images/variables';
+@import 'app/assets/scss/variables';
+
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: $offwhite;
+}
