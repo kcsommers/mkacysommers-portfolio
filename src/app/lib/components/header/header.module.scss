@@ -4,7 +4,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $primary;
     height: 100px;
     padding: 0 4rem;
     z-index: 900;
@@ -12,6 +11,11 @@
     top: 0;
     left: 0;
     right: 0;
+    transition: all 0.2s ease;
+}
+.headerScrolled {
+    height: 60px;
+    background-color: $primary;
 }
 .logoSpan {
     display: inline-block;
