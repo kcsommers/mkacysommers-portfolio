@@ -39,9 +39,11 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
     switch (this.props.folder) {
       case 'projects': {
         this.loadProjectImage();
+        break;
       }
       case 'tools': {
         this.loadToolImage();
+        break;
       }
     }
   }
@@ -57,6 +59,14 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
     this.setState({ error: true, render: true });
   }
 
+  private loadProjectImage() {
+    const { imageName } = this.props;
+    import(
+      /* webpackMode: "lazy-once" */
+      `../../../assets/images/projects/${imageName}`
+    ).then(this.setImage.bind(this)).catch(this.setError.bind(this))
+  }
+
   private loadToolImage() {
     const { imageName } = this.props;
     import(
@@ -65,13 +75,7 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
     ).then(this.setImage.bind(this)).catch(this.setError.bind(this));
   }
 
-  private loadProjectImage() {
-    const { imageName } = this.props;
-    import(
-      /* webpackMode: "lazy-once" */
-      `../../../assets/images/projects/${imageName}`
-    ).then(this.setImage.bind(this)).catch(this.setError.bind(this))
-  }
+
 
   render() {
     const view = !this.state.error ?
