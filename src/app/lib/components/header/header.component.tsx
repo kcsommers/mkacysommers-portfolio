@@ -7,7 +7,8 @@ import { TextComponent } from '../text/text.component';
 import { Colors } from 'app/lib/core/Colors.enum';
 
 type HeaderProps = {
-  scrollTo: (event: React.MouseEvent, section: string) => void
+  scrollTo: (event: React.MouseEvent, section: string) => void,
+  showContact: (event: React.MouseEvent) => void
 }
 
 type HeaderState = {
@@ -44,7 +45,7 @@ export class HeaderComponent extends React.Component<HeaderProps, HeaderState> {
   }
 
   render() {
-    const { scrollTo } = this.props;
+    const { scrollTo, showContact } = this.props;
     const { scrolled } = this.state;
     return (
       <div className={[styles.headerContainer, scrolled && styles.headerScrolled].join(' ')}>
@@ -73,7 +74,8 @@ export class HeaderComponent extends React.Component<HeaderProps, HeaderState> {
           </a>
           <a
             className={styles.menuLink}
-            href="#"
+            href="#contact"
+            onClick={showContact}
           ><TextComponent content={'Contact'}></TextComponent>
           </a>
           <a

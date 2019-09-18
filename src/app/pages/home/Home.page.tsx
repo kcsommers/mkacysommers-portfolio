@@ -10,6 +10,11 @@ import { FooterComponent } from 'app/lib/components/footer/footer.component';
 import { HeaderComponent } from 'app/lib/components/header/header.component';
 import { toolIcons } from 'app/lib/core/toolIcons';
 import { Colors } from 'app/lib/core/Colors.enum';
+import { ContactComponent } from 'app/lib/components/contact/contact.component';
+
+type HomeState = {
+  contactVisible: boolean;
+}
 
 const toolImages = toolIcons.map((tool: string) => (
   <div key={Math.floor(Math.random() * 10000)} className={styles.toolIconContainer}>
@@ -22,11 +27,12 @@ const toolImages = toolIcons.map((tool: string) => (
   </div>
 ));
 
-export class Home extends React.Component<{}, {}> {
+export class Home extends React.Component<{}, HomeState> {
   private projectsScrollMark: React.RefObject<HTMLDivElement>;
   private aboutScrollMark: React.RefObject<HTMLDivElement>;
   constructor(props: {}) {
     super(props);
+    this.state = { contactVisible: false };
     this.projectsScrollMark = React.createRef();
     this.aboutScrollMark = React.createRef();
   }
@@ -37,11 +43,18 @@ export class Home extends React.Component<{}, {}> {
       block: 'start'
     })
   }
+  public showContact(event: React.MouseEvent) {
+    event.preventDefault();
+    this.setState({ contactVisible: true });
+  }
+  public hideContact() {
+    this.setState({ contactVisible: false });
+  }
   render() {
     return (
       <div className={styles.homeContainer}>
         <header className={styles.appHeader}>
-          <HeaderComponent scrollTo={this.scrollTo.bind(this)}></HeaderComponent>
+          <HeaderComponent scrollTo={this.scrollTo.bind(this)} showContact={this.showContact.bind(this)}></HeaderComponent>
         </header>
 
         <section className={styles.landingContainer}>
@@ -94,6 +107,10 @@ export class Home extends React.Component<{}, {}> {
           <div className={styles.getInTouchCtaContainer}>
             <CtaComponent color={'$offwhite'} size={'medium'} title={'Get in touch!'} body={'I am always on the lookout for new projects, fresh challenges and kind folks to collaborate with. If you have an idea, an open position or just want to talk code, please get in touch.'} buttonText={'Contact Kacy'}></CtaComponent>
           </div>
+        </section>
+
+        <section className={styles.contactContainer}>
+          <ContactComponent hide={this.hideContact.bind(this)} visible={this.state.contactVisible}></ContactComponent>
         </section>
 
         <section className={styles.footerContainer}>
