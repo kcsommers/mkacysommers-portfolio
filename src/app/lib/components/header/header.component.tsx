@@ -3,8 +3,8 @@ import styles from './header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { Colors } from 'app/core/Colors.enum';
 import { TextComponent } from '../text/text.component';
+import { Colors } from 'app/lib/core/Colors.enum';
 
 type HeaderProps = {
   scrollTo: (event: React.MouseEvent, section: string) => void
@@ -49,7 +49,7 @@ export class HeaderComponent extends React.Component<HeaderProps, HeaderState> {
     return (
       <div className={[styles.headerContainer, scrolled && styles.headerScrolled].join(' ')}>
         <div className={styles.appHeaderLogoContainer}>
-          <span className={styles.logoSpan}>
+          <span onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }} className={styles.logoSpan}>
             <TextComponent content={'MKS'}></TextComponent>
           </span>
         </div>
@@ -79,7 +79,7 @@ export class HeaderComponent extends React.Component<HeaderProps, HeaderState> {
           <a
             className={styles.menuLink}
             href="#"
-          ><FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
+          ><FontAwesomeIcon size={'2x'} icon={faGithub} color={Colors.$accent2}></FontAwesomeIcon>
           </a>
         </nav>
       </div>

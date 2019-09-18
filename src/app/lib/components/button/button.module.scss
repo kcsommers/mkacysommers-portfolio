@@ -1,21 +1,35 @@
 @import 'app/assets/scss/variables';
 
-.button-primary {
+.button {
     display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+.button-primary {
     border: 2px solid $primary;
-    padding: $spacing-md;
 }
 
 .buttonText-primary {
     color: $primary;
 }
 
-.button-dark {
+.button-accent {
     display: inline-block;
-    border: 2px solid $background;
-    padding: $spacing-md;
+    border: 2px solid $accent1;
+    padding: $spacing-sm;
 }
 
-.buttonText-dark {
-    color: $background
+.buttonText-accent {
+    color: $accent1;
+}
+
+.button-large {
+    font-size: 1.2rem;
+    padding: $spacing-md $spacing-lg;
+}
+
+.button-medium {
+    font-size: 1rem;
+    padding: $spacing-sm $spacing-md;
 }

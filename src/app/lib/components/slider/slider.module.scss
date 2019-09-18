@@ -2,37 +2,140 @@
 
 .sliderThumbsContainer {
     display: flex;
-    padding: $spacing-xl;
+    padding: $spacing-lg $spacing-xl;
 }
 .thumbContainer {
+    position: relative;
+    opacity: 0.7;
     flex: 1;
     cursor: pointer;
+}
+.thumbGrow {
+    z-index: 300;
+    animation: thumbGrow 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.thumbShrink {
+    z-index: 200;
+    animation: thumbShrink 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+@keyframes thumbGrow {
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+@keyframes thumbShrink {
+    0% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
 }
 .slideContainer {
     display: flex;
 }
 .sliderProjectInfo {
     flex: 1;
-    padding: $spacing-xl;
+    padding-right: $spacing-xl;
 }
 .sliderProjectImages {
     flex: 1;
-    padding: $spacing-xl;
 }
-.sliderNav {
-    border-top: 1px solid $offwhite;
-    border-bottom: 1px solid $offwhite;
-    background-color: rgba($offwhite, 0.7);
-    padding: 0 $spacing-xl;
-    display: flex;
+.slider {
+    position: relative;
 }
-.sliderNavArrowsContainer {
-    flex: 0.2;
+.slide1Container {
+    padding: $spacing-xl $spacing-xl 0 $spacing-xl;
+}
+.slide2Container {
+    padding: $spacing-xl $spacing-xl 0 $spacing-xl;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.snippetContainer {
+    margin: $spacing-md 0;
+}
+.linkContainer {
+    display: inline-block;
+    margin: $spacing-sm $spacing-sm 0 0;
+}
+.slideInLeft {
+    animation: slideInLeft 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.slideInRight {
+    animation: slideInRight 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.slideOutLeft {
+    animation: slideOutLeft 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.slideOutRight {
+    animation: slideOutRight 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.slideInitial {
+    transform: translateX(100%);
+}
+@keyframes slideInLeft {
+  0% {
+      transform: translateX(100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+@keyframes slideInRight {
+  0% {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+@keyframes slideOutLeft {
+  0% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+  100% {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+}
+@keyframes slideOutRight {
+  0% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+  100% {
+      transform: translateX(100%);
+      opacity: 0;
+  }
+}
+.dotNavContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
-.sliderNavArrow {
-    padding: $spacing-md;
+.dotContainer {
     cursor: pointer;
+    display: inline-block;
+    opacity: 0.5;
+    margin: $spacing-md $spacing-sm;
+    transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.currentDot {
+    opacity: 1;
+    transform: scale(1.2);
 }

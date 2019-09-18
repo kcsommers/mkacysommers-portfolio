@@ -14,18 +14,21 @@
     transition: all 0.2s ease;
 }
 .headerScrolled {
-    height: 60px;
+    height: 70px;
     background-color: $primary;
 }
 .logoSpan {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     border: 2px solid $white;
-    padding: $spacing-sm;
+    padding: $spacing-xs $spacing-md;
+    cursor: pointer;
 }
 .appHeaderMenuContainer {
     display: flex;
+    align-items: center;
 }
 .menuLink {
-    padding: $spacing-sm;
-    margin: 0 $spacing-md;
+    padding: $spacing-xs;
+    margin: 0 $spacing-sm;
 }

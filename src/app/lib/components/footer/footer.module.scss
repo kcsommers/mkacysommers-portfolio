@@ -4,6 +4,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    background-color: $offwhite;
+    height: 150px;
+    background-color: $white;
+}
+.iconContainer {
+    margin: 0 $spacing-md;
+    cursor: pointer;
 }

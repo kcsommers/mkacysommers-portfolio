@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './text.module.scss';
-import { Colors } from 'app/core/Colors.enum';
+import { Colors } from 'app/lib/core/Colors.enum';
 
 type TextProps = {
   content: string;
