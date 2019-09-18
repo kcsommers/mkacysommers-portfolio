@@ -1,1 +1,17 @@
 @import '../../../assets/scss/variables.scss';
+
+.loadingContainer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin 2s linear forwards infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
