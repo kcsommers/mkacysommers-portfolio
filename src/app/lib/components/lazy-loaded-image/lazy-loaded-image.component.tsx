@@ -78,13 +78,16 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
 
 
   render() {
-    const view = !this.state.error ?
+    const view = this.state.error ?
       <img
         className={styles.img}
         src={this.state.image}
         alt={this.props.imageName}>
-      </img> :
-      <ErrorViewComponent message={`Error loading ${this.props.imageName}`}></ErrorViewComponent>;
+      </img> : (
+        <div className={styles.errorContainer}>
+          <ErrorViewComponent message={`Error loading ${this.props.imageName}`}></ErrorViewComponent>
+        </div>
+      );
     return this.state.render ? view : <LoadingIconComponent></LoadingIconComponent>
   }
 }

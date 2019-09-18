@@ -9,7 +9,7 @@ type ErrorViewProps = {
 export const ErrorViewComponent: React.FC<ErrorViewProps> = ({ message }) => {
   console.log('Error View?')
   return (
-    <div>
+    <div className={styles.contentContainer}>
       <TextComponent color={'$error'} content={message}></TextComponent>
     </div>
   )
