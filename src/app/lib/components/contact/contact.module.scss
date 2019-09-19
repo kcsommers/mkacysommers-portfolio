@@ -23,15 +23,32 @@
     right: 0;
     background-color: $background;
     box-shadow: -5px 0px 10px 1px darken($background, 10%);
+    overflow-y: scroll;
+    padding: $spacing-lg $spacing-xl;
+}
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: $spacing-md 0;
 }
 .inputContainer {
     input, textarea {
+        color: $offwhite;
+        width: 100%;
+        display: block;
         border: none;
         border-bottom: 2px solid $offwhite;
         background: none;
         outline: none;
         box-shadow: none;
         resize: none;
+        padding: $spacing-md;
+        font-size: 1.2rem;
+    }
+    textarea {
+        height: 150px;
+        overflow-y: scroll;
     }
 }
 

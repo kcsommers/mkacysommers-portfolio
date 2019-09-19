@@ -46,9 +46,17 @@ export class Home extends React.Component<{}, HomeState> {
   public showContact(event: React.MouseEvent) {
     event.preventDefault();
     this.setState({ contactVisible: true });
+    const html = document.querySelector('html');
+    if (html) {
+      html.style.overflowY = 'hidden';
+    }
   }
   public hideContact() {
     this.setState({ contactVisible: false });
+    const html = document.querySelector('html');
+    if (html) {
+      html.style.overflowY = 'auto';
+    }
   }
   render() {
     return (

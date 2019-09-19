@@ -6,6 +6,7 @@ type TextProps = {
   content: string;
   color?: string;
   size?: string;
+  italic?: boolean
 }
 
 const getColor = (colorProp: string): Colors | string => {
@@ -15,10 +16,10 @@ const getColor = (colorProp: string): Colors | string => {
   return Colors.$white;
 };
 
-export const TextComponent: React.FC<TextProps> = ({ content, color = '$white', size = '1rem' }) => {
+export const TextComponent: React.FC<TextProps> = ({ content, italic, color = '$white', size = '1rem' }) => {
   return (
     <p
-      className={styles.textContent}
+      className={[styles.textContent, italic && styles.italic].join(' ')}
       style={{ color: getColor(color), fontSize: size }}>
       {content}
     </p>
