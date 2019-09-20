@@ -52,6 +52,7 @@ export class Home extends React.Component<{}, HomeState> {
     }
   }
   public hideContact() {
+    console.log('Hiding contanct')
     this.setState({ contactVisible: false });
     const html = document.querySelector('html');
     if (html) {
@@ -117,9 +118,8 @@ export class Home extends React.Component<{}, HomeState> {
           </div>
         </section>
 
-        <section className={styles.contactContainer}>
-          <ContactComponent hide={this.hideContact.bind(this)} visible={this.state.contactVisible}></ContactComponent>
-        </section>
+        <section onClick={this.hideContact.bind(this)} className={[styles.contactToggle, this.state.contactVisible && styles.visible].join(' ')}></section>
+        <ContactComponent visible={this.state.contactVisible}></ContactComponent>
 
         <section className={styles.footerContainer}>
           <FooterComponent></FooterComponent>

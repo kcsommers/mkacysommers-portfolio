@@ -5,6 +5,18 @@
     cursor: pointer;
     border-radius: 3px;
     text-transform: uppercase;
+    transition: all 0.2s ease;
+    background-color: rgba(0,0,0,0);
+    &:hover {
+        background-color: $accent1;
+        .buttonText-accent {
+            color: $background;
+        }
+    }
+}
+.buttonText-primary,
+.buttonText-accent {
+    transition: color 0.2s ease;
 }
 .button-primary {
     border: 2px solid $primary;

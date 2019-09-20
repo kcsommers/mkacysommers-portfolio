@@ -1,30 +1,19 @@
 @import 'app/assets/scss/variables';
-.contactContainer {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-
-    &.visible {
-        z-index: 1000;
-        opacity: 1;
-        background-color: rgba($background, 0.6);
-    }
-}
 .hiddenContactContainer {
     width: 500px;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     background-color: $background;
-    box-shadow: -5px 0px 10px 1px darken($background, 10%);
     overflow-y: scroll;
     padding: $spacing-lg $spacing-xl;
+    z-index: 1000;
+    transform: translateX(100%);
+
+    &.initial {
+        z-index: -1000;
+    }
 }
 .iconContainer {
   display: flex;
@@ -61,16 +50,20 @@
 @keyframes slideIn {
     0% {
         transform: translateX(100%);
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
     }
     100% {
         transform: translateX(0);
+        box-shadow: -5px 0px 10px 1px darken($background, 10%);
     }
 }
 @keyframes slideOut {
     0% {
         transform: translateX(0);
+        box-shadow: -5px 0px 10px 1px darken($background, 10%);
     }
     100% {
         transform: translateX(100%);
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
     }
 }
