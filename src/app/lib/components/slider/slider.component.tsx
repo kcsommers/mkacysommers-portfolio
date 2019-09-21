@@ -1,12 +1,8 @@
+import { projects } from 'app/lib/core/projects';
 import React from 'react';
-import styles from './slider.module.scss';
 import LazyLoadedImage from '../lazy-loaded-image/lazy-loaded-image.component';
 import { SlideComponent } from './slide.component';
-import { projects } from 'app/lib/core/projects';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
-import { Colors } from 'app/lib/core/Colors.enum';
-import { TextComponent } from '../text/text.component';
+import styles from './slider.module.scss';
 
 enum SlideClasses {
   SLIDE_IN_LEFT = 'slideInLeft',

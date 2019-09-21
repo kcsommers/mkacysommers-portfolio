@@ -6,6 +6,7 @@ import LazyLoadedImage from '../lazy-loaded-image/lazy-loaded-image.component';
 import { Project } from 'app/lib/core/projects';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDotCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 type SlideState = {
   imgIndex: number;
@@ -66,7 +67,10 @@ export class SlideComponent extends React.Component<SlideProps, SlideState> {
     const { imgIndex } = this.state;
     const dots = project.images.map((img, i) => {
       return (
-        <span className={[styles.dotContainer, i === imgIndex && styles.currentDot].join(' ')} onClick={this.changeProjectImage.bind(this, i)}>
+        <span
+          key={Math.floor(Math.random() * 1000)}
+          className={[styles.dotContainer, i === imgIndex && styles.currentDot].join(' ')} onClick={this.changeProjectImage.bind(this, i)}
+        >
           <FontAwesomeIcon icon={faDotCircle}></FontAwesomeIcon>
         </span>
       );
@@ -88,6 +92,11 @@ export class SlideComponent extends React.Component<SlideProps, SlideState> {
               color={'$background'}
               content={project.snippet}>
             </TextComponent>
+            <div className={styles.readMoreLinkContainer}>
+              <Link to={{ pathname: `/projects/${project.title}` }}>
+                <TextComponent color={'$accent2'} content={'Read More'}></TextComponent>
+              </Link>
+            </div>
           </div>
           <div className={styles.linkContainer}>
             <ButtonComponent size={'medium'} type={'primary'} text={'Live Site'} link={project.links.site}></ButtonComponent>

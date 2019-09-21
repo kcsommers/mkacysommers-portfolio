@@ -11,10 +11,7 @@ import { HeaderComponent } from 'app/lib/components/header/header.component';
 import { toolIcons } from 'app/lib/core/toolIcons';
 import { Colors } from 'app/lib/core/Colors.enum';
 import { ContactComponent } from 'app/lib/components/contact/contact.component';
-
-type HomeState = {
-  contactVisible: boolean;
-}
+import { ScrollMark } from 'app/lib/core/ScrollMark.enum';
 
 const toolImages = toolIcons.map((tool: string) => (
   <div key={Math.floor(Math.random() * 10000)} className={styles.toolIconContainer}>
@@ -27,45 +24,32 @@ const toolImages = toolIcons.map((tool: string) => (
   </div>
 ));
 
-export class Home extends React.Component<{}, HomeState> {
+type HomeProps = {
+  scrollMark: ScrollMark;
+}
+
+export class Home extends React.Component<HomeProps, {}> {
   private projectsScrollMark: React.RefObject<HTMLDivElement>;
   private aboutScrollMark: React.RefObject<HTMLDivElement>;
-  constructor(props: {}) {
+  constructor(props: HomeProps) {
     super(props);
-    this.state = { contactVisible: false };
     this.projectsScrollMark = React.createRef();
     this.aboutScrollMark = React.createRef();
   }
-  public scrollTo(event: React.MouseEvent, section: string) {
-    event.preventDefault();
-    this[`${section}ScrollMark`].current.scrollIntoView({
+  componentWillUpdate(newProps: HomeProps) {
+    if (this.props.scrollMark !== newProps.scrollMark) {
+      this.scrollTo(newProps.scrollMark);
+    }
+  }
+  public scrollTo(scrollMark: ScrollMark) {
+    this[scrollMark].current.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     })
   }
-  public showContact(event: React.MouseEvent) {
-    event.preventDefault();
-    this.setState({ contactVisible: true });
-    const html = document.querySelector('html');
-    if (html) {
-      html.style.overflowY = 'hidden';
-    }
-  }
-  public hideContact() {
-    console.log('Hiding contanct')
-    this.setState({ contactVisible: false });
-    const html = document.querySelector('html');
-    if (html) {
-      html.style.overflowY = 'auto';
-    }
-  }
   render() {
     return (
       <div className={styles.homeContainer}>
-        <header className={styles.appHeader}>
-          <HeaderComponent scrollTo={this.scrollTo.bind(this)} showContact={this.showContact.bind(this)}></HeaderComponent>
-        </header>
-
         <section className={styles.landingContainer}>
           <div className={styles.faceContainer}>
             <img src={Face} alt="M Kacy Sommers Face" />
@@ -117,9 +101,6 @@ export class Home extends React.Component<{}, HomeState> {
             <CtaComponent color={'$offwhite'} size={'medium'} title={'Get in touch!'} body={'I am always on the lookout for new projects, fresh challenges and kind folks to collaborate with. If you have an idea, an open position or just want to talk code, please get in touch.'} buttonText={'Contact Kacy'}></CtaComponent>
           </div>
         </section>
-
-        <section onClick={this.hideContact.bind(this)} className={[styles.contactToggle, this.state.contactVisible && styles.visible].join(' ')}></section>
-        <ContactComponent visible={this.state.contactVisible}></ContactComponent>
 
         <section className={styles.footerContainer}>
           <FooterComponent></FooterComponent>

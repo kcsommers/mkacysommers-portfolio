@@ -1,10 +1,10 @@
-import React from 'react';
-import styles from './contact.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSmileWink, faSmileBeam, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { TextComponent } from '../text/text.component';
+import { faEnvelope, faPhone, faSmileBeam } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Colors } from 'app/lib/core/Colors.enum';
+import React from 'react';
+import { TextComponent } from '../text/text.component';
+import styles from './contact.module.scss';
 
 type ContactState = {
   name: string;

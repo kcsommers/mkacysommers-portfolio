@@ -1,13 +1,13 @@
-import React from 'react';
-import styles from './header.module.scss';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { TextComponent } from '../text/text.component';
 import { Colors } from 'app/lib/core/Colors.enum';
+import React from 'react';
+import { TextComponent } from '../text/text.component';
+import styles from './header.module.scss';
+import { ScrollMark } from 'app/lib/core/ScrollMark.enum';
 
 type HeaderProps = {
-  scrollTo: (event: React.MouseEvent, section: string) => void,
+  scrollTo: (event: React.MouseEvent, scrollMark: ScrollMark) => void,
   showContact: (event: React.MouseEvent) => void
 }
 
@@ -58,13 +58,13 @@ export class HeaderComponent extends React.Component<HeaderProps, HeaderState> {
           <a
             className={styles.menuLink}
             href="#about"
-            onClick={(e) => { scrollTo(e, 'about') }}
+            onClick={(e) => { scrollTo(e, ScrollMark.ABOUT) }}
           ><TextComponent content={'About'}></TextComponent>
           </a>
           <a
             className={styles.menuLink}
             href="#projects"
-            onClick={(e) => { scrollTo(e, 'projects') }}
+            onClick={(e) => { scrollTo(e, ScrollMark.PROJECTS) }}
           ><TextComponent content={'Projects'}></TextComponent>
           </a>
           <a

@@ -18,6 +18,9 @@
     z-index: 200;
     animation: thumbShrink 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
+.readMoreLinkContainer {
+    margin-top: $spacing-sm;
+}
 @keyframes thumbGrow {
     0% {
         opacity: 0.7;

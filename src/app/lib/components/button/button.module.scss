@@ -8,9 +8,10 @@
     transition: all 0.2s ease;
     background-color: rgba(0,0,0,0);
     &:hover {
-        background-color: $accent1;
+        background-color: $offwhite;
+        border-color: $offwhite;
         .buttonText-accent {
-            color: $background;
+            color: $primary;
         }
     }
 }
