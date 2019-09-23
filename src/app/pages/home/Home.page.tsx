@@ -1,23 +1,21 @@
+import LookLeft from 'app/assets/images/look_left.jpg';
+import Face from 'app/assets/images/mkacysommers_logo.png';
+import { CtaComponent } from 'app/lib/components/cta/cta.component';
+import LazyLoadedImage from 'app/lib/components/lazy-loaded-image/lazy-loaded-image.component';
+import { SliderComponent } from 'app/lib/components/slider/slider.component';
+import { TextComponent } from 'app/lib/components/text/text.component';
+import { Colors } from 'app/lib/core/Colors.enum';
+import { ImageFolders } from 'app/lib/core/ImageFolders.enum';
+import { ScrollMark } from 'app/lib/core/ScrollMark.enum';
+import { toolIcons } from 'app/lib/core/toolIcons';
 import React from 'react';
 import styles from './Home.module.scss';
-import { TextComponent } from 'app/lib/components/text/text.component';
-import { CtaComponent } from 'app/lib/components/cta/cta.component';
-import Face from 'app/assets/images/mkacysommers_logo.png';
-import LookLeft from 'app/assets/images/look_left.jpg';
-import { SliderComponent } from 'app/lib/components/slider/slider.component';
-import LazyLoadedImage from 'app/lib/components/lazy-loaded-image/lazy-loaded-image.component';
-import { FooterComponent } from 'app/lib/components/footer/footer.component';
-import { HeaderComponent } from 'app/lib/components/header/header.component';
-import { toolIcons } from 'app/lib/core/toolIcons';
-import { Colors } from 'app/lib/core/Colors.enum';
-import { ContactComponent } from 'app/lib/components/contact/contact.component';
-import { ScrollMark } from 'app/lib/core/ScrollMark.enum';
 
 const toolImages = toolIcons.map((tool: string) => (
   <div key={Math.floor(Math.random() * 10000)} className={styles.toolIconContainer}>
     <div className={styles.toolImageWrapper}>
       <LazyLoadedImage
-        folder={'tools'}
+        folder={ImageFolders.TOOLS}
         imageName={tool}
       ></LazyLoadedImage>
     </div>
@@ -26,6 +24,7 @@ const toolImages = toolIcons.map((tool: string) => (
 
 type HomeProps = {
   scrollMark: ScrollMark;
+  showContact: (event: React.MouseEvent) => void;
 }
 
 export class Home extends React.Component<HomeProps, {}> {
@@ -36,16 +35,20 @@ export class Home extends React.Component<HomeProps, {}> {
     this.projectsScrollMark = React.createRef();
     this.aboutScrollMark = React.createRef();
   }
-  componentWillUpdate(newProps: HomeProps) {
-    if (this.props.scrollMark !== newProps.scrollMark) {
-      this.scrollTo(newProps.scrollMark);
-    }
+  componentDidMount() {
+    this.scrollTo(this.props.scrollMark)
   }
+  componentDidUpdate(prevProps: HomeProps) {
+    this.scrollTo(this.props.scrollMark);
+  }
+
   public scrollTo(scrollMark: ScrollMark) {
-    this[scrollMark].current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    })
+    if (scrollMark && this[scrollMark]) {
+      this[scrollMark].current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   }
   render() {
     return (
@@ -55,7 +58,7 @@ export class Home extends React.Component<HomeProps, {}> {
             <img src={Face} alt="M Kacy Sommers Face" />
           </div>
           <div className={styles.ctaContainer}>
-            <CtaComponent color={'$offwhite'} size={'large'} title={'M Kacy Sommers'} body={'Full Stack Web Developer'} buttonText={'See Projects'}></CtaComponent>
+            <CtaComponent action={this.scrollTo.bind(this, ScrollMark.PROJECTS)} color={'$offwhite'} size={'large'} title={'M Kacy Sommers'} body={'Full Stack Web Developer'} buttonText={'See Projects'}></CtaComponent>
           </div>
         </section>
 
@@ -98,12 +101,8 @@ export class Home extends React.Component<HomeProps, {}> {
 
         <section className={styles.getInTouchContainer}>
           <div className={styles.getInTouchCtaContainer}>
-            <CtaComponent color={'$offwhite'} size={'medium'} title={'Get in touch!'} body={'I am always on the lookout for new projects, fresh challenges and kind folks to collaborate with. If you have an idea, an open position or just want to talk code, please get in touch.'} buttonText={'Contact Kacy'}></CtaComponent>
+            <CtaComponent action={this.props.showContact.bind(this)} color={'$offwhite'} size={'medium'} title={'Get in touch!'} body={'I am always on the lookout for new projects, fresh challenges and kind folks to collaborate with. If you have an idea, an open position or just want to talk code, please get in touch.'} buttonText={'Contact Kacy'}></CtaComponent>
           </div>
-        </section>
-
-        <section className={styles.footerContainer}>
-          <FooterComponent></FooterComponent>
         </section>
       </div>
     );

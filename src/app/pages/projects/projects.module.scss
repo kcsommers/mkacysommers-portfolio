@@ -3,4 +3,33 @@
 .projectsPageContainer {
     min-height: 100vh;
     padding-top: 100px;
+    background-color: $background;
+}
+.projectInfoSection {
+    padding: 6rem;
+}
+.projectToolsContainer {
+    border-bottom: 3px solid $accent2;
+    padding: $spacing-sm 0;
+}
+.toolSpan {
+    color: $offwhite;
+}
+.tool {
+    font-style: italic;
+}
+.toolDivider {
+    margin: 0 $spacing-md;
+}
+.descriptionSection {
+    margin: $spacing-md 0;
+}
+.projectImagesSection {
+    padding: $spacing-lg 4rem;
+    background-color: $accent1;
+}
+.projectImage {
+    margin: $spacing-xl auto;
+    width: 90%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }

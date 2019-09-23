@@ -3,6 +3,7 @@ import React from 'react';
 import LazyLoadedImage from '../lazy-loaded-image/lazy-loaded-image.component';
 import { SlideComponent } from './slide.component';
 import styles from './slider.module.scss';
+import { ImageFolders } from 'app/lib/core/ImageFolders.enum';
 
 enum SlideClasses {
   SLIDE_IN_LEFT = 'slideInLeft',
@@ -90,7 +91,7 @@ export class SliderComponent extends React.Component<{}, SliderState> {
         onClick={this.changeProject.bind(this, i)}
       >
         <LazyLoadedImage
-          folder={'projects'}
+          folder={ImageFolders.PROJECTS_SMALL}
           imageName={p.images[0]}
         ></LazyLoadedImage>
       </div>

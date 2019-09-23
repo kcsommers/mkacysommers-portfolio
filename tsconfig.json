@@ -20,7 +20,8 @@
     "baseUrl": "src",
     "noImplicitAny": false,
     "isolatedModules": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false
   },
   "include": [
     "src"

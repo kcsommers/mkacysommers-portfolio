@@ -1,5 +1,7 @@
 export enum ScrollMark {
   TOP = 'topScrollMark',
   ABOUT = 'aboutScrollMark',
-  PROJECTS = 'projectsScrollMark'
+  PROJECTS = 'projectsScrollMark',
+  CONTACT = 'contact',
+  RESUME = 'resume'
 }

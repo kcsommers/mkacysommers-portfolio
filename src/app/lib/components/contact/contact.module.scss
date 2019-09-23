@@ -33,11 +33,10 @@
         box-shadow: none;
         resize: none;
         padding: $spacing-md;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     textarea {
         height: 150px;
-        overflow-y: scroll;
     }
 }
 

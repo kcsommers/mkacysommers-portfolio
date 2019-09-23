@@ -1,14 +1,20 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Colors } from 'app/lib/core/Colors.enum';
+import { Pages } from 'app/lib/core/Pages.enum';
+import { ScrollMark } from 'app/lib/core/ScrollMark.enum';
 import React from 'react';
 import { TextComponent } from '../text/text.component';
 import styles from './header.module.scss';
-import { ScrollMark } from 'app/lib/core/ScrollMark.enum';
+
+const showBackground = [
+  Pages.RESUME
+];
 
 type HeaderProps = {
-  scrollTo: (event: React.MouseEvent, scrollMark: ScrollMark) => void,
-  showContact: (event: React.MouseEvent) => void
+  navigate: (event: React.MouseEvent, scrollMark: ScrollMark) => void,
+  showContact: (event: React.MouseEvent) => void,
+  currentPage: Pages
 }
 
 type HeaderState = {
@@ -45,12 +51,12 @@ export class HeaderComponent extends React.Component<HeaderProps, HeaderState> {
   }
 
   render() {
-    const { scrollTo, showContact } = this.props;
+    const { navigate, showContact, currentPage } = this.props;
     const { scrolled } = this.state;
     return (
-      <div className={[styles.headerContainer, scrolled && styles.headerScrolled].join(' ')}>
+      <div className={[styles.headerContainer, scrolled && styles.headerScrolled, showBackground.includes(currentPage) && styles.showBackground].join(' ')}>
         <div className={styles.appHeaderLogoContainer}>
-          <span onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }} className={styles.logoSpan}>
+          <span onClick={(e) => { navigate(e, ScrollMark.TOP) }} className={styles.logoSpan}>
             <TextComponent content={'MKS'}></TextComponent>
           </span>
         </div>
@@ -58,18 +64,19 @@ export class HeaderComponent extends React.Component<HeaderProps, HeaderState> {
           <a
             className={styles.menuLink}
             href="#about"
-            onClick={(e) => { scrollTo(e, ScrollMark.ABOUT) }}
+            onClick={(e) => { navigate(e, ScrollMark.ABOUT) }}
           ><TextComponent content={'About'}></TextComponent>
           </a>
           <a
             className={styles.menuLink}
             href="#projects"
-            onClick={(e) => { scrollTo(e, ScrollMark.PROJECTS) }}
+            onClick={(e) => { navigate(e, ScrollMark.PROJECTS) }}
           ><TextComponent content={'Projects'}></TextComponent>
           </a>
           <a
             className={styles.menuLink}
-            href="#"
+            href="#resume"
+            onClick={(e) => { navigate(e, ScrollMark.RESUME) }}
           ><TextComponent content={'Resume'}></TextComponent>
           </a>
           <a
@@ -80,7 +87,7 @@ export class HeaderComponent extends React.Component<HeaderProps, HeaderState> {
           </a>
           <a
             className={styles.menuLink}
-            href="#"
+            href="https://github.com/kcsommers"
           ><FontAwesomeIcon size={'2x'} icon={faGithub} color={Colors.$accent2}></FontAwesomeIcon>
           </a>
         </nav>

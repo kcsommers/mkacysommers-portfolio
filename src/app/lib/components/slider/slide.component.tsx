@@ -7,6 +7,7 @@ import { Project } from 'app/lib/core/projects';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDotCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { ImageFolders } from 'app/lib/core/ImageFolders.enum';
 
 type SlideState = {
   imgIndex: number;
@@ -68,7 +69,7 @@ export class SlideComponent extends React.Component<SlideProps, SlideState> {
     const dots = project.images.map((img, i) => {
       return (
         <span
-          key={Math.floor(Math.random() * 1000)}
+          key={img}
           className={[styles.dotContainer, i === imgIndex && styles.currentDot].join(' ')} onClick={this.changeProjectImage.bind(this, i)}
         >
           <FontAwesomeIcon icon={faDotCircle}></FontAwesomeIcon>
@@ -107,7 +108,7 @@ export class SlideComponent extends React.Component<SlideProps, SlideState> {
         </div>
         <div className={styles.sliderProjectImages}>
           <LazyLoadedImage
-            folder={'projects'}
+            folder={ImageFolders.PROJECTS_SMALL}
             imageName={project.images[imgIndex]}
           ></LazyLoadedImage>
           <div className={styles.dotNavContainer}>

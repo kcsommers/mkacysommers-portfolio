@@ -2,10 +2,11 @@ import React from 'react';
 import styles from './lazy-loaded-image.module.scss';
 import { LoadingIconComponent } from '../loading-icon/loading-icon.component';
 import { ErrorViewComponent } from '../error-view.component/error-view.component';
+import { ImageFolders } from '../../core/ImageFolders.enum';
 
 type LazyLoadedImageProps = {
   imageName: string;
-  folder: string;
+  folder: ImageFolders;
 }
 
 type LazyLoadedImageState = {
@@ -37,11 +38,19 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
 
   private loadImage() {
     switch (this.props.folder) {
-      case 'projects': {
-        this.loadProjectImage();
+      case ImageFolders.PROJECTS_SMALL: {
+        this.loadProjectImageSmall();
         break;
       }
-      case 'tools': {
+      case ImageFolders.PROJECTS_LARGE: {
+        this.loadProjectImageLarge();
+        break;
+      }
+      case ImageFolders.RESUME: {
+        this.loadResume();
+        break;
+      }
+      case ImageFolders.TOOLS: {
         this.loadToolImage();
         break;
       }
@@ -59,11 +68,26 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
     this.setState({ error: true, render: true });
   }
 
-  private loadProjectImage() {
+  private loadResume() {
+    import(
+      /* webpackMode: "lazy" */
+      `../../../assets/images/resume/Resume.svg`
+    ).then(this.setImage.bind(this)).catch(this.setError.bind(this))
+  }
+
+  private loadProjectImageSmall() {
     const { imageName } = this.props;
     import(
       /* webpackMode: "lazy-once" */
-      `../../../assets/images/projects/${imageName}`
+      `../../../assets/images/projects/small/${imageName}`
+    ).then(this.setImage.bind(this)).catch(this.setError.bind(this))
+  }
+
+  private loadProjectImageLarge() {
+    const { imageName } = this.props;
+    import(
+      /* webpackMode: "lazy-once" */
+      `../../../assets/images/projects/large/${imageName}`
     ).then(this.setImage.bind(this)).catch(this.setError.bind(this))
   }
 
