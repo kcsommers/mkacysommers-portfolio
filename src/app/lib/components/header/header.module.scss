@@ -6,7 +6,7 @@
     justify-content: space-between;
     height: 100px;
     padding: 0 4rem;
-    z-index: 900;
+    z-index: $zIndex-8;
     position: fixed;
     top: 0;
     left: 0;
@@ -19,6 +19,7 @@
 }
 .showBackground {
     background-color: $primary;
+    height: 70px;
 }
 .logoSpan {
     display: inline-flex;

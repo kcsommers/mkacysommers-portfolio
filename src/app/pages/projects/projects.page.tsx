@@ -21,6 +21,7 @@ export class ProjectsPage extends React.Component<ProjectsPageProps, ProjectsPag
     }
   }
   componentDidMount() {
+    window.scrollTo({ top: 0 });
     const projectName = this.props.match.params.name;
     const project = projects.find(p => p.title === projectName) as Project;
     this.setState({ project })

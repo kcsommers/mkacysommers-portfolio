@@ -57,7 +57,7 @@ export class HeaderComponent extends React.Component<HeaderProps, HeaderState> {
       <div className={[styles.headerContainer, scrolled && styles.headerScrolled, showBackground.includes(currentPage) && styles.showBackground].join(' ')}>
         <div className={styles.appHeaderLogoContainer}>
           <span onClick={(e) => { navigate(e, ScrollMark.TOP) }} className={styles.logoSpan}>
-            <TextComponent content={'MKS'}></TextComponent>
+            <TextComponent size={'1.2rem'} content={'MKS'}></TextComponent>
           </span>
         </div>
         <nav className={styles.appHeaderMenuContainer}>

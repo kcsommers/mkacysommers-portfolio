@@ -8,11 +8,11 @@
     background-color: $background;
     overflow-y: scroll;
     padding: $spacing-lg $spacing-xl;
-    z-index: 1000;
+    z-index: $zIndex-9;
     transform: translateX(100%);
 
     &.initial {
-        z-index: -1000;
+        z-index: $zIndex-0;
     }
 }
 .iconContainer {

@@ -6,6 +6,8 @@
     align-items: center;
     height: 150px;
     background-color: $white;
+    position: relative;
+    z-index: $zIndex-8;
 }
 .iconContainer {
     margin: 0 $spacing-md;

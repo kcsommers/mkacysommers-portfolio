@@ -3,13 +3,35 @@
 .resumePageContainer {
     display: flex;
     align-items: stretch;
+    min-height: 100vh;
 }
 .resumeOptionsContainer {
-    flex: 0.25;
     background-color: $background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    width: 20%;
+    height: 100vh;
+}
+.iconWrap {
+    cursor: pointer;
+    margin: $spacing-lg 0;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    &:hover {
+        opacity: 1;
+    }
+}
+.resumeOptionIconsContainer {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding: $spacing-xl;
 }
 .resumeSection {
     flex: 1;
+    max-width: 80%;
+    margin-left: auto;
     padding: calc(100px + #{$spacing-lg}) $spacing-xl;
     background-color: $offwhite;
 }

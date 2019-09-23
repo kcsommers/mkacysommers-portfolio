@@ -107,10 +107,12 @@ export class SlideComponent extends React.Component<SlideProps, SlideState> {
           </div>
         </div>
         <div className={styles.sliderProjectImages}>
-          <LazyLoadedImage
-            folder={ImageFolders.PROJECTS_SMALL}
-            imageName={project.images[imgIndex]}
-          ></LazyLoadedImage>
+          <div className={styles.projectImageWrap}>
+            <LazyLoadedImage
+              folder={ImageFolders.PROJECTS_SMALL}
+              imageName={project.images[imgIndex]}
+            ></LazyLoadedImage>
+          </div>
           <div className={styles.dotNavContainer}>
             {dots}
           </div>

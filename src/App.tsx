@@ -39,17 +39,9 @@ export default class App extends React.Component<RouteComponentProps, AppState> 
   public showContact(event: React.MouseEvent) {
     event.preventDefault();
     this.setState({ contactVisible: true, scrollMark: ScrollMark.CONTACT });
-    const html = document.querySelector('html');
-    if (html) {
-      html.style.overflowY = 'hidden';
-    }
   }
   public hideContact() {
     this.setState({ contactVisible: false });
-    const html = document.querySelector('html');
-    if (html) {
-      html.style.overflowY = 'auto';
-    }
   }
   public updateScrollMark(scrollMark: ScrollMark) {
     this.setState({ scrollMark })
@@ -60,14 +52,17 @@ export default class App extends React.Component<RouteComponentProps, AppState> 
     this.updateScrollMark(scrollMark);
     let currentPage = this.state.currentPage;
     if (scrollMark === ScrollMark.TOP) {
+      if (currentPage !== Pages.HOME) {
+        history.push('/');
+      }
+      currentPage = Pages.HOME;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     if (scrollMark === ScrollMark.ABOUT || scrollMark === ScrollMark.PROJECTS) {
-      history.push('/');
+      if (currentPage !== Pages.HOME) {
+        history.push('/');
+      }
       currentPage = Pages.HOME
-    }
-    if (scrollMark === ScrollMark.PROJECTS) {
-      currentPage = Pages.PROJECTS;
     }
     if (scrollMark === ScrollMark.RESUME) {
       history.push('/resume');
