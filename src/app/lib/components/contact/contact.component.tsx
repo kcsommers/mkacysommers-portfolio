@@ -5,6 +5,7 @@ import { Colors } from 'app/lib/core/Colors.enum';
 import React from 'react';
 import { TextComponent } from '../text/text.component';
 import styles from './contact.module.scss';
+import { ButtonComponent } from '../button/button.component';
 
 type ContactState = {
   name: string;
@@ -12,6 +13,7 @@ type ContactState = {
   company: string;
   message: string;
   initial: boolean;
+  formValid: boolean
 }
 
 type ContactProps = {
@@ -26,7 +28,8 @@ export class ContactComponent extends React.Component<ContactProps, ContactState
       email: '',
       company: '',
       message: '',
-      initial: true
+      initial: true,
+      formValid: false
     }
   }
 
@@ -34,6 +37,19 @@ export class ContactComponent extends React.Component<ContactProps, ContactState
     setTimeout(() => {
       this.setState({ initial: false });
     }, 1000)
+  }
+
+  componentDidUpdate(prevProps: ContactProps, prevState: ContactState) {
+    const { name, email, message, formValid } = this.state;
+    if (!!(name && email && message)) {
+      if (!formValid) {
+        this.setState({ formValid: true });
+      }
+    } else {
+      if (formValid) {
+        this.setState({ formValid: false });
+      }
+    }
   }
 
   private nameChange(event) {
@@ -50,6 +66,7 @@ export class ContactComponent extends React.Component<ContactProps, ContactState
   }
   render() {
     const { visible } = this.props;
+    const { formValid } = this.state;
     return (
       <div className={[styles.hiddenContactContainer, visible ? styles.slideIn : styles.slideOut, this.state.initial && styles.initial].join(' ')} id="hidden-container">
         <div className={styles.contactIconsContainer}>
@@ -87,6 +104,9 @@ export class ContactComponent extends React.Component<ContactProps, ContactState
           </div>
           <div className={styles.inputContainer}>
             <textarea placeholder="Message" onChange={this.messageChange.bind(this)} />
+          </div>
+          <div className={[styles.inputContainer, styles.submitBtnContainer].join(', ')}>
+            <ButtonComponent disabled={!formValid} text={'Submit'} size={'medium'} fullWidth={true}></ButtonComponent>
           </div>
         </div>
       </div>

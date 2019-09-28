@@ -52,16 +52,12 @@ export default class App extends React.Component<RouteComponentProps, AppState> 
     this.updateScrollMark(scrollMark);
     let currentPage = this.state.currentPage;
     if (scrollMark === ScrollMark.TOP) {
-      if (currentPage !== Pages.HOME) {
-        history.push('/');
-      }
+      history.push('/');
       currentPage = Pages.HOME;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     if (scrollMark === ScrollMark.ABOUT || scrollMark === ScrollMark.PROJECTS) {
-      if (currentPage !== Pages.HOME) {
-        history.push('/');
-      }
+      history.push('/');
       currentPage = Pages.HOME
     }
     if (scrollMark === ScrollMark.RESUME) {

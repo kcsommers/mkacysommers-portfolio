@@ -32,12 +32,16 @@
         outline: none;
         box-shadow: none;
         resize: none;
-        padding: $spacing-md;
-        font-size: 1rem;
+        padding: $spacing-sm;
+        font-size: 1.2rem;
+        margin: $spacing-sm 0;
     }
     textarea {
         height: 150px;
     }
+}
+.submitBtnContainer {
+    margin-top: $spacing-sm;
 }
 
 .slideIn {
