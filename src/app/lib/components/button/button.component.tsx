@@ -18,7 +18,7 @@ const navigate = (location: string) => {
 export const ButtonComponent: React.FC<ButtonProps> = ({ text, size, link, clickEvent, fullWidth = false, disabled = false, type = 'primary' }) => {
   return (
     <span
-      onClick={!disabled && (link ? () => { navigate(link); } : clickEvent)}
+      onClick={!disabled ? (link ? () => { navigate(link); } : clickEvent) : undefined}
       className={[styles.button, styles[`button-${type}`], styles[`button-${size}`], disabled && styles.disabled, fullWidth && styles.fullWidth].join(' ')}
     >
       <span className={styles[`buttonText-${type}`]}>{text}</span>

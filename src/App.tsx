@@ -38,9 +38,11 @@ export default class App extends React.Component<RouteComponentProps, AppState> 
   }
   public showContact(event: React.MouseEvent) {
     event.preventDefault();
+    document.querySelector('html').style.overflowY = 'hidden';
     this.setState({ contactVisible: true, scrollMark: ScrollMark.CONTACT });
   }
   public hideContact() {
+    document.querySelector('html').style.overflowY = 'auto';
     this.setState({ contactVisible: false });
   }
   public updateScrollMark(scrollMark: ScrollMark) {

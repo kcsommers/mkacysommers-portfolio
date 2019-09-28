@@ -7,6 +7,7 @@
     right: 0;
     background-color: $background;
     overflow-y: scroll;
+    overflow-x: hidden;
     padding: $spacing-lg $spacing-xl;
     z-index: $zIndex-9;
     transform: translateX(100%);
@@ -43,7 +44,73 @@
 .submitBtnContainer {
     margin-top: $spacing-sm;
 }
-
+.contactFormContainer {
+    position: relative;
+    background-color: $background;
+}
+.formSubmitted {
+    animation: send 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+@keyframes send {
+    0% {
+        transform: scale(1);
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+        opacity: 1;
+    }
+    15% {
+        transform: scale(1.1);
+        box-shadow: -5px 0px 20px 1px darken($background, 10%);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.3);
+        box-shadow: -5px 0px 10px 1px darken($background, 10%);
+        opacity: 0;
+        z-index: $zIndex-0;
+    }
+}
+.contactFormSendingIconContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    &.formSending {
+        display: flex;
+    }
+}
+.messageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    display: none;
+    &.showMessage {
+        display: flex;
+        animation: fadeIn 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.sendAgainBtnContainer,
+.successIconContainer {
+    margin-top: $spacing-md;
+}
 .slideIn {
     animation: slideIn 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
