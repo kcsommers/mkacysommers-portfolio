@@ -1,54 +1,9 @@
 @import 'app/assets/scss/variables';
 
-.sliderThumbsContainer {
-    display: flex;
-    padding: $spacing-lg $spacing-xl;
-}
-.thumbContainer {
-    position: relative;
-    opacity: 0.7;
-    flex: 1;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    &:hover {
-        opacity: 0.9;
-    }
-}
-.thumbGrow {
-    z-index: $zIndex-3;
-    animation: thumbGrow 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-}
-.thumbShrink {
-    z-index: $zIndex-2;
-    animation: thumbShrink 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-}
 .readMoreLinkContainer {
     margin-top: $spacing-sm;
 }
-@keyframes thumbGrow {
-    0% {
-        opacity: 0.7;
-        transform: scale(1);
-        box-shadow: 0;
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1.2);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.12), 0 10px 20px rgba(0,0,0,0.24);
-    }
-}
-@keyframes thumbShrink {
-    0% {
-        opacity: 1;
-        transform: scale(1.2);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    }
-    100% {
-        opacity: 0.7;
-        transform: scale(1);
-        box-shadow: 0;
-    }
-}
+
 .slideContainer {
     display: flex;
 }

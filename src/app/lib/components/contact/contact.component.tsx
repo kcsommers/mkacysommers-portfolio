@@ -107,7 +107,6 @@ export class ContactComponent extends React.Component<ContactProps, ContactState
         params,
         'user_9qSrgVL4CK4c6HPogPlgu'
       ).then((result: EmailJSResponseStatus) => {
-        console.log('Result:::: ', result);
         const sendResult = {
           error: false,
           message: 'Thanks for reaching out! Your message has been sent.'
