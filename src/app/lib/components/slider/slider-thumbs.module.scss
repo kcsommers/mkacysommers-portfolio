@@ -7,8 +7,9 @@
 
 .thumbsWrap {
     display: flex;
+    max-width: 100%;
     &.animating {
-        transition: transform 10s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 }
 .thumbContainer {
@@ -26,7 +27,7 @@
         animation: thumbShrink 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
     }
     &.fadeOut {
-        animation: fadeOut 10s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: fadeOut 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
     }
     &.fadeIn {
         animation: fadeIn 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
@@ -46,7 +47,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: $zIndex-8;
+    z-index: $zIndex-7;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     cursor: pointer;
     &.thumbArrowRight {

@@ -26,6 +26,7 @@ type SliderThumbsState = {
 
 export class SliderThumbsComponent extends React.Component<SliderThumbsProps, SliderThumbsState> {
   private thumbsWrap: React.RefObject<HTMLDivElement>
+
   constructor(props: SliderThumbsProps) {
     super(props);
     this.state = {
@@ -38,11 +39,10 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
       slidingForward: false,
       slidingBackward: false,
       hideRightArrow: false,
-      hideLeftArrow: true
+      hideLeftArrow: true,
     }
     this.thumbsWrap = React.createRef();
     this.appendThumbs = this.appendThumbs.bind(this);
-    this.setTranslate = this.setTranslate.bind(this);
   }
 
   private thumbSelected(index: number) {
@@ -53,26 +53,8 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
     }
   }
 
-  private thumb(index: number, fadeOut: boolean) {
-    const { selectedIndex, deselectedIndex } = this.state;
-    return (
-      <div
-        className={[
-          styles.thumbContainer,
-          (selectedIndex === index) && styles.selected,
-          (deselectedIndex === index) && styles.deselected,
-          fadeOut && styles.fadeOut
-        ].join(' ')}
-        key={Math.floor(Math.random() * 100000)}
-        onClick={() => { this.thumbSelected(index); }}
-      >
-        <LazyLoadedImage imageName={projects[index].images[0]} folder={ImageFolders.PROJECTS_SMALL}></LazyLoadedImage>
-      </div>
-    );
-  }
-
   private next() {
-    const { startIndex, currentTotal } = this.state;
+    const { startIndex, currentTotal, selectedIndex } = this.state;
     let newTotal = 0;
     for (let i = startIndex; i < projects.length; i++) {
       if (projects[i] && i < startIndex + 8) {
@@ -91,7 +73,8 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
       slidingForward: true,
       hideRightArrow,
       hideLeftArrow,
-      adding
+      adding,
+      selectedIndex: -1
     });
     this.thumbsWrap.current.style.transform = `translateX(-${adding * 25}%)`;
     setTimeout(() => {
@@ -100,23 +83,15 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
         slidingForward: false,
         currentTotal: 4,
         adding: 0,
-        animating: false
+        animating: false,
+        selectedIndex
       });
       this.thumbsWrap.current.style.transform = `translateX(0%)`;
-    }, 10000);
-  }
-
-  private setTranslate(translate: number): Promise<boolean> {
-    return new Promise((resolve) => {
-      this.thumbsWrap.current.style.transform = `translateX(-${translate}%)`;
-      setTimeout(() => {
-        resolve(true);
-      });
-    });
+    }, 1000);
   }
 
   private previous() {
-    const { startIndex } = this.state;
+    const { startIndex, selectedIndex } = this.state;
     let newThumbTotal = 0;
     for (let i = startIndex - 1; i < projects.length; i--) {
       if (projects[i] && i >= startIndex - 4) {
@@ -130,37 +105,56 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
     const hideLeftArrow = startIndex - adding === 0;
     const hideRightArrow = false;
 
-    this.setTranslate(adding * 25).then(() => {
-      this.setState({
-        startIndex: newStartIndex,
-        currentTotal: adding + 4,
-        animating: true,
-        slidingBackward: true,
-        hideLeftArrow,
-        hideRightArrow,
-        adding
-      });
-      this.thumbsWrap.current.style.transform = `translateX(0%)`;
-      setTimeout(() => {
-        this.setState({
-          currentTotal: 4,
-          animating: false,
-          slidingBackward: false,
-          adding: 0
-        });
-      }, 10000);
+    this.setState({
+      startIndex: newStartIndex,
+      currentTotal: adding + 4,
+      animating: true,
+      slidingBackward: true,
+      hideLeftArrow,
+      hideRightArrow,
+      adding,
+      selectedIndex: -1
     });
+    this.thumbsWrap.current.style.marginLeft = `-${adding * 25}%`;
+    this.thumbsWrap.current.style.transform = `translateX(${adding * 25}%)`;
+    setTimeout(() => {
+      this.thumbsWrap.current.style.marginLeft = '0%';
+      this.thumbsWrap.current.style.transform = `translateX(0%)`;
+      this.setState({
+        currentTotal: 4,
+        animating: false,
+        slidingBackward: false,
+        adding: 0,
+        selectedIndex
+      });
+    }, 1000);
+  }
 
+  private thumb(index: number, fadeOut: boolean) {
+    const { selectedIndex, deselectedIndex, animating } = this.state;
+    return (
+      <div
+        className={[
+          styles.thumbContainer,
+          (selectedIndex === index) ? styles.selected : '',
+          // (deselectedIndex === index) && styles.deselected,
+          fadeOut && styles.fadeOut
+        ].join(' ')}
+        key={Math.floor(Math.random() * 100000)}
+        onClick={!animating ? () => { this.thumbSelected(index); } : undefined}
+      >
+        <LazyLoadedImage imageName={projects[index].images[0]} folder={ImageFolders.PROJECTS_SMALL}></LazyLoadedImage>
+      </div>
+    );
   }
 
   private appendThumbs() {
-    const { startIndex, currentTotal, animating, slidingForward, slidingBackward, adding } = this.state;
+    const { startIndex, currentTotal, animating, slidingForward, adding } = this.state;
     const thumbs = [];
     for (let i = startIndex; i < startIndex + currentTotal; i++) {
       const fadeOut = animating && (
         slidingForward ? i < startIndex + adding : i >= startIndex + 4
       );
-      console.log('Fadeout:::: ', i, fadeOut);
       thumbs.push(this.thumb(i, fadeOut));
     }
     return thumbs;
@@ -181,7 +175,9 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
             color={Colors.$background}
           ></FontAwesomeIcon>
         </span>
-        <span className={[styles.thumbArrow, styles.thumbArrowLeft, (hideLeftArrow) ? styles.fadeOut : styles.fadeIn].join(' ')} onClick={!animating ? this.previous.bind(this) : undefined}>
+        <span
+          className={[styles.thumbArrow, styles.thumbArrowLeft, (hideLeftArrow) ? styles.fadeOut : styles.fadeIn].join(' ')} onClick={!animating ? this.previous.bind(this) : undefined}
+        >
           <FontAwesomeIcon
             icon={faAngleLeft}
             size={'lg'}
