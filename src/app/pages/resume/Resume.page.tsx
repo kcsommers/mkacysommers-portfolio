@@ -55,7 +55,7 @@ export class ResumePage extends React.Component<ResumePageProps, ResumePageState
         </aside>
         <section className={styles.resumeSection}>
           <div ref={this.resumeRef} className={[styles.resumeContainer].join(' ')}>
-            <LazyLoadedImage imageName={'Resume'} folder={ImageFolders.RESUME}></LazyLoadedImage>
+            <LazyLoadedImage imageName={'MKacySommers_resume'} folder={ImageFolders.RESUME}></LazyLoadedImage>
           </div>
         </section>
       </div>

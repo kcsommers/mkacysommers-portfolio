@@ -21,7 +21,7 @@ type SliderThumbsState = {
   slidingBackward: boolean;
   hideRightArrow: boolean;
   hideLeftArrow: boolean;
-  adding: number;
+  toAdd: number;
 }
 
 export class SliderThumbsComponent extends React.Component<SliderThumbsProps, SliderThumbsState> {
@@ -32,7 +32,7 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
     this.state = {
       selectedIndex: 0,
       startIndex: 0,
-      adding: 0,
+      toAdd: 0,
       deselectedIndex: -1,
       currentTotal: 4,
       animating: false,
@@ -63,9 +63,9 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
         break;
       }
     }
-    const adding = newTotal - currentTotal;
-    const newStartIndex = startIndex + adding;
-    const hideRightArrow = startIndex + adding === projects.length - 4;
+    const toAdd = newTotal - currentTotal;
+    const newStartIndex = startIndex + toAdd;
+    const hideRightArrow = startIndex + toAdd === projects.length - 4;
     const hideLeftArrow = false;
     this.setState({
       currentTotal: newTotal,
@@ -73,16 +73,16 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
       slidingForward: true,
       hideRightArrow,
       hideLeftArrow,
-      adding,
+      toAdd,
       selectedIndex: -1
     });
-    this.thumbsWrap.current.style.transform = `translateX(-${adding * 25}%)`;
+    this.thumbsWrap.current.style.transform = `translateX(-${toAdd * 25}%)`;
     setTimeout(() => {
       this.setState({
         startIndex: newStartIndex,
         slidingForward: false,
         currentTotal: 4,
-        adding: 0,
+        toAdd: 0,
         animating: false,
         selectedIndex
       });
@@ -100,23 +100,23 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
         break;
       }
     }
-    const adding = newThumbTotal;
-    const newStartIndex = startIndex - adding;
-    const hideLeftArrow = startIndex - adding === 0;
+    const toAdd = newThumbTotal;
+    const newStartIndex = startIndex - toAdd;
+    const hideLeftArrow = startIndex - toAdd === 0;
     const hideRightArrow = false;
 
     this.setState({
       startIndex: newStartIndex,
-      currentTotal: adding + 4,
+      currentTotal: toAdd + 4,
       animating: true,
       slidingBackward: true,
       hideLeftArrow,
       hideRightArrow,
-      adding,
+      toAdd,
       selectedIndex: -1
     });
-    this.thumbsWrap.current.style.marginLeft = `-${adding * 25}%`;
-    this.thumbsWrap.current.style.transform = `translateX(${adding * 25}%)`;
+    this.thumbsWrap.current.style.marginLeft = `-${toAdd * 25}%`;
+    this.thumbsWrap.current.style.transform = `translateX(${toAdd * 25}%)`;
     setTimeout(() => {
       this.thumbsWrap.current.style.marginLeft = '0%';
       this.thumbsWrap.current.style.transform = `translateX(0%)`;
@@ -124,7 +124,7 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
         currentTotal: 4,
         animating: false,
         slidingBackward: false,
-        adding: 0,
+        toAdd: 0,
         selectedIndex
       });
     }, 1000);
@@ -149,11 +149,11 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
   }
 
   private appendThumbs() {
-    const { startIndex, currentTotal, animating, slidingForward, adding } = this.state;
+    const { startIndex, currentTotal, animating, slidingForward, toAdd } = this.state;
     const thumbs = [];
     for (let i = startIndex; i < startIndex + currentTotal; i++) {
       const fadeOut = animating && (
-        slidingForward ? i < startIndex + adding : i >= startIndex + 4
+        slidingForward ? i < startIndex + toAdd : i >= startIndex + 4
       );
       thumbs.push(this.thumb(i, fadeOut));
     }

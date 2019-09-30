@@ -71,7 +71,7 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
   private loadResume() {
     import(
       /* webpackMode: "lazy" */
-      `../../../assets/images/resume/Resume.svg`
+      `../../../assets/images/resume/MKacySommers_resume.svg`
     ).then(this.setImage.bind(this)).catch(this.setError.bind(this))
   }
 
