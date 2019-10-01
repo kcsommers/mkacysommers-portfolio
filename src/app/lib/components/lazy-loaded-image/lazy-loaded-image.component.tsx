@@ -15,7 +15,6 @@ type LazyLoadedImageState = {
   error: boolean
 }
 
-
 export default class LazyLoadedImage extends React.Component<LazyLoadedImageProps, LazyLoadedImageState> {
   constructor(props: LazyLoadedImageProps) {
     super(props);
