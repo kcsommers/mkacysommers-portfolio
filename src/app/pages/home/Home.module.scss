@@ -65,24 +65,13 @@
     background: $white;
     padding: $spacing-xl;
 }
-.toolImagesContainer {
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 85%;
-    margin: 0 auto;
-}
-.toolIconContainer {
-    flex: 1 1 20%;
+.skillsIconsContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: $spacing-lg;
+    flex-wrap: wrap;
 }
-.toolImageWrapper {
-    max-width: 100px;
-}
+
 .getInTouchContainer {
     display: flex;
     align-items: center;

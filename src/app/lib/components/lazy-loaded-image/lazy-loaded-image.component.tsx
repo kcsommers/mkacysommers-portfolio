@@ -54,6 +54,10 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
         this.loadToolImage();
         break;
       }
+      case ImageFolders.LOGOS: {
+        this.loadLogo();
+        break;
+      }
     }
   }
 
@@ -72,6 +76,14 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
     import(
       /* webpackMode: "lazy" */
       `../../../assets/images/resume/MKacySommers_resume.svg`
+    ).then(this.setImage.bind(this)).catch(this.setError.bind(this))
+  }
+
+  private loadLogo() {
+    const { imageName } = this.props;
+    import(
+      /* webpackMode: "lazy-once" */
+      `../../../assets/images/logos/${imageName}`
     ).then(this.setImage.bind(this)).catch(this.setError.bind(this))
   }
 
@@ -98,8 +110,6 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
       `../../../assets/images/tools/${imageName}`
     ).then(this.setImage.bind(this)).catch(this.setError.bind(this));
   }
-
-
 
   render() {
     const view = !this.state.error ?

@@ -1,26 +1,16 @@
 import LookLeft from 'app/assets/images/look_left.jpg';
 import Face from 'app/assets/images/mkacysommers_logo.png';
 import { CtaComponent } from 'app/lib/components/cta/cta.component';
-import LazyLoadedImage from 'app/lib/components/lazy-loaded-image/lazy-loaded-image.component';
+import { SkillLogoComponent } from 'app/lib/components/skill-logo/skill-logo.component';
 import { SliderComponent } from 'app/lib/components/slider/slider.component';
 import { TextComponent } from 'app/lib/components/text/text.component';
 import { Colors } from 'app/lib/core/Colors.enum';
-import { ImageFolders } from 'app/lib/core/ImageFolders.enum';
 import { ScrollMark } from 'app/lib/core/ScrollMark.enum';
-import { toolIcons } from 'app/lib/core/toolIcons';
+import { skillsLogos } from 'app/lib/core/skillsIcons';
 import React from 'react';
 import styles from './Home.module.scss';
 
-const toolImages = toolIcons.map((tool: string) => (
-  <div key={Math.floor(Math.random() * 10000)} className={styles.toolIconContainer}>
-    <div className={styles.toolImageWrapper}>
-      <LazyLoadedImage
-        folder={ImageFolders.TOOLS}
-        imageName={tool}
-      ></LazyLoadedImage>
-    </div>
-  </div>
-));
+const skillsIcons = skillsLogos.map(skill => <SkillLogoComponent key={skill} imageName={skill} />);
 
 type HomeProps = {
   scrollMark: ScrollMark;
@@ -94,8 +84,8 @@ export class Home extends React.Component<HomeProps, {}> {
           <div className={styles.sectionHeaderContainer}>
             <TextComponent size={'1.5rem'} color={'$background'} content={'Skills'}></TextComponent>
           </div>
-          <div className={styles.toolImagesContainer}>
-            {toolImages}
+          <div className={styles.skillsIconsContainer}>
+            {skillsIcons}
           </div>
         </section>
 

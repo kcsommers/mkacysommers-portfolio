@@ -1,0 +1,10 @@
+@import 'app/assets/scss/variables';
+
+.skillIconContainer {
+    width: 100px;
+    height: 100px;
+    margin: $spacing-xl $spacing-lg;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

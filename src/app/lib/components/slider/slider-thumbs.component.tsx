@@ -131,7 +131,7 @@ export class SliderThumbsComponent extends React.Component<SliderThumbsProps, Sl
   }
 
   private thumb(index: number, fadeOut: boolean) {
-    const { selectedIndex, deselectedIndex, animating } = this.state;
+    const { selectedIndex, animating } = this.state;
     return (
       <div
         className={[
