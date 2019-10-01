@@ -50,10 +50,6 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
         this.loadResume();
         break;
       }
-      case ImageFolders.TOOLS: {
-        this.loadToolImage();
-        break;
-      }
       case ImageFolders.LOGOS: {
         this.loadLogo();
         break;
@@ -101,14 +97,6 @@ export default class LazyLoadedImage extends React.Component<LazyLoadedImageProp
       /* webpackMode: "lazy-once" */
       `../../../assets/images/projects/large/${imageName}`
     ).then(this.setImage.bind(this)).catch(this.setError.bind(this))
-  }
-
-  private loadToolImage() {
-    const { imageName } = this.props;
-    import(
-      /* webpackMode: "lazy-once" */
-      `../../../assets/images/tools/${imageName}`
-    ).then(this.setImage.bind(this)).catch(this.setError.bind(this));
   }
 
   render() {
