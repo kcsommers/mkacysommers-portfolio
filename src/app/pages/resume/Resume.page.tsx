@@ -22,13 +22,13 @@ export class ResumePage extends React.Component<ResumePageProps, ResumePageState
   private zoomIn() {
     const width = this.resumeRef.current.style.width;
     const widthMatch = width.match(/([0-9]*)%$/);
-    const newWidth = widthMatch ? parseInt(widthMatch[1]) + 15 : 115;
+    const newWidth = widthMatch ? parseInt(widthMatch[1]) + 15 : 100;
     this.resumeRef.current.style.width = `${newWidth}%`;
   }
   private zoomOut() {
     const width = this.resumeRef.current.style.width;
     const widthMatch = width.match(/([0-9]*)%$/);
-    const newWidth = widthMatch ? parseInt(widthMatch[1]) - 15 : 85;
+    const newWidth = widthMatch ? parseInt(widthMatch[1]) - 15 : 60;
     this.resumeRef.current.style.width = `${newWidth}%`;
   }
   render() {
