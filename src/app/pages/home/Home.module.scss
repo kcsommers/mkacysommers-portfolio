@@ -17,12 +17,13 @@
     z-index: $zIndex-7;
 }
 .faceContainer {
-    top: -4.5rem;
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     position: absolute;
     z-index: $zIndex-1;
-    opacity: 0.4;
+    opacity: 0.3;
     display: flex;
     justify-content: center;
     align-items: center;
