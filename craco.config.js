@@ -19,6 +19,7 @@ module.exports = {
   webpack: {
     alias: {
       '@components': path.resolve(__dirname, 'src/app/components/public.ts'),
+      '@pages': path.resolve(__dirname, 'src/app/pages/public.ts'),
       '@scss': path.resolve(__dirname, 'src/app/styles'),
       '@images': path.resolve(__dirname, 'src/assets/images'),
       '@redux': path.resolve(__dirname, 'src/app/redux'),

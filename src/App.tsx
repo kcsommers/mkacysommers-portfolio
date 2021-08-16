@@ -1,5 +1,5 @@
-import { Navigator } from '@components';
+import { AppRouter } from './AppRouter';
 
 export const App = () => {
-  return <Navigator />;
+  return <AppRouter />;
 };
