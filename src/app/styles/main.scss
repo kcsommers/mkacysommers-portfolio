@@ -12,25 +12,3 @@ h1 {
   // font-size: 40px;
   font-weight: normal;
 }
-
-div.page-bg {
-  position: absolute;
-  z-index: 0;
-  border-radius: 100%;
-  animation: rollIn 1s linear forwards;
-  left: -100%;
-  top: -100%;
-  right: -100%;
-  bottom: -100%;
-}
-
-@keyframes rollIn {
-  0% {
-    opacity: 0.25;
-    transform: translate(-50%, -50%);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0%, 0%);
-  }
-}

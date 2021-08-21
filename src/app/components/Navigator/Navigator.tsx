@@ -49,12 +49,8 @@ export const Navigator = () => {
   const hmm = useHistory();
 
   const navigate = (path: string): void => {
-    console.log('nav', hmm);
-
     hmm.push(path);
   };
-
-  console.log('hmm', hmm, useHistory());
 
   return (
     <div className={styles.navigatorWrap}>

@@ -6,13 +6,20 @@ import {
   ResumePage,
 } from '@pages';
 import { Navigator } from '@components';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useLocation,
+} from 'react-router-dom';
 
 export const AppRouter = () => {
+  const location = useLocation();
+
   return (
     <Router>
       <Navigator />
-      <Switch>
+      <Switch location={location}>
         <Route exact path="/" render={(props) => <HomePage {...props} />} />
         <Route
           exact

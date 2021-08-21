@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 div.navigatorWrap {
   position: fixed;
   top: 1rem;
@@ -10,6 +12,7 @@ div.navigatorWrap {
   width: 35%;
   white-space: nowrap;
   z-index: 1;
+  border-radius: $border-radius;
 }
 
 div.navigatorInner {
@@ -26,11 +29,11 @@ div.navigatorListWrap {
       display: inline-block;
       transition: transform 0.5s ease;
       transform-origin: left;
-      transform: translateX(0px) scale(1);
+      transform: scale(1);
     }
     &:hover {
       > span {
-        transform: translateX(5px) scale(1.1);
+        transform: scale(1.1);
       }
     }
   }
@@ -38,7 +41,8 @@ div.navigatorListWrap {
 
 div.navigatorListItem {
   cursor: pointer;
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
+  margin-bottom: 0.5rem;
   font-size: 2vw;
   > span {
     display: inline-block;
