@@ -6,7 +6,7 @@ interface AboutPageProps extends RouteComponentProps {}
 
 export const AboutPage = ({}: AboutPageProps) => {
   return (
-    <div className={styles.aboutPageWrap}>
+    <div className={styles.pageWrap}>
       <div
         className="page-bg"
         style={{ backgroundColor: Colors.$color2 }}
