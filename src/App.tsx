@@ -1,4 +1,3 @@
-import { BrowserRouter as Router } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import {
   AboutPage,
@@ -19,34 +18,32 @@ export const App = () => {
         padding: '0.5rem',
       }}
     >
-      <Router>
-        <Navigator />
-        <AnimatePresence>
-          <Switch location={location}>
-            <Route exact path="/" render={(props) => <HomePage {...props} />} />
-            <Route
-              exact
-              path="/about"
-              render={(props) => <AboutPage {...props} />}
-            />
-            <Route
-              exact
-              path="/projects"
-              render={(props) => <ProjectsPage {...props} />}
-            />
-            <Route
-              exact
-              path="/contact"
-              render={(props) => <ContactPage {...props} />}
-            />
-            <Route
-              exact
-              path="/resume"
-              render={(props) => <ResumePage {...props} />}
-            />
-          </Switch>
-        </AnimatePresence>
-      </Router>
+      <Navigator />
+      <AnimatePresence>
+        <Switch location={location} key={location.pathname}>
+          <Route exact path="/" render={(props) => <HomePage {...props} />} />
+          <Route
+            exact
+            path="/about"
+            render={(props) => <AboutPage {...props} />}
+          />
+          <Route
+            exact
+            path="/projects"
+            render={(props) => <ProjectsPage {...props} />}
+          />
+          <Route
+            exact
+            path="/contact"
+            render={(props) => <ContactPage {...props} />}
+          />
+          <Route
+            exact
+            path="/resume"
+            render={(props) => <ResumePage {...props} />}
+          />
+        </Switch>
+      </AnimatePresence>
     </main>
   );
 };

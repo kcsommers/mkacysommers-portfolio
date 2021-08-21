@@ -1,7 +1,10 @@
 @import '../../styles/colors.scss';
 
 div.pageWrap {
-  height: calc(100vh - 1rem);
   overflow: auto;
-  position: relative;
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
 }

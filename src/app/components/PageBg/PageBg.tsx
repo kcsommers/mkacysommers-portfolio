@@ -1,15 +1,18 @@
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import styles from './PageBg.module.scss';
 
-export const pageBgVariants = {
+export const pageBgVariants: Variants = {
   enter: {
     opacity: 0,
+    scale: 1.2,
   },
   center: {
     opacity: 1,
+    scale: 1,
   },
   exit: {
     opacity: 0,
+    scale: 1.2,
   },
 };
 
@@ -29,7 +32,7 @@ export const PageBg = ({ backgroundColor }: PageBgProps) => {
       animate="center"
       exit="exit"
       transition={{
-        duration: 2,
+        duration: 1,
       }}
     ></motion.div>
   );
