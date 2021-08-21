@@ -63,7 +63,20 @@ export const Navigator = () => {
                 animate="center"
                 exit="exit"
                 key={l.display}
-                variants={linkVariants}
+                variants={{
+                  enter: {
+                    opacity: 0,
+                    scale: 1.15,
+                  },
+                  center: {
+                    opacity: 1,
+                    scale: 1,
+                  },
+                  exit: {
+                    opacity: 1,
+                    scale: 1.15,
+                  },
+                }}
                 onClick={() => navigate(l.link)}
                 transition={{
                   duration: 2,

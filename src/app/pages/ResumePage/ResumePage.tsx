@@ -8,7 +8,7 @@ interface ResumePageProps extends RouteComponentProps {}
 export const ResumePage = ({}: ResumePageProps) => {
   return (
     <div className={styles.pageWrap}>
-      <PageBg backgroundColor={Colors.$color5} />
+      <PageBg rgb={Colors.$color5.rgb} />
     </div>
   );
 };

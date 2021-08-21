@@ -8,7 +8,7 @@ interface ContactPageProps extends RouteComponentProps {}
 export const ContactPage = ({}: ContactPageProps) => {
   return (
     <div className={styles.pageWrap}>
-      <PageBg backgroundColor={Colors.$color3} />
+      <PageBg rgb={Colors.$color3.rgb} />
     </div>
   );
 };

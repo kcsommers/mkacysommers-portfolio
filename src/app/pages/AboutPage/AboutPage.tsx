@@ -8,7 +8,7 @@ interface AboutPageProps extends RouteComponentProps {}
 export const AboutPage = ({}: AboutPageProps) => {
   return (
     <div className={styles.pageWrap}>
-      <PageBg backgroundColor={Colors.$color2} />
+      <PageBg rgb={Colors.$color2.rgb} />
     </div>
   );
 };

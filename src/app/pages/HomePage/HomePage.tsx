@@ -8,7 +8,7 @@ interface HomePageProps extends RouteComponentProps {}
 export const HomePage = ({}: HomePageProps) => {
   return (
     <div className={styles.pageWrap}>
-      <PageBg backgroundColor={Colors.$color6} />
+      <PageBg rgb={Colors.$color6.rgb} />
     </div>
   );
 };
