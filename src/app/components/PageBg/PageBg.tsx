@@ -1,6 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
 import styles from './PageBg.module.scss';
 
 export const pageBgVariants = {
@@ -22,19 +20,17 @@ interface PageBgProps {
 
 export const PageBg = ({ backgroundColor }: PageBgProps) => {
   return (
-    <AnimatePresence>
-      <motion.div
-        key={backgroundColor}
-        className={styles.pageBg}
-        style={{ backgroundColor }}
-        variants={pageBgVariants}
-        initial="enter"
-        animate="center"
-        exit="exit"
-        transition={{
-          duration: 2,
-        }}
-      ></motion.div>
-    </AnimatePresence>
+    <motion.div
+      key={backgroundColor}
+      className={styles.pageBg}
+      style={{ backgroundColor }}
+      variants={pageBgVariants}
+      initial="enter"
+      animate="center"
+      exit="exit"
+      transition={{
+        duration: 2,
+      }}
+    ></motion.div>
   );
 };
