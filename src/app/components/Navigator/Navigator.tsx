@@ -74,7 +74,7 @@ export const Navigator = () => {
                   type: 'spring',
                 }}
               >
-                {l.display}
+                <span>{l.display}</span>
               </motion.h1>
             ) : (
               <motion.div
@@ -91,7 +91,7 @@ export const Navigator = () => {
                   type: 'spring',
                 }}
               >
-                {l.display}
+                <span>{l.display}</span>
               </motion.div>
             )
           )}

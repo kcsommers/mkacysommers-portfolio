@@ -22,6 +22,17 @@ div.navigatorListWrap {
   > h1 {
     cursor: pointer;
     margin-bottom: 1rem;
+    > span {
+      display: inline-block;
+      transition: transform 0.5s ease;
+      transform-origin: left;
+      transform: translateX(0px) scale(1);
+    }
+    &:hover {
+      > span {
+        transform: translateX(5px) scale(1.1);
+      }
+    }
   }
 }
 
@@ -29,5 +40,15 @@ div.navigatorListItem {
   cursor: pointer;
   padding: 0.5rem 0;
   font-size: 2vw;
-  // font-size: 20px;
+  > span {
+    display: inline-block;
+    transition: transform 0.5s ease;
+    transform-origin: left;
+    transform: translateX(0px) scale(1);
+  }
+  &:hover {
+    > span {
+      transform: translateX(5px) scale(1.4);
+    }
+  }
 }
