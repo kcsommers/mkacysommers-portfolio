@@ -3,16 +3,13 @@ import { AppRouter } from './AppRouter';
 
 export const App = () => {
   return (
-    <main>
+    <main
+      style={{
+        padding: '0.5rem',
+      }}
+    >
       <Navigator />
-      <div
-        style={{
-          background: 'red',
-          minHeight: '100vh',
-        }}
-      >
-        <AppRouter />
-      </div>
+      <AppRouter />
     </main>
   );
 };
