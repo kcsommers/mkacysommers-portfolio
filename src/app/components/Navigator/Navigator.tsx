@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useHistory } from 'react-router-dom';
 import styles from './Navigator.module.scss';
 
 interface INavLink {
@@ -45,6 +46,16 @@ const linkVariants = {
 };
 
 export const Navigator = () => {
+  const hmm = useHistory();
+
+  const navigate = (path: string): void => {
+    console.log('nav', hmm);
+
+    hmm.push(path);
+  };
+
+  console.log('hmm', hmm, useHistory());
+
   return (
     <div className={styles.navigatorWrap}>
       <motion.div className={styles.navigatorInner}>
@@ -55,7 +66,9 @@ export const Navigator = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
+                key={l.display}
                 variants={linkVariants}
+                onClick={() => navigate(l.link)}
                 transition={{
                   duration: 2,
                   type: 'spring',
@@ -69,12 +82,14 @@ export const Navigator = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
+                key={l.display}
+                variants={linkVariants}
+                onClick={() => navigate(l.link)}
                 transition={{
                   delay: 0.25 * i,
                   duration: 1,
                   type: 'spring',
                 }}
-                variants={linkVariants}
               >
                 {l.display}
               </motion.div>

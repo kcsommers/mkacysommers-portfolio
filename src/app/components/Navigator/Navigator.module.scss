@@ -1,14 +1,15 @@
 div.navigatorWrap {
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  padding: 2rem 4rem;
+  top: 1rem;
+  left: 1rem;
+  bottom: 1rem;
+  padding: 2rem 3rem;
   display: flex;
   align-items: center;
   background-color: rgba(#fff, 1);
   width: 35%;
   white-space: nowrap;
+  z-index: 1;
 }
 
 div.navigatorInner {
@@ -17,6 +18,10 @@ div.navigatorInner {
 
 div.navigatorListWrap {
   margin-top: 1rem;
+
+  > h1 {
+    cursor: pointer;
+  }
 }
 
 div.navigatorListItem {

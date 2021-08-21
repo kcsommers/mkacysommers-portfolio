@@ -1,4 +1,3 @@
-import { Navigator } from '@components';
 import { AppRouter } from './AppRouter';
 
 export const App = () => {
@@ -8,7 +7,6 @@ export const App = () => {
         padding: '0.5rem',
       }}
     >
-      <Navigator />
       <AppRouter />
     </main>
   );
