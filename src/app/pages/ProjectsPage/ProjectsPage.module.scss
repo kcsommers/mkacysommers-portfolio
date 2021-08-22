@@ -1,10 +1,10 @@
 @import '../../styles/colors.scss';
 
-div.pageWrap {
-  overflow: auto;
-  position: absolute;
-  top: 0.5rem;
-  bottom: 0.5rem;
-  left: 0.5rem;
-  right: 0.5rem;
+div.projectImgWrap {
+  margin-bottom: 3rem;
+}
+
+img.projectImg {
+  width: 100%;
+  display: inline-block;
 }

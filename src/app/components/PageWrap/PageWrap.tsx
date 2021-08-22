@@ -1,13 +1,14 @@
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 import styles from './PageWrap.module.scss';
 
 type PageWrapProps = PropsWithChildren<{
   rgb: number[];
+  variants?: Variants;
 }>;
 
-export const PageWrap = ({ rgb, children }: PageWrapProps) => {
+export const PageWrap = ({ rgb, children, variants }: PageWrapProps) => {
   const rgbRef = useMemo(() => rgb.join(','), []);
 
   return (
@@ -43,25 +44,27 @@ export const PageWrap = ({ rgb, children }: PageWrapProps) => {
         initial="enter"
         animate="center"
         exit="exit"
-        variants={{
-          enter: {
-            opacity: 0,
-            scale: 1.15,
-          },
-          center: {
-            opacity: 1,
-            scale: 1,
-          },
-          exit: {
-            opacity: 0,
-            scale: 1.15,
-            transition: {
-              delay: 0,
-              duration: 0.5,
-              type: 'spring',
+        variants={
+          variants || {
+            enter: {
+              opacity: 0,
+              scale: 1.15,
             },
-          },
-        }}
+            center: {
+              opacity: 1,
+              scale: 1,
+            },
+            exit: {
+              opacity: 0,
+              scale: 1.15,
+              transition: {
+                delay: 0,
+                duration: 0.5,
+                type: 'spring',
+              },
+            },
+          }
+        }
         transition={{
           delay: 0.5,
           duration: 1,
