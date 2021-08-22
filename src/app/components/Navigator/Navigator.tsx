@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import styles from './Navigator.module.scss';
 
 interface INavLink {
@@ -8,10 +8,6 @@ interface INavLink {
 }
 
 const navLinks: INavLink[] = [
-  {
-    display: 'M Kacy Sommers',
-    link: '/',
-  },
   {
     display: 'About',
     link: '/about',
@@ -30,80 +26,90 @@ const navLinks: INavLink[] = [
   },
 ];
 
-const linkVariants = {
-  enter: {
-    opacity: 0,
-    y: '200%',
-  },
-  center: {
-    opacity: 1,
-    y: '0%',
-  },
-  exit: {
-    opacity: 1,
-    y: '0%',
-  },
-};
-
 export const Navigator = () => {
-  const hmm = useHistory();
+  const history = useHistory();
+
+  const location = useLocation();
 
   const navigate = (path: string): void => {
-    hmm.push(path);
+    history.push(path);
   };
+
+  console.log(location);
 
   return (
     <div className={styles.navigatorWrap}>
       <motion.div className={styles.navigatorInner}>
         <motion.div className={styles.navigatorListWrap}>
-          {navLinks.map((l, i) =>
-            i === 0 ? (
-              <motion.h1
-                initial="enter"
-                animate="center"
-                exit="exit"
-                key={l.display}
-                variants={{
-                  enter: {
-                    opacity: 0,
-                    scale: 1.15,
-                  },
-                  center: {
-                    opacity: 1,
-                    scale: 1,
-                  },
-                  exit: {
-                    opacity: 1,
-                    scale: 1.15,
-                  },
-                }}
-                onClick={() => navigate(l.link)}
-                transition={{
-                  duration: 2,
-                  type: 'spring',
-                }}
-              >
-                <span>{l.display}</span>
-              </motion.h1>
-            ) : (
-              <motion.div
-                className={styles.navigatorListItem}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                key={l.display}
-                variants={linkVariants}
-                onClick={() => navigate(l.link)}
-                transition={{
-                  delay: 0.25 * i,
-                  duration: 1,
-                  type: 'spring',
-                }}
-              >
-                <span>{l.display}</span>
-              </motion.div>
-            )
-          )}
+          <motion.h1
+            className={`${
+              location.pathname === '/' ? ` ${styles.active}` : ''
+            }`}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            key={'M Kacy Sommers'}
+            variants={{
+              enter: {
+                opacity: 0,
+                scale: 1.25,
+              },
+              center: {
+                opacity: 1,
+                scale: 1,
+              },
+              exit: {
+                opacity: 1,
+                scale: 1.25,
+              },
+            }}
+            onClick={() => navigate('/')}
+            transition={{
+              duration: 2,
+              type: 'spring',
+            }}
+          >
+            <span className={styles.linkBorder}>
+              <span>M Kacy</span>
+              <br />
+              <span>Sommers</span>
+            </span>
+          </motion.h1>
+          {navLinks.map((l, i) => (
+            <motion.div
+              className={`${styles.navigatorListItem}${
+                location.pathname === l.link ? ` ${styles.active}` : ''
+              }`}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              key={l.display}
+              variants={{
+                enter: {
+                  opacity: 0,
+                  y: '200%',
+                },
+                center: {
+                  opacity: 1,
+                  y: '0%',
+                },
+                exit: {
+                  opacity: 1,
+                  y: '0%',
+                },
+              }}
+              onClick={() => navigate(l.link)}
+              transition={{
+                delay: 0.25 * i,
+                duration: 1,
+                type: 'spring',
+              }}
+            >
+              <span className={styles.linkBorder}>
+                <span className={styles.pageLink}>{l.display}</span>
+              </span>
+            </motion.div>
+          ))}
         </motion.div>
       </motion.div>
     </div>

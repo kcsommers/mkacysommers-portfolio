@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 div.projectImgWrap {
   margin-bottom: 3rem;
 }
@@ -6,4 +8,5 @@ img.projectImg {
   width: 100%;
   display: inline-block;
   cursor: pointer;
+  border-radius: $border-radius;
 }
