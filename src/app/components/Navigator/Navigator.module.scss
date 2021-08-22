@@ -9,9 +9,8 @@ div.navigatorWrap {
   display: flex;
   align-items: center;
   background-color: rgba(#fff, 1);
-  width: 35%;
   white-space: nowrap;
-  z-index: 1;
+  z-index: 100;
   border-radius: $border-radius;
 }
 

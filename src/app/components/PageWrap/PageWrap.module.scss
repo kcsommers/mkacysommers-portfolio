@@ -1,0 +1,26 @@
+div.pageWrap {
+  overflow: auto;
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+}
+
+div.pageBg {
+  position: absolute;
+  z-index: 0;
+  left: -150%;
+  top: -50%;
+  right: -90%;
+  bottom: 0%;
+  border-radius: 100%;
+}
+
+div.pageWrapInner {
+  position: relative;
+  z-index: 1;
+  width: 65%;
+  margin-left: auto;
+  padding: 2rem;
+}
