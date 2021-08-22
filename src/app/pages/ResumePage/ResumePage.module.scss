@@ -1,10 +1,7 @@
-@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
 
-div.pageWrap {
-  overflow: auto;
-  position: absolute;
-  top: 0.5rem;
-  bottom: 0.5rem;
-  left: 0.5rem;
-  right: 0.5rem;
+div.resumeWrap > img {
+  width: 100%;
+  display: inline-block;
+  border-radius: $border-radius;
 }

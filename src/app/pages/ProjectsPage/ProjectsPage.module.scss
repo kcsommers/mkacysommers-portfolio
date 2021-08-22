@@ -1,5 +1,3 @@
-@import '../../styles/colors.scss';
-
 div.projectImgWrap {
   margin-bottom: 3rem;
 }
@@ -7,4 +5,5 @@ div.projectImgWrap {
 img.projectImg {
   width: 100%;
   display: inline-block;
+  cursor: pointer;
 }
