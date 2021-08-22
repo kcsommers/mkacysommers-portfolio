@@ -46,7 +46,7 @@ export const PageWrap = ({ rgb, children }: PageWrapProps) => {
         variants={{
           enter: {
             opacity: 0,
-            scale: 1.2,
+            scale: 1.15,
           },
           center: {
             opacity: 1,
@@ -54,12 +54,17 @@ export const PageWrap = ({ rgb, children }: PageWrapProps) => {
           },
           exit: {
             opacity: 0,
-            scale: 1.2,
+            scale: 1.15,
+            transition: {
+              delay: 0,
+              duration: 0.5,
+              type: 'spring',
+            },
           },
         }}
         transition={{
           delay: 0.5,
-          duration: 2,
+          duration: 1,
           type: 'spring',
         }}
       >
