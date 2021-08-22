@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import styles from './Navigator.module.scss';
 
@@ -31,9 +33,15 @@ export const Navigator = () => {
 
   const location = useLocation();
 
+  const [mounted, setMounted] = useState(false);
+
   const navigate = (path: string): void => {
     history.push(path);
   };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   console.log(location);
 
@@ -43,7 +51,9 @@ export const Navigator = () => {
         <motion.div className={styles.navigatorListWrap}>
           <motion.h1
             className={`${
-              location.pathname === '/' ? ` ${styles.active}` : ''
+              mounted && location.pathname === '/'
+                ? ` ${styles.active}`
+                : ` ${styles.inactive}`
             }`}
             initial="enter"
             animate="center"
@@ -78,7 +88,9 @@ export const Navigator = () => {
           {navLinks.map((l, i) => (
             <motion.div
               className={`${styles.navigatorListItem}${
-                location.pathname === l.link ? ` ${styles.active}` : ''
+                mounted && location.pathname === l.link
+                  ? ` ${styles.active}`
+                  : ` ${styles.inactive}`
               }`}
               initial="enter"
               animate="center"
