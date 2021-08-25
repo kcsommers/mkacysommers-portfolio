@@ -49,10 +49,12 @@ export const PageWrap = ({ rgb, children, variants }: PageWrapProps) => {
             enter: {
               opacity: 0,
               scale: 1.15,
+              width: 'calc(70% - 1rem)',
             },
             center: {
               opacity: 1,
               scale: 1,
+              width: 'calc(70% - 1rem)',
             },
             exit: {
               opacity: 0,

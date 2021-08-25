@@ -1,3 +1,4 @@
+import { useResize } from '@core';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -33,22 +34,65 @@ export const Navigator = () => {
 
   const location = useLocation();
 
+  const windowDims = useResize(true);
+
   const [mounted, setMounted] = useState(false);
+
+  const [isCollapsed, setIsCollapsed] = useState(windowDims.width <= 900);
+
+  const [isCollapsible, setIsCollapsible] = useState(windowDims.width <= 900);
 
   const navigate = (path: string): void => {
     history.push(path);
+  };
+
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
   };
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  console.log(location);
+  useEffect(() => {
+    if (!windowDims.width) {
+      return;
+    }
+    if (windowDims.width <= 900 && !isCollapsible) {
+      setIsCollapsible(true);
+      return;
+    }
+    if (windowDims.width > 900 && isCollapsible) {
+      setIsCollapsible(false);
+    }
+  }, [windowDims]);
+
+  useEffect(() => {
+    setIsCollapsed(isCollapsible);
+  }, [isCollapsible]);
 
   return (
-    <div className={styles.navigatorWrap}>
-      <motion.div className={styles.navigatorInner}>
-        <motion.div className={styles.navigatorListWrap}>
+    <motion.div
+      className={styles.navigatorWrap}
+      animate={isCollapsed ? 'collapsed' : 'expanded'}
+      variants={{
+        collapsed: {
+          width: '100px',
+          padding: '0px',
+        },
+        expanded: {
+          width: '30%',
+          padding: '3rem 4%',
+        },
+      }}
+      transition={{
+        duration: 1,
+        type: 'spring',
+      }}
+      onClick={isCollapsible ? toggleCollapse : undefined}
+    >
+      <div className={styles.navigatorInner}>
+        <div className={styles.navigatorListWrap}>
           <motion.h1
             className={`${
               mounted && location.pathname === '/'
@@ -59,6 +103,10 @@ export const Navigator = () => {
             animate="center"
             exit="exit"
             key={'M Kacy Sommers'}
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate('/');
+            }}
             variants={{
               enter: {
                 opacity: 0,
@@ -73,7 +121,6 @@ export const Navigator = () => {
                 scale: 1.25,
               },
             }}
-            onClick={() => navigate('/')}
             transition={{
               duration: 2,
               type: 'spring',
@@ -110,7 +157,10 @@ export const Navigator = () => {
                   y: '0%',
                 },
               }}
-              onClick={() => navigate(l.link)}
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate(l.link);
+              }}
               transition={{
                 delay: 0.25 * i,
                 duration: 1,
@@ -122,8 +172,8 @@ export const Navigator = () => {
               </span>
             </motion.div>
           ))}
-        </motion.div>
-      </motion.div>
-    </div>
+        </div>
+      </div>
+    </motion.div>
   );
 };

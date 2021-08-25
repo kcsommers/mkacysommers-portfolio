@@ -5,29 +5,26 @@ div.navigatorWrap {
   top: 1rem;
   left: 1rem;
   bottom: 1rem;
-  padding: 2rem 7% 2rem 5%;
   display: flex;
   background-color: rgba(#fff, 1);
   white-space: nowrap;
   z-index: 100;
   border-radius: $border-radius;
-  max-width: 35%;
 }
 
 div.navigatorListWrap {
-  margin-top: 2rem;
   > h1 {
     cursor: pointer;
     margin-bottom: 2rem;
     transform-origin: left;
     font-weight: normal;
     > span.linkBorder {
-      font-size: 4vw;
       > span {
+        font-size: 4vw;
         &:first-child {
           font-size: 3vw;
           position: relative;
-          top: 15px;
+          top: 1.2vw;
         }
       }
     }
@@ -45,11 +42,11 @@ span.linkBorder {
     height: 3px;
     background-color: rgba(#000, 0);
     content: '';
-    transition: width 1s ease, background-color 0.5s ease;
+    transition: width 1s ease-out, background-color 0.5s ease;
   }
   > span {
     display: inline-block;
-    transition: transform 0.75s ease, letter-spacing 1s ease;
+    transition: transform 0.75s ease, letter-spacing 1s ease-out;
     transform-origin: left;
     transform: scale(1);
     font-size: inherit;
@@ -76,6 +73,6 @@ div.navigatorListItem.active > span.linkBorder {
 div.navigatorListItem {
   cursor: pointer;
   padding: 0.25rem 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25vw;
   font-size: 2vw;
 }
