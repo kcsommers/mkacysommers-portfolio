@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/media-queries.scss';
 
 div.pageWrap {
   overflow: hidden;
@@ -27,5 +28,4 @@ div.pageWrapInner {
   top: 0;
   overflow: auto;
   z-index: 1;
-  padding: 2rem 2rem 2rem 3rem;
 }
