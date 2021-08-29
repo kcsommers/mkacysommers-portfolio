@@ -1,4 +1,4 @@
-import { useResize } from '@core';
+import { FOR_TABLET_LANDSCAPE_UP, useResize } from '@core';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -38,9 +38,13 @@ export const Navigator = () => {
 
   const [mounted, setMounted] = useState(false);
 
-  const [isCollapsed, setIsCollapsed] = useState(windowDims.width <= 900);
+  const [isCollapsed, setIsCollapsed] = useState(
+    windowDims.width <= FOR_TABLET_LANDSCAPE_UP
+  );
 
-  const [isCollapsible, setIsCollapsible] = useState(windowDims.width <= 900);
+  const [isCollapsible, setIsCollapsible] = useState(
+    windowDims.width <= FOR_TABLET_LANDSCAPE_UP
+  );
 
   const navigate = (path: string): void => {
     history.push(path);
@@ -58,11 +62,11 @@ export const Navigator = () => {
     if (!windowDims.width) {
       return;
     }
-    if (windowDims.width <= 900 && !isCollapsible) {
+    if (windowDims.width <= FOR_TABLET_LANDSCAPE_UP && !isCollapsible) {
       setIsCollapsible(true);
       return;
     }
-    if (windowDims.width > 900 && isCollapsible) {
+    if (windowDims.width > FOR_TABLET_LANDSCAPE_UP && isCollapsible) {
       setIsCollapsible(false);
     }
   }, [windowDims]);
@@ -73,16 +77,18 @@ export const Navigator = () => {
 
   return (
     <motion.div
-      className={styles.navigatorWrap}
+      className={`${styles.navigatorWrap}`}
       animate={isCollapsed ? 'collapsed' : 'expanded'}
       variants={{
         collapsed: {
           width: '100px',
           padding: '0px',
+          minWidth: '0px',
         },
         expanded: {
           width: '30%',
           padding: '3rem 4%',
+          minWidth: '200px',
         },
       }}
       transition={{
