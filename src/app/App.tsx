@@ -8,16 +8,12 @@ import {
 } from '@pages';
 import { Navigator } from '@components';
 import { Route, Switch, useLocation } from 'react-router-dom';
+import styles from './App.module.scss';
 
 export const App = () => {
   const location = useLocation();
-
   return (
-    <main
-      style={{
-        padding: '0.5rem',
-      }}
-    >
+    <main className={styles.appWrap}>
       <Navigator />
       <AnimatePresence>
         <Switch location={location} key={location.pathname}>
