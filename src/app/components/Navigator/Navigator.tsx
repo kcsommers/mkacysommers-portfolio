@@ -50,14 +50,11 @@ export const Navigator = () => {
     history.push(path);
   };
 
-  const toggleCollapse = () => {
-    setIsCollapsed(!isCollapsed);
-  };
-
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // resize effect
   useEffect(() => {
     if (!windowDims.width) {
       return;
@@ -76,27 +73,7 @@ export const Navigator = () => {
   }, [isCollapsible]);
 
   return (
-    <motion.div
-      className={`${styles.navigatorWrap}`}
-      animate={isCollapsed ? 'collapsed' : 'expanded'}
-      variants={{
-        collapsed: {
-          width: '100px',
-          padding: '0px',
-          minWidth: '0px',
-        },
-        expanded: {
-          width: '30%',
-          padding: '3rem 4%',
-          minWidth: '200px',
-        },
-      }}
-      transition={{
-        duration: 1,
-        type: 'spring',
-      }}
-      onClick={isCollapsible ? toggleCollapse : undefined}
-    >
+    <motion.div className={`${styles.navigatorWrap}`}>
       <div className={styles.navigatorInner}>
         <div className={styles.navigatorListWrap}>
           <motion.h1
