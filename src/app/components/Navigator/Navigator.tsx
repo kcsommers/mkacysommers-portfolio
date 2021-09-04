@@ -1,4 +1,4 @@
-import { FOR_TABLET_LANDSCAPE_UP, useResize } from '@core';
+import { FOR_TABLET_PORTRAIT_UP, useResize } from '@core';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -39,11 +39,11 @@ export const Navigator = () => {
   const [mounted, setMounted] = useState(false);
 
   const [isCollapsed, setIsCollapsed] = useState(
-    windowDims.width <= FOR_TABLET_LANDSCAPE_UP
+    windowDims.width <= FOR_TABLET_PORTRAIT_UP
   );
 
   const [isCollapsible, setIsCollapsible] = useState(
-    windowDims.width <= FOR_TABLET_LANDSCAPE_UP
+    windowDims.width <= FOR_TABLET_PORTRAIT_UP
   );
 
   const navigate = (path: string): void => {
@@ -59,11 +59,11 @@ export const Navigator = () => {
     if (!windowDims.width) {
       return;
     }
-    if (windowDims.width <= FOR_TABLET_LANDSCAPE_UP && !isCollapsible) {
+    if (windowDims.width <= FOR_TABLET_PORTRAIT_UP && !isCollapsible) {
       setIsCollapsible(true);
       return;
     }
-    if (windowDims.width > FOR_TABLET_LANDSCAPE_UP && isCollapsible) {
+    if (windowDims.width > FOR_TABLET_PORTRAIT_UP && isCollapsible) {
       setIsCollapsible(false);
     }
   }, [windowDims]);
@@ -109,11 +109,28 @@ export const Navigator = () => {
               type: 'spring',
             }}
           >
-            <span className={styles.linkBorder}>
+            <motion.span
+              key="initials"
+              className={styles.linkBorder}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              variants={{
+                enter: {
+                  opacity: 0,
+                },
+                center: {
+                  opacity: 1,
+                },
+                exit: {
+                  opacity: 0,
+                },
+              }}
+            >
               <span>M Kacy</span>
               <br />
               <span>Sommers</span>
-            </span>
+            </motion.span>
           </motion.h1>
           {navLinks.map((l, i) => (
             <motion.div

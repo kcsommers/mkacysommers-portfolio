@@ -10,3 +10,13 @@ img.projectImg {
   cursor: pointer;
   border-radius: $border-radius;
 }
+
+div.projectCategoryWrap {
+  margin-bottom: 4rem;
+  > h3 {
+    color: #fff;
+    font-size: 3vw;
+    letter-spacing: 0.15rem;
+    margin-bottom: 2rem;
+  }
+}

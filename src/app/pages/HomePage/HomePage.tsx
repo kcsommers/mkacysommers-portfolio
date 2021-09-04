@@ -6,5 +6,5 @@ import styles from './HomePage.module.scss';
 interface HomePageProps extends RouteComponentProps {}
 
 export const HomePage = ({}: HomePageProps) => {
-  return <PageWrap rgb={Colors.$color6.rgb} />;
+  return <PageWrap rgb={Colors.$color1.rgb} />;
 };

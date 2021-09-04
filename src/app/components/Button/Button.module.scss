@@ -12,12 +12,12 @@
   background-color: #fff;
   transition: all 0.2s ease;
   box-shadow: $box-shadow;
-  color: $color6;
+  color: $color1;
   max-width: 100%;
 
   &:hover,
   &:focus {
-    background-color: $color6;
+    background-color: $color1;
     color: #fff;
   }
 }
