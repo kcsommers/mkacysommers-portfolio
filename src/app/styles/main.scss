@@ -1,0 +1,19 @@
+@import './normalize.scss';
+@import './colors.scss';
+@import './variables.scss';
+
+* {
+  font-family: 'Playfair Display';
+  box-sizing: border-box;
+}
+
+html,
+body,
+div#root {
+  height: 100%;
+}
+
+p {
+  font-size: $font-size;
+  line-height: line-height($font-size);
+}

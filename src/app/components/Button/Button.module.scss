@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+
+.btn {
+  background: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: $border-radius;
+  border: none;
+  text-transform: uppercase;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  box-shadow: $box-shadow;
+  color: $color1;
+  max-width: 100%;
+
+  &:hover,
+  &:focus {
+    background-color: $color1;
+    color: #fff;
+  }
+}
+
+.btn-md {
+  padding: 0rem 3rem;
+  height: 50px;
+}
+
+.btn-sm {
+  padding: 0 0.5rem;
+}
+
+.btnFullWidth {
+  width: 100%;
+}

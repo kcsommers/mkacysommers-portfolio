@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+@import '../../styles/media-queries.scss';
+
+div.pageWrap {
+  overflow: hidden;
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  border-radius: $border-radius;
+}
+
+div.pageBg {
+  position: absolute;
+  z-index: 0;
+  left: -190%;
+  top: -50%;
+  right: -110%;
+  bottom: 0%;
+  border-radius: 100%;
+}
+
+div.pageWrapInner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  overflow: auto;
+  z-index: 1;
+  padding: 2rem;
+  width: 70%;
+}
