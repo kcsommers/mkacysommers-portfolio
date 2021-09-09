@@ -2,8 +2,7 @@
 
 $box-shadow: 0 1px 3px rgba($color4, 0.12), 0 1px 2px rgba($color4, 0.24);
 $border-radius: 6px;
-$font-size: 18px;
-
-@function line-height($f-size) {
-  @return $f-size + ($f-size * 0.5);
-}
+$desktop: 1200px;
+$tablet: 600px;
+$max-vw: $desktop;
+$min-vw: $tablet;

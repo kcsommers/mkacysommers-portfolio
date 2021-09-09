@@ -1,6 +1,7 @@
 @import './normalize.scss';
 @import './colors.scss';
 @import './variables.scss';
+@import './mixins.scss';
 
 * {
   font-family: 'Playfair Display';
@@ -11,11 +12,9 @@ html,
 body,
 div#root {
   height: 100%;
-  // background: red;
-  background: linear-gradient(to bottom right, darken(#fff, 10%), darken(#fff, 0%));
-}
-
-p {
-  font-size: $font-size;
-  line-height: line-height($font-size);
+  background: linear-gradient(
+    to bottom right,
+    darken(#fff, 10%),
+    darken(#fff, 0%)
+  );
 }

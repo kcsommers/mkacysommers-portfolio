@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 div.navigatorWrap {
   position: absolute;
@@ -6,7 +7,7 @@ div.navigatorWrap {
   left: 0;
   bottom: 0;
   z-index: 1;
-  padding: 1rem;
+  padding: 1rem 0rem 1rem 1rem;
   width: 30%;
 }
 
@@ -26,61 +27,49 @@ div.navigatorListWrap {
     margin-bottom: 2rem;
     transform-origin: left;
     font-weight: normal;
-    > span.linkBorder {
-      > span {
-        font-size: 4vw;
-        &:first-child {
-          font-size: 3vw;
-          position: relative;
-          top: 1.2vw;
-        }
-      }
+  }
+
+  span.linkBorder {
+    position: relative;
+    display: inline-block;
+    &:after {
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 3px;
+      background-color: rgba(#000, 0);
+      content: '';
+      transition: width 1s ease-out, background-color 0.5s ease;
+    }
+    > span {
+      display: inline-block;
+      transition: transform 0.75s ease, letter-spacing 1s ease-out;
+      transform-origin: left;
+      transform: scale(1);
+      letter-spacing: 0.15rem;
     }
   }
-}
 
-span.linkBorder {
-  position: relative;
-  display: inline-block;
-  &:after {
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 3px;
-    background-color: rgba(#000, 0);
-    content: '';
-    transition: width 1s ease-out, background-color 0.5s ease;
+  div.navigatorListWrap > h1:hover > span.linkBorder,
+  div.navigatorListItem:hover > span.linkBorder,
+  div.navigatorListWrap h1.active > span.linkBorder,
+  div.navigatorListItem.active > span.linkBorder {
+    &:after {
+      width: 40%;
+      background-color: rgba(#000, 1);
+    }
+    > span {
+      transform: scale(1.1);
+    }
+    > span.pageLink {
+      letter-spacing: 0.35rem;
+    }
   }
-  > span {
-    display: inline-block;
-    transition: transform 0.75s ease, letter-spacing 1s ease-out;
-    transform-origin: left;
-    transform: scale(1);
-    font-size: inherit;
-    letter-spacing: 0.15rem;
-  }
-}
 
-div.navigatorListWrap > h1:hover > span.linkBorder,
-div.navigatorListItem:hover > span.linkBorder,
-div.navigatorListWrap h1.active > span.linkBorder,
-div.navigatorListItem.active > span.linkBorder {
-  &:after {
-    width: 40%;
-    background-color: rgba(#000, 1);
+  div.navigatorListItem {
+    cursor: pointer;
+    padding: 0.25rem 0;
+    margin-bottom: clamp(0.5rem, 1.25vw, 1.2rem);
   }
-  > span {
-    transform: scale(1.1);
-  }
-  > span.pageLink {
-    letter-spacing: 0.35rem;
-  }
-}
-
-div.navigatorListItem {
-  cursor: pointer;
-  padding: 0.25rem 0;
-  margin-bottom: 1.25vw;
-  font-size: calc(1.55vw + 5px);
 }

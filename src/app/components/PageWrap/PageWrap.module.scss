@@ -1,5 +1,5 @@
 @import '../../styles/variables.scss';
-@import '../../styles/media-queries.scss';
+@import '../../styles/mixins.scss';
 
 div.pageWrap {
   overflow: hidden;
@@ -28,6 +28,7 @@ div.pageWrapInner {
   top: 0;
   overflow: auto;
   z-index: 1;
-  padding: 2rem;
+  padding: 2rem 1rem;
   width: 70%;
+  transition: all 0.2s ease;
 }
