@@ -1,22 +1,21 @@
+import { Page, PageColors } from '@core';
 import { motion, Variants } from 'framer-motion';
 import { PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 import styles from './PageWrap.module.scss';
 
 type PageWrapProps = PropsWithChildren<{
-  rgb: number[];
+  page: Page;
   variants?: Variants;
 }>;
 
-export const PageWrap = ({ rgb, children, variants }: PageWrapProps) => {
-  const rgbRef = useMemo(() => rgb.join(','), []);
-
+export const PageWrap = ({ children, variants, page }: PageWrapProps) => {
   return (
     <div className={styles.pageWrap}>
       <motion.div
-        key={rgbRef}
+        key={PageColors[page]}
         className={styles.pageBg}
-        style={{ backgroundColor: `rgb(${rgbRef})` }}
+        style={{ backgroundColor: PageColors[page] }}
         initial="enter"
         animate="center"
         exit="exit"

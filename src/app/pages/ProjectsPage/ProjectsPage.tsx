@@ -1,5 +1,5 @@
 import { PageWrap } from '@components';
-import { Colors, projects } from '@core';
+import { projects } from '@core';
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
 import { RouteComponentProps } from 'react-router';
@@ -12,7 +12,7 @@ export const ProjectsPage = ({}: ProjectsPageProps) => {
 
   return (
     <PageWrap
-      rgb={Colors.$color3.rgb}
+      page="projects"
       variants={{
         exit: {
           opacity: 0,

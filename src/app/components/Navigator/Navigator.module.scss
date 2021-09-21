@@ -7,18 +7,18 @@ div.navigatorWrap {
   left: 0;
   bottom: 0;
   z-index: 1;
-  padding: 1rem 0rem 1rem 1rem;
+  padding: 1rem;
   width: 30%;
 }
 
 div.navigatorInner {
   display: flex;
   justify-content: center;
-  padding: 3rem 0;
   background-color: rgba(#fff, 1);
   z-index: 100;
   border-radius: $border-radius;
   height: 100%;
+  box-shadow: $box-shadow;
 }
 
 div.navigatorListWrap {
@@ -27,11 +27,13 @@ div.navigatorListWrap {
     margin-bottom: 2rem;
     transform-origin: left;
     font-weight: normal;
+    color: #fff;
   }
 
   span.linkBorder {
     position: relative;
     display: inline-block;
+    color: #fff;
     &:after {
       position: absolute;
       left: 0;

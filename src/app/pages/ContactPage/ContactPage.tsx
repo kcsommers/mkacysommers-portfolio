@@ -1,5 +1,4 @@
 import { PageWrap, ContactForm } from '@components';
-import { Colors } from '@core';
 import { RouteComponentProps } from 'react-router';
 import styles from './ContactPage.module.scss';
 
@@ -11,7 +10,7 @@ export const ContactPage = ({}: ContactPageProps) => {
   };
 
   return (
-    <PageWrap rgb={Colors.$color4.rgb}>
+    <PageWrap page="contact">
       <p className={styles.blurb}>
         Get in touch! I am always on the lookout for new projects, fresh
         challenges and kind folks to collaborate with. If you have an idea, an

@@ -20,3 +20,11 @@ export const Colors = {
     rgb: [6, 56, 66],
   },
 };
+
+export const PageColors = {
+  home: Colors.$color1.hex,
+  about: Colors.$color2.hex,
+  projects: Colors.$color3.hex,
+  contact: Colors.$color4.hex,
+  resume: Colors.$color5.hex,
+};

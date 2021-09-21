@@ -1,6 +1,12 @@
-import { FOR_TABLET_PORTRAIT_UP, useResize } from '@core';
+import {
+  FOR_TABLET_PORTRAIT_UP,
+  Page,
+  PageColors,
+  shiftColor,
+  useResize,
+} from '@core';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import styles from './Navigator.module.scss';
@@ -33,6 +39,11 @@ export const Navigator = () => {
   const history = useHistory();
 
   const location = useLocation();
+
+  const _bgColor = useMemo(() => {
+    const _page = location.pathname.replace('/', '') as Page;
+    return shiftColor(PageColors[_page || 'home'], 50);
+  }, [location.pathname]);
 
   const windowDims = useResize(true);
 
@@ -74,7 +85,12 @@ export const Navigator = () => {
 
   return (
     <motion.div className={`${styles.navigatorWrap}`}>
-      <div className={styles.navigatorInner}>
+      <div
+        className={styles.navigatorInner}
+        style={{
+          backgroundColor: _bgColor,
+        }}
+      >
         <div className={styles.navigatorListWrap}>
           <motion.h1
             className={`${

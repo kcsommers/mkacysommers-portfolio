@@ -1,4 +1,3 @@
-import { Colors } from '@core';
 import { RouteComponentProps } from 'react-router';
 import { PageWrap } from '@components';
 
@@ -6,7 +5,7 @@ interface AboutPageProps extends RouteComponentProps {}
 
 export const AboutPage = ({}: AboutPageProps) => {
   return (
-    <PageWrap rgb={Colors.$color2.rgb}>
+    <PageWrap page="about">
       <p>
         Hi, I'm Kacy I'm a Seattle based developer who loves to create full
         stack, fully responsive web applications that focus strongly on user
