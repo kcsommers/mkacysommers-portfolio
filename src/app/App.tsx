@@ -1,6 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import { AboutPage, ContactPage, ProjectsPage, ResumePage } from '@pages';
-import { Home } from './views';
+import { Home, Work } from './views';
 import { Navigator } from '@components';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
@@ -17,11 +17,7 @@ export const App = () => {
             path="/about"
             render={(props) => <AboutPage {...props} />}
           />
-          <Route
-            exact
-            path="/projects"
-            render={(props) => <ProjectsPage {...props} />}
-          />
+          <Route exact path="/work" component={Work} />
           <Route
             exact
             path="/contact"

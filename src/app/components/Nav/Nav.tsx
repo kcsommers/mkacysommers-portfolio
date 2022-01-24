@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import styles from './Nav.module.scss';
 
 export const Nav: FC = () => {
@@ -8,24 +9,27 @@ export const Nav: FC = () => {
 
   return (
     <div className={styles.nav}>
-      <a href="/" className={pathname === '/' ? styles.activeLink : ''}>
+      <Link to="/" className={pathname === '/' ? styles.activeLink : ''}>
         home
-      </a>
-      <a href="/work" className={pathname === '/work' ? styles.activeLink : ''}>
+      </Link>
+      <Link
+        to="/work"
+        className={pathname === '/work' ? styles.activeLink : ''}
+      >
         work
-      </a>
-      <a
-        href="/about"
+      </Link>
+      <Link
+        to="/about"
         className={pathname === '/about' ? styles.activeLink : ''}
       >
         about
-      </a>
-      <a
-        href="/contact"
+      </Link>
+      <Link
+        to="/contact"
         className={pathname === '/contact' ? styles.activeLink : ''}
       >
         contact
-      </a>
+      </Link>
     </div>
   );
 };
