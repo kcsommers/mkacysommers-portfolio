@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+div.homeWrap {
+  background-color: $light;
+  min-height: 100vh;
+}
+
+div.homeIntroWrap {
+  padding: 20% 0 0 15%;
+  > p {
+    margin: 10px 0 20px 0;
+  }
+}

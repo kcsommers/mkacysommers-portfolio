@@ -1,0 +1,17 @@
+@import '../../styles/colors.scss';
+
+div.nav {
+  > a {
+    margin-right: 1rem;
+    position: relative;
+    &.activeLink:after {
+      content: '';
+      background: $dark;
+      position: absolute;
+      left: 0;
+      right: 8px;
+      bottom: -4px;
+      height: 3px;
+    }
+  }
+}
