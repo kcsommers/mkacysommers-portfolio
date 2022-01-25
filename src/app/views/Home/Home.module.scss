@@ -5,9 +5,29 @@ div.homeWrap {
   min-height: 100vh;
 }
 
+div.homeWrapInner {
+  position: relative;
+}
+
 div.homeIntroWrap {
   padding: 20% 0 0 15%;
   > p {
     margin: 10px 0 20px 0;
+  }
+}
+
+div.logoWrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  min-width: 400px;
+  opacity: 0.05;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  > img {
+    height: 65%;
+    display: inline-block;
   }
 }

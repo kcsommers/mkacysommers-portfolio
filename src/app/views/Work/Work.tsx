@@ -8,6 +8,7 @@ export const Work: FC = () => {
       <div className={styles.workWrapInner}>
         <div className={styles.workIntroWrap}>
           <h3>Work</h3>
+          <Nav color="light" />
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci
             earum sapiente veritatis saepe, maiores facere odit aut sunt
