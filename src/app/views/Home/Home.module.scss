@@ -2,11 +2,15 @@
 
 div.homeWrap {
   min-height: 100vh;
+  position: relative;
+  z-index: 300;
 }
 
-div.homeIntroWrap {
-  position: fixed;
-  bottom: 35vh;
+div.homeNavWrap {
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin-left: 15%;
   > p {
     margin: 10px 0 20px 0;

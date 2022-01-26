@@ -1,16 +1,7 @@
 @import '../../styles/variables.scss';
 
-div.transitionViewWrap {
-  overflow: hidden;
-}
-
-div.transitionViewBody {
-  background-color: $light;
-  position: relative;
-}
-
-div.transitionSlide {
-  background-color: $dark;
+div.transitionSlideLight,
+div.transitionSlideDark {
   position: absolute;
   top: 0;
   left: 0;
@@ -18,15 +9,10 @@ div.transitionSlide {
   bottom: 0;
 }
 
-div.logoWrap {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 15%;
-  width: 25%;
-  min-width: 375px;
-  img {
-    width: 100%;
-    display: inline-block;
-  }
+div.transitionSlideLight {
+  background-color: $light;
+}
+
+div.transitionSlideDark {
+  background-color: $dark;
 }

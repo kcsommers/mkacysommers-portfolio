@@ -2,20 +2,26 @@
 
 div.workWrap {
   min-height: 100vh;
+  position: relative;
+  padding-bottom: 4rem;
+  z-index: 300;
 }
 
-div.workIntroWrap {
-  width: 275px;
-  position: absolute;
-  top: 35vh;
+div.workNavWrap {
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin-left: 15%;
 
   > h3 {
     margin-bottom: 20px;
   }
+}
 
-  > p {
-    margin-top: 10px;
-    line-height: 20px;
-  }
+div.workBlurbWrap {
+  margin-left: 15%;
+  width: 275px;
+  margin-top: 30px;
+  line-height: 20px;
 }

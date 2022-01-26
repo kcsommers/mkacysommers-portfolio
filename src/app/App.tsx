@@ -56,6 +56,12 @@ export const App = () => {
           />
         </Switch>
       </AnimatePresence>
+      <div className={styles.logoWrap}>
+        <img
+          src="https://res.cloudinary.com/kcsommers/image/upload/v1643222663/mksommerslogo-dark.png"
+          alt="M Kacy Sommers logo"
+        />
+      </div>
     </main>
   );
 };

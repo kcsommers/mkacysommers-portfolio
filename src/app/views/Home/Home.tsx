@@ -5,7 +5,7 @@ import styles from './Home.module.scss';
 export const Home: FC = () => {
   return (
     <div className={styles.homeWrap}>
-      <div className={styles.homeIntroWrap}>
+      <div className={styles.homeNavWrap}>
         <h3>M Kacy Sommers</h3>
         <p>Web Developer. Javascript Professional.</p>
         <Nav />

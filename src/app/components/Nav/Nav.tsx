@@ -34,6 +34,12 @@ export const Nav: FC<INavProps> = ({ color = 'dark' }) => {
       >
         contact
       </Link>
+      <Link
+        to="/resume"
+        className={pathname === '/contact' ? styles.activeLink : ''}
+      >
+        resume
+      </Link>
     </div>
   );
 };

@@ -6,10 +6,9 @@ export const TransitionView: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <div className={styles.transitionViewWrap}>
       <motion.div
-        className={styles.transitionViewBody}
+        className={styles.transitionSlideLight}
         initial="enter"
         animate="center"
-        exit="exit"
         variants={{
           enter: {
             x: '100%',
@@ -20,13 +19,12 @@ export const TransitionView: FC<PropsWithChildren<{}>> = ({ children }) => {
         }}
         transition={{
           delay: 1,
-          duration: 1,
+          duration: 0.75,
+          ease: [0.66, 0.1, 0.9, 0.68],
         }}
-      >
-        {children}
-      </motion.div>
+      ></motion.div>
       <motion.div
-        className={styles.transitionSlide}
+        className={styles.transitionSlideDark}
         initial={false}
         animate="center"
         exit="exit"
@@ -39,15 +37,11 @@ export const TransitionView: FC<PropsWithChildren<{}>> = ({ children }) => {
           },
         }}
         transition={{
-          duration: 1,
+          duration: 0.75,
+          ease: [0.66, 0.1, 0.9, 0.68],
         }}
       ></motion.div>
-      <div className={styles.logoWrap}>
-        <img
-          src="https://res.cloudinary.com/kcsommers/image/upload/v1643178708/mkacysommerslogo-light.png"
-          alt="M Kacy Sommers logo"
-        />
-      </div>
+      {children}
     </div>
   );
 };

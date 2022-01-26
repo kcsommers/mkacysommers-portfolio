@@ -3,4 +3,21 @@ main.appWrap {
   max-width: 1290px;
   margin: 0 auto;
   position: relative;
+  overflow-x: hidden;
+}
+
+div.logoWrap {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  right: 15%;
+  width: 25%;
+  min-width: 375px;
+  img {
+    width: 100%;
+    display: inline-block;
+  }
 }
