@@ -1,7 +1,6 @@
 @import '../../styles/variables.scss';
 
 div.homeWrap {
-  background-color: $light;
   min-height: 100vh;
 }
 
@@ -18,17 +17,4 @@ div.homeRight {
   width: 60%;
   min-height: 100vh;
   margin-left: auto;
-}
-
-div.logoWrap {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  > img {
-    opacity: 0.075;
-    width: 375px;
-    display: inline-block;
-  }
 }

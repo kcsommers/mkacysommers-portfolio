@@ -10,14 +10,7 @@ export const Home: FC = () => {
         <p>Web Developer. Javascript Professional.</p>
         <Nav />
       </div>
-      <div className={styles.homeRight}>
-        <div className={styles.logoWrap}>
-          <img
-            src="https://res.cloudinary.com/kcsommers/image/upload/v1643094250/mksommerslogo.png"
-            alt="M Kacy Sommers logo"
-          />
-        </div>
-      </div>
+      <div className={styles.homeRight}></div>
     </div>
   );
 };
