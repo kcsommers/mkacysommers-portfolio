@@ -1,13 +1,21 @@
 @import '../../styles/variables.scss';
 
 div.workWrap {
-  background-color: $dark;
   min-height: 100vh;
 }
 
 div.workIntroWrap {
-  p,
-  h3 {
-    color: $light;
+  width: 275px;
+  position: absolute;
+  top: 35vh;
+  margin-left: 15%;
+
+  > h3 {
+    margin-bottom: 20px;
+  }
+
+  > p {
+    margin-top: 10px;
+    line-height: 20px;
   }
 }

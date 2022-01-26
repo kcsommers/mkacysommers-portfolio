@@ -1,8 +1,7 @@
-import { AboutPage, ContactPage, ResumePage } from '@pages';
 import { AnimatePresence } from 'framer-motion';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
-import { Home, TransitionView, Work } from './views';
+import { About, Contact, Home, Resume, TransitionView, Work } from './views';
 
 export const App = () => {
   const location = useLocation();
@@ -22,7 +21,11 @@ export const App = () => {
           <Route
             exact
             path="/about"
-            render={(props) => <AboutPage {...props} />}
+            render={() => (
+              <TransitionView>
+                <About />
+              </TransitionView>
+            )}
           />
           <Route
             exact
@@ -36,12 +39,20 @@ export const App = () => {
           <Route
             exact
             path="/contact"
-            render={(props) => <ContactPage {...props} />}
+            render={() => (
+              <TransitionView>
+                <Contact />
+              </TransitionView>
+            )}
           />
           <Route
             exact
             path="/resume"
-            render={(props) => <ResumePage {...props} />}
+            render={() => (
+              <TransitionView>
+                <Resume />
+              </TransitionView>
+            )}
           />
         </Switch>
       </AnimatePresence>

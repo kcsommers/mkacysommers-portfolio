@@ -10,7 +10,6 @@ export const Home: FC = () => {
         <p>Web Developer. Javascript Professional.</p>
         <Nav />
       </div>
-      <div className={styles.homeRight}></div>
     </div>
   );
 };
