@@ -3,8 +3,6 @@
     "baseUrl": "src/",
     "paths": {
       "@assets": ["assets"],
-      "@components": ["app/components/public.ts"],
-      "@pages": ["app/pages/public.ts"],
       "@core": ["app/core/public.ts"],
       "@redux": ["app/redux/public.ts"]
     }
