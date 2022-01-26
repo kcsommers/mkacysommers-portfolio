@@ -1,6 +1,6 @@
 export interface IProject {
   title: string;
-  snippet: string;
+  blurb: string;
   description: string;
   tools: string[];
   images: string[];

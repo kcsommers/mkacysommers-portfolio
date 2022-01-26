@@ -58,7 +58,7 @@ export const App = () => {
       </AnimatePresence>
       <div className={styles.logoWrap}>
         <img
-          src="https://res.cloudinary.com/kcsommers/image/upload/v1643222663/mksommerslogo-dark.png"
+          src="https://res.cloudinary.com/kcsommers/image/upload/v1643178708/mkacysommerslogo-light.png"
           alt="M Kacy Sommers logo"
         />
       </div>

@@ -7,21 +7,54 @@ div.workWrap {
   z-index: 300;
 }
 
+div.workWrapInner {
+  display: flex;
+  position: relative;
+}
+
 div.workNavWrap {
-  height: 65vh;
+  margin-left: 15%;
+  min-width: 305px;
+  margin-top: 15%;
+  position: sticky;
+  top: 0;
+}
+
+div.workNavWrapInner {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-left: 15%;
-
+  top: 0;
   > h3 {
     margin-bottom: 20px;
   }
 }
 
 div.workBlurbWrap {
-  margin-left: 15%;
   width: 275px;
   margin-top: 30px;
-  line-height: 20px;
+}
+
+div.projectsWrap {
+  margin-top: 5%;
+}
+
+div.projectWrap {
+  cursor: pointer;
+  padding: 0 6rem;
+  margin: 3rem 0;
+  > h2 {
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease;
+    transform-origin: bottom left;
+  }
+
+  &:hover {
+    > h2 {
+      transform: skew(-8deg);
+    }
+  }
+  > img {
+    width: 100%;
+  }
 }

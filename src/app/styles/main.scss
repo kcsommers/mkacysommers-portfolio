@@ -17,6 +17,12 @@ div#root {
   background-color: $dark;
 }
 
+h2 {
+  font-family: Marcellus;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
 h3 {
   font-size: 15px;
   letter-spacing: 2px;
@@ -27,4 +33,8 @@ h3 {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+p {
+  line-height: 20px;
 }
