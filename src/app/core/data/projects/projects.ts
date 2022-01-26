@@ -1,8 +1,8 @@
-import lowolf from '@assets/images/projects/lowolf.jpg';
-import bookkeeper from '@assets/images/projects/bookkeeper.jpg';
-import goodmarket from '@assets/images/projects/goodmarket.jpg';
-import starstacker from '@assets/images/projects/starstacker.jpg';
-import lichter from '@assets/images/projects/lichterphoto1.jpg';
+import lowolf from '../../../../assets/images/projects/lowolf.jpg';
+import bookkeeper from '../../../../assets/images/projects/bookkeeper.jpg';
+import goodmarket from '../../../../assets/images/projects/goodmarket.jpg';
+import starstacker from '../../../../assets/images/projects/starstacker.jpg';
+import lichter from '../../../../assets/images/projects/lichterphoto1.jpg';
 import { ProjectCategories } from './project-cateogries';
 
 export const projects = {

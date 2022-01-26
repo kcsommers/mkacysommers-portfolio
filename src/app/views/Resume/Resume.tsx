@@ -1,4 +1,4 @@
-import resume from '@assets/images/resume/MKacySommers_resume.svg';
+import resume from '../../../assets/images/resume/MKacySommers_resume.svg';
 import { Nav } from '../../components';
 import styles from './Resume.module.scss';
 
