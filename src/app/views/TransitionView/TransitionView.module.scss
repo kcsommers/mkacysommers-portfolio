@@ -13,6 +13,10 @@ div.transitionSlideLight {
   background-color: $light;
 }
 
+div.transitionChildrenWrap {
+  position: relative;
+}
+
 div.transitionSlideDark {
   background-color: $dark;
 }

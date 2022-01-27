@@ -13,18 +13,27 @@ export const AnimatedText: FC<PropsWithChildren<IAnimatedTextProps>> = ({
     <motion.span
       initial="enter"
       animate="center"
+      exit="exit"
       variants={{
         enter: {
+          opacity: 0,
           y: '100%',
         },
         center: {
+          opacity: 1,
           y: 0,
+        },
+        exit: {
+          opacity: 0,
+          transition: {
+            delay: 0,
+            duration: 0.5,
+          },
         },
       }}
       transition={{
         delay: delay,
         duration: 0.5,
-        type: 'spring',
       }}
     >
       {children}

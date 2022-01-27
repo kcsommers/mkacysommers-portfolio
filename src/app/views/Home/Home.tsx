@@ -8,16 +8,16 @@ export const Home: FC = () => {
       <div className={styles.homeWrapInner}>
         <div className={styles.homeNavWrap}>
           <div className={styles.homeNavWrapInner}>
-            <h3>
-              <AnimatedText delay={1.5}>M Kacy Sommers</AnimatedText>
+            <h3 className="animated-text-wrap">
+              <AnimatedText delay={1.25}>M Kacy Sommers</AnimatedText>
             </h3>
-            <p>
-              <AnimatedText delay={1.5}>
+            <p className="animated-text-wrap">
+              <AnimatedText delay={1.35}>
                 Web Developer. Javascript Professional.
               </AnimatedText>
             </p>
-            <span>
-              <AnimatedText delay={1.5}>
+            <span className="animated-text-wrap">
+              <AnimatedText delay={1.45}>
                 <Nav />
               </AnimatedText>
             </span>

@@ -41,7 +41,7 @@ export const TransitionView: FC<PropsWithChildren<{}>> = ({ children }) => {
           ease: [0.66, 0.1, 0.9, 0.68],
         }}
       ></motion.div>
-      {children}
+      <div className={styles.transitionChildrenWrap}>{children}</div>
     </div>
   );
 };

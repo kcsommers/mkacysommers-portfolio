@@ -1,5 +1,6 @@
+import { motion } from 'framer-motion';
 import resume from '../../../assets/images/resume/MKacySommers_resume.svg';
-import { Button, Nav } from '../../components';
+import { AnimatedText, Button, Nav } from '../../components';
 import styles from './Resume.module.scss';
 
 export const Resume = () => {
@@ -8,16 +9,51 @@ export const Resume = () => {
       <div className={styles.resumeWrapInner}>
         <div className={styles.resumeNavWrap}>
           <div className={styles.resumeNavWrapInner}>
-            <h3>Resume</h3>
-            <Nav />
-            <div className={styles.downloadBtnWrap}>
-              <Button text="Download" />
+            <h3 className="animated-text-wrap">
+              <AnimatedText delay={1.25}>Resume</AnimatedText>
+            </h3>
+            <span className="animated-text-wrap">
+              <AnimatedText delay={1.35}>
+                <Nav />
+              </AnimatedText>
+            </span>
+            <div className={`${styles.downloadBtnWrap} animated-text-wrap`}>
+              <AnimatedText delay={1.45}>
+                <Button text="Download" />
+              </AnimatedText>
             </div>
           </div>
         </div>
-        <div className={styles.resumeImgWrap}>
+        <motion.div
+          className={styles.resumeImgWrap}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          variants={{
+            enter: {
+              opacity: 0,
+              scale: 1.1,
+            },
+            center: {
+              opacity: 1,
+              scale: 1,
+            },
+            exit: {
+              opacity: 0,
+              scale: 1.1,
+              transition: {
+                delay: 0,
+                duration: 0.25,
+              },
+            },
+          }}
+          transition={{
+            delay: 1.75,
+            duration: 0.5,
+          }}
+        >
           <img src={resume} alt="M Kacy Sommers Resume" />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

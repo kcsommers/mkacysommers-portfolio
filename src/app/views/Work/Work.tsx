@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FC } from 'react';
-import { Nav } from '../../components';
+import { AnimatedText, Nav } from '../../components';
 import { IProject, projects } from '../../core';
 import styles from './Work.module.scss';
 
@@ -10,22 +10,32 @@ export const Work: FC = () => {
       <div className={styles.workWrapInner}>
         <div className={styles.workNavWrap}>
           <div className={styles.workNavWrapInner}>
-            <h3>Work</h3>
-            <Nav />
+            <h3 className="animated-text-wrap">
+              <AnimatedText delay={1.25}>Work</AnimatedText>
+            </h3>
+            <span className="animated-text-wrap">
+              <AnimatedText delay={1.35}>
+                <Nav />
+              </AnimatedText>
+            </span>
           </div>
           <div className={styles.workBlurbWrap}>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci
-              earum sapiente veritatis saepe, maiores facere odit aut sunt
-              nesciunt cum fugit quae omnis doloremque provident culpa, sed amet
-              ducimus nobis?
+            <p className="animated-text-wrap">
+              <AnimatedText delay={1.45}>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Adipisci earum sapiente veritatis saepe, maiores facere odit aut
+                sunt nesciunt cum fugit quae omnis doloremque provident culpa,
+                sed amet ducimus nobis?
+              </AnimatedText>
             </p>
             <br />
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci
-              earum sapiente veritatis saepe, maiores facere odit aut sunt
-              nesciunt cum fugit quae omnis doloremque provident culpa, sed amet
-              ducimus nobis?
+            <p className="animated-text-wrap">
+              <AnimatedText delay={1.55}>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Adipisci earum sapiente veritatis saepe, maiores facere odit aut
+                sunt nesciunt cum fugit quae omnis doloremque provident culpa,
+                sed amet ducimus nobis?
+              </AnimatedText>
             </p>
           </div>
         </div>
@@ -41,23 +51,23 @@ export const Work: FC = () => {
                 variants={{
                   enter: {
                     opacity: 0,
-                    y: '25px',
+                    scale: 1.1,
                   },
                   center: {
                     opacity: 1,
-                    y: '0',
+                    scale: 1,
                   },
                   exit: {
                     opacity: 0,
-                    y: '25px',
+                    scale: 1.1,
                     transition: {
                       delay: 0,
-                      duration: 0.15,
+                      duration: 0.25,
                     },
                   },
                 }}
                 transition={{
-                  delay: 1.5,
+                  delay: 1.75,
                   duration: 0.5,
                 }}
               >
