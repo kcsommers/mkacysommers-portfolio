@@ -37,9 +37,15 @@ div.resumeBlurbWrap {
 
 div.resumeImgWrap {
   margin-top: 5%;
+  padding: 3rem 6rem 0 6rem;
   > img {
+    box-shadow: $box-shadow;
     width: 100%;
     display: inline-block;
     border-radius: $border-radius;
   }
+}
+
+div.downloadBtnWrap {
+  margin-top: 30px;
 }

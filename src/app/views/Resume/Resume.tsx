@@ -1,5 +1,5 @@
 import resume from '../../../assets/images/resume/MKacySommers_resume.svg';
-import { Nav } from '../../components';
+import { Button, Nav } from '../../components';
 import styles from './Resume.module.scss';
 
 export const Resume = () => {
@@ -10,6 +10,9 @@ export const Resume = () => {
           <div className={styles.resumeNavWrapInner}>
             <h3>Resume</h3>
             <Nav />
+            <div className={styles.downloadBtnWrap}>
+              <Button text="Download" />
+            </div>
           </div>
         </div>
         <div className={styles.resumeImgWrap}>
