@@ -25,6 +25,7 @@ export const Contact: FC = () => {
           </div>
         </div>
         <div className={styles.contactFormWrap}>
+          <h2>Get in touch</h2>
           <ContactForm onSubmit={onFormSubmit} />
         </div>
       </div>

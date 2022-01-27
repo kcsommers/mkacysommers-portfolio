@@ -118,7 +118,12 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
       </div>
 
       <div className={styles.inputWrap}>
-        <Button text="Submit" onClick={submit} showSpinner={submittingForm} />
+        <Button
+          isDisabled={!name || !emailAddress || !phoneNumber || !message}
+          text="Submit"
+          onClick={submit}
+          showSpinner={submittingForm}
+        />
       </div>
     </div>
   );

@@ -14,6 +14,7 @@
   box-shadow: $box-shadow;
   color: $color1;
   max-width: 100%;
+  border: 1px solid $dark;
 
   &:hover,
   &:focus {
@@ -33,4 +34,9 @@
 
 .btnFullWidth {
   width: 100%;
+}
+
+.btnDisabled {
+  pointer-events: none;
+  opacity: 0.75;
 }

@@ -49,7 +49,7 @@ export const Button = ({
     <button
       className={`app-btn ${styles.btn} ${styles[`btn-${size}`]} ${
         isFullWidth ? styles.btnFullWidth : ''
-      }${isDisabled ? ' btn-disabled' : ''}`}
+      }${isDisabled ? ` ${styles.btnDisabled}` : ''}`}
       onClick={clicked}
       ref={(el: HTMLButtonElement) => (buttonEl.current = el)}
     >

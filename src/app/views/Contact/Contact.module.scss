@@ -37,4 +37,9 @@ div.contactBlurbWrap {
 
 div.contactFormWrap {
   margin-top: 5%;
+  flex: 1;
+  padding: 3rem 6rem 0 6rem;
+  > h2 {
+    margin-bottom: 0.5rem;
+  }
 }
