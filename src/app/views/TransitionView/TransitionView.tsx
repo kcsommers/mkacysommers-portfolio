@@ -19,7 +19,7 @@ export const TransitionView: FC<PropsWithChildren<{}>> = ({ children }) => {
         }}
         transition={{
           delay: 1,
-          duration: 0.75,
+          duration: 0.5,
           ease: [0.66, 0.1, 0.9, 0.68],
         }}
       ></motion.div>
@@ -37,7 +37,7 @@ export const TransitionView: FC<PropsWithChildren<{}>> = ({ children }) => {
           },
         }}
         transition={{
-          duration: 0.75,
+          duration: 0.5,
           ease: [0.66, 0.1, 0.9, 0.68],
         }}
       ></motion.div>

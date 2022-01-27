@@ -40,6 +40,7 @@ export const Nav: FC<INavProps> = ({ color = 'dark' }) => {
       >
         resume
       </Link>
+      <span style={{ width: '100%', height: '3px' }}></span>
     </div>
   );
 };

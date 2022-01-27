@@ -23,7 +23,8 @@ h2 {
   font-size: 30px;
 }
 
-h3 {
+h3,
+h3 > span {
   font-size: 15px;
   letter-spacing: 2px;
   font-weight: bold;
@@ -37,4 +38,9 @@ a {
 
 p {
   line-height: 20px;
+}
+
+span,
+img {
+  display: inline-block;
 }
