@@ -6,26 +6,25 @@
   cursor: pointer;
   border-radius: $border-radius;
   border: none;
-  text-transform: uppercase;
   display: inline-block;
   font-family: 'Roboto', sans-serif;
   background-color: #fff;
   transition: all 0.2s ease;
-  box-shadow: $box-shadow;
-  color: $color1;
+  color: $dark;
   max-width: 100%;
-  border: 1px solid $dark;
+  border: 2px solid $dark;
+  position: relative;
 
   &:hover,
   &:focus {
-    background-color: $color1;
+    background-color: $dark;
     color: #fff;
   }
 }
 
 .btn-md {
   padding: 0rem 3rem;
-  height: 50px;
+  height: 30px;
 }
 
 .btn-sm {
