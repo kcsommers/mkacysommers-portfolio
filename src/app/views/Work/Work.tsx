@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { FC } from 'react';
 import { Nav } from '../../components';
 import { IProject, projects } from '../../core';
@@ -31,10 +32,38 @@ export const Work: FC = () => {
         <div className={styles.projectsWrap}>
           {projects.map((p: IProject) => {
             return (
-              <div key={p.title} className={styles.projectWrap}>
+              <motion.div
+                key={p.title}
+                className={styles.projectWrap}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                variants={{
+                  enter: {
+                    opacity: 0,
+                    y: '25px',
+                  },
+                  center: {
+                    opacity: 1,
+                    y: '0',
+                  },
+                  exit: {
+                    opacity: 0,
+                    y: '25px',
+                    transition: {
+                      delay: 0,
+                      duration: 0.15,
+                    },
+                  },
+                }}
+                transition={{
+                  delay: 1.5,
+                  duration: 0.5,
+                }}
+              >
                 <h2>{p.title}</h2>
                 <img src={p.images[0]} alt={p.title} />
-              </div>
+              </motion.div>
             );
           })}
         </div>
