@@ -31,7 +31,7 @@ export const Work: FC = () => {
         <div className={styles.projectsWrap}>
           {projects.map((p: IProject) => {
             return (
-              <div className={styles.projectWrap}>
+              <div key={p.title} className={styles.projectWrap}>
                 <h2>{p.title}</h2>
                 <img src={p.images[0]} alt={p.title} />
               </div>
