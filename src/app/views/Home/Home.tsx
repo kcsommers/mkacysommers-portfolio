@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { FC } from 'react';
 import { AnimatedText, Nav } from '../../components';
 import styles from './Home.module.scss';
@@ -10,7 +9,7 @@ export const Home: FC = () => {
         <div className={styles.homeNavWrap}>
           <div className={styles.homeNavWrapInner}>
             <h3>
-              <AnimatedText delay={1.5}>M Kacy Sommers"</AnimatedText>
+              <AnimatedText delay={1.5}>M Kacy Sommers</AnimatedText>
             </h3>
             <p>
               <AnimatedText delay={1.5}>

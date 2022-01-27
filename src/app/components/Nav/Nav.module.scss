@@ -4,7 +4,7 @@ div.nav {
   > a {
     margin-right: 1rem;
     position: relative;
-    &.activeLink:after {
+    &:after {
       content: '';
       background: $dark;
       position: absolute;
@@ -12,6 +12,27 @@ div.nav {
       right: 8px;
       bottom: -4px;
       height: 3px;
+      opacity: 0;
     }
+    &.activeLink:after {
+      opacity: 1;
+    }
+    &:not(.activeLink):hover {
+      &:after {
+        display: inline-block;
+        animation: shortenFade 0.5s forwards;
+      }
+    }
+  }
+}
+
+@keyframes shortenFade {
+  from {
+    opacity: 0;
+    right: -8px;
+  }
+  to {
+    opacity: 1;
+    right: 8px;
   }
 }
