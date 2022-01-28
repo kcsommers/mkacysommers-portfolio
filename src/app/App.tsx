@@ -1,12 +1,11 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
 import { useTransition } from './core';
 import {
   About,
   Contact,
   Home,
-  ProjectView,
   ResumeView,
   TransitionView,
   Work,
@@ -18,53 +17,49 @@ export const App = () => {
   return (
     <main className={styles.appWrap}>
       <AnimatePresence onExitComplete={() => setInTransition(false)}>
-        <Switch location={location} key={location.pathname}>
+        <Routes location={location} key={location.pathname}>
           <Route
-            exact
             path="/"
-            render={() => (
+            element={
               <TransitionView>
                 <Home />
               </TransitionView>
-            )}
+            }
           />
           <Route
-            exact
             path="/about"
-            render={() => (
+            element={
               <TransitionView>
                 <About />
               </TransitionView>
-            )}
+            }
           />
           <Route
-            path="/work/:projectTitle?"
-            render={() => (
+            path="/work/*"
+            element={
               <TransitionView>
                 <Work />
               </TransitionView>
-            )}
+            }
           />
           <Route
-            exact
             path="/contact"
-            render={() => (
+            element={
               <TransitionView>
                 <Contact />
               </TransitionView>
-            )}
+            }
           />
           <Route
-            exact
             path="/resume"
-            render={() => (
+            element={
               <TransitionView>
                 <ResumeView />
               </TransitionView>
-            )}
+            }
           />
-        </Switch>
-        <div className={styles.logoWrap} key="logo-light">
+        </Routes>
+        <div className={styles.logoWrap}>
           <img
             src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
             alt="M Kacy Sommers logo"

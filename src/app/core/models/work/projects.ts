@@ -3,6 +3,7 @@ import { IProject } from './project.interface';
 export const projects: IProject[] = [
   {
     title: 'Adaptive Protocols, Inc',
+    param: 'adaptiva',
     blurb:
       'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
     description:
@@ -28,6 +29,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Statrookie - Financials Junior GM',
+    param: 'statrookie',
     blurb:
       'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
     description:
@@ -53,6 +55,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Sonrisa Donuts',
+    param: 'sonrisa',
     blurb:
       'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
     description:
@@ -78,6 +81,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'K9 Precheck',
+    param: 'k9precheck',
     blurb:
       'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
     description:
@@ -103,6 +107,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Lo Wolf Music',
+    param: 'lowolf-music',
     blurb:
       'Website for singer-songwriter Lo Wolf, with a store for purchasing digital tracks and hard copies, and an admin page for logging transactions, adding shows and keeping track of new subscribers.',
     description:
@@ -118,6 +123,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Lichter Photo',
+    param: 'lichter-photo',
     blurb:
       'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
     description:
@@ -143,6 +149,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Bookkeeper',
+    param: 'bookkeeper',
     blurb:
       'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
     description:
@@ -168,6 +175,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Good Market',
+    param: 'good-market',
     blurb:
       "Full stack ecommerce site for buying and selling items, and donating portions of each sale to an organization of the user's choosing.",
     description:
@@ -191,6 +199,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Star Stacker',
+    param: 'star-stacker',
     blurb:
       'Two player front-end game, based on SEGA’s Columns, in which players match colored pieces vertically, horizontally and diagonally as they drop down the screen at increasing speeds.',
     description:

@@ -23,6 +23,10 @@ div.workNavWrapInner {
   flex-direction: column;
   justify-content: flex-end;
   top: 0;
+  position: sticky;
+  background-color: $light;
+  z-index: 100;
+  padding-top: 20px;
   > h3 {
     margin-bottom: 20px;
   }
