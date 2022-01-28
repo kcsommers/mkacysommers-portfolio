@@ -4,11 +4,15 @@ import './app/styles/main.scss';
 import { App } from './app/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { TransitionContextProvider } from './app/core';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <TransitionContextProvider>
+        <App />
+      </TransitionContextProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

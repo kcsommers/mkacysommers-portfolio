@@ -17,10 +17,13 @@ div.nav {
     &.activeLink:after {
       opacity: 1;
     }
-    &:not(.activeLink):hover {
-      &:after {
-        display: inline-block;
-        animation: shortenFade 0.5s forwards;
+    &:not(.activeLink) {
+      &:hover,
+      &:focus {
+        &:after {
+          display: inline-block;
+          animation: shortenFade 0.5s forwards;
+        }
       }
     }
   }
