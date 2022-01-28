@@ -3,7 +3,7 @@ import resume from '../../../assets/images/resume/MKacySommers_resume.svg';
 import { AnimatedText, Button, Nav } from '../../components';
 import styles from './Resume.module.scss';
 
-export const Resume = () => {
+export const ResumeView = () => {
   return (
     <div className={styles.resumeWrap}>
       <div className={styles.resumeWrapInner}>

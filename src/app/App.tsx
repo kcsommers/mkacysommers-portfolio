@@ -2,7 +2,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
 import { useTransition } from './core';
-import { About, Contact, Home, Resume, TransitionView, Work } from './views';
+import {
+  About,
+  Contact,
+  Home,
+  ProjectView,
+  ResumeView,
+  TransitionView,
+  Work,
+} from './views';
 
 export const App = () => {
   const location = useLocation();
@@ -30,8 +38,7 @@ export const App = () => {
             )}
           />
           <Route
-            exact
-            path="/work"
+            path="/work/:projectTitle?"
             render={() => (
               <TransitionView>
                 <Work />
@@ -52,7 +59,7 @@ export const App = () => {
             path="/resume"
             render={() => (
               <TransitionView>
-                <Resume />
+                <ResumeView />
               </TransitionView>
             )}
           />

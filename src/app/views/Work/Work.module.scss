@@ -38,21 +38,22 @@ div.projectsWrap {
 }
 
 div.projectWrap {
-  cursor: pointer;
   padding: 0 6rem;
   margin: 3rem 0;
-  > h2 {
-    margin-bottom: 0.5rem;
-    transition: transform 0.2s ease;
-    transform-origin: bottom left;
-  }
-
   &:hover {
-    > h2 {
+    > a > h2 {
       transform: skew(-8deg);
     }
   }
-  > img {
-    width: 100%;
+  > a {
+    > h2 {
+      margin-bottom: 0.5rem;
+      transition: transform 0.2s ease;
+      transform-origin: bottom left;
+    }
+
+    > img {
+      width: 100%;
+    }
   }
 }

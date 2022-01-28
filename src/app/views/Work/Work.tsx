@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { AnimatedText, Nav } from '../../components';
 import { IProject, projects } from '../../core';
 import styles from './Work.module.scss';
@@ -71,8 +72,10 @@ export const Work: FC = () => {
                   duration: 0.5,
                 }}
               >
-                <h2>{p.title}</h2>
-                <img src={p.images[0]} alt={p.title} />
+                <Link to={`/work/${p.title}`}>
+                  <h2>{p.title}</h2>
+                  <img src={p.images[0]} alt={p.title} />
+                </Link>
               </motion.div>
             );
           })}
