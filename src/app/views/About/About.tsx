@@ -6,8 +6,8 @@ export const About: FC = () => {
   return (
     <div className={styles.aboutWrap}>
       <div className={styles.aboutWrapInner}>
-        <div className={styles.aboutNavWrap}>
-          <div className={styles.aboutNavWrapInner}>
+        <div className="nav-wrap">
+          <div className="nav-wrap-inner">
             <h3 className="animated-text-wrap">
               <AnimatedText delay={1.25}>About</AnimatedText>
             </h3>

@@ -1,5 +1,10 @@
 @import '../../styles/variables.scss';
 
+div.transitionSlidesWrap {
+  overflow-x: hidden;
+}
+
+div.transitionSlidesWrap,
 div.transitionSlideLight,
 div.transitionSlideDark {
   position: absolute;

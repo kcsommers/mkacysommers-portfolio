@@ -1,8 +1,9 @@
+@import './styles/colors.scss';
+
 main.appWrap {
   height: 100%;
   margin: 0 auto;
   position: relative;
-  // overflow-x: hidden;
 }
 
 div.logoWrap {
@@ -19,5 +20,53 @@ div.logoWrap {
   img {
     width: 100%;
     display: inline-block;
+  }
+}
+
+div.socialNavWrap {
+  position: absolute;
+  z-index: 400;
+  top: 1rem;
+  right: 0;
+  span {
+    font-weight: bold;
+    margin-right: 1rem;
+  }
+  > a {
+    margin-right: 1rem;
+    position: relative;
+    &:after {
+      content: '';
+      background: $dark;
+      position: absolute;
+      left: 0;
+      right: 8px;
+      bottom: -4px;
+      height: 3px;
+      opacity: 0;
+    }
+    &.activeLink:after {
+      opacity: 1;
+    }
+    &:not(.activeLink) {
+      &:hover,
+      &:focus {
+        &:after {
+          display: inline-block;
+          animation: shortenFade 0.5s forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes shortenFade {
+  from {
+    opacity: 0;
+    right: -8px;
+  }
+  to {
+    opacity: 1;
+    right: 8px;
   }
 }

@@ -20,8 +20,8 @@ export const Work: FC = () => {
     <div className={styles.workWrap}>
       {!selectedProject ? (
         <div className={styles.workWrapInner}>
-          <div className={styles.workNavWrap}>
-            <div className={styles.workNavWrapInner}>
+          <div className="nav-wrap">
+            <div className="nav-wrap-inner">
               <h3 className="animated-text-wrap">
                 <AnimatedText delay={1.25}>Work</AnimatedText>
               </h3>

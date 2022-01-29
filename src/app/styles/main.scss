@@ -48,3 +48,23 @@ img {
 *.animated-text-wrap {
   overflow: hidden;
 }
+
+div.nav-wrap {
+  margin-left: 15%;
+  min-width: 305px;
+  margin-top: 30vh;
+}
+
+div.nav-wrap-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  top: 0;
+  position: sticky;
+  z-index: 100;
+  background-color: rgba($light, 0.75);
+  backdrop-filter: blur(2px);
+  > h3 {
+    margin-bottom: 20px;
+  }
+}

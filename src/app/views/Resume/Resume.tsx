@@ -8,8 +8,8 @@ export const ResumeView = () => {
     <>
       <div className={styles.resumeWrap}>
         <div className={styles.resumeWrapInner}>
-          <div className={styles.resumeNavWrap}>
-            <div className={styles.resumeNavWrapInner}>
+          <div className="nav-wrap">
+            <div className="nav-wrap-inner">
               <h3 className="animated-text-wrap">
                 <AnimatedText delay={1.25}>Resume</AnimatedText>
               </h3>

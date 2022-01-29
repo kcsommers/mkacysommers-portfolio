@@ -15,7 +15,7 @@ div.contactWrapInner {
 div.contactNavWrap {
   margin-left: 15%;
   min-width: 305px;
-  margin-top: 15%;
+  margin-top: 30vh;
   position: sticky;
   top: 0;
 }
@@ -25,6 +25,8 @@ div.contactNavWrapInner {
   flex-direction: column;
   justify-content: flex-end;
   top: 0;
+  position: sticky;
+  z-index: 100;
   > h3 {
     margin-bottom: 20px;
   }
