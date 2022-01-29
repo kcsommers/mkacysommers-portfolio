@@ -7,21 +7,10 @@ export const Home: FC = () => {
     <div className={styles.homeWrap}>
       <div className={styles.homeWrapInner}>
         <div className={styles.homeNavWrap}>
-          <div className={styles.homeNavWrapInner}>
-            <h3 className="animated-text-wrap">
-              <AnimatedText delay={1.25}>M Kacy Sommers</AnimatedText>
-            </h3>
-            <p className="animated-text-wrap">
-              <AnimatedText delay={1.35}>
-                Web Developer. Javascript Professional.
-              </AnimatedText>
-            </p>
-            <span className="animated-text-wrap">
-              <AnimatedText delay={1.45}>
-                <Nav />
-              </AnimatedText>
-            </span>
-          </div>
+          <Nav
+            title="M Kacy Sommer"
+            subtext="Web Developer. Javascript Professional."
+          />
         </div>
       </div>
     </div>

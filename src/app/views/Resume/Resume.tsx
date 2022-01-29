@@ -9,20 +9,11 @@ export const ResumeView = () => {
       <div className={styles.resumeWrap}>
         <div className={styles.resumeWrapInner}>
           <div className="nav-wrap">
-            <div className="nav-wrap-inner">
-              <h3 className="animated-text-wrap">
-                <AnimatedText delay={1.25}>Resume</AnimatedText>
-              </h3>
-              <span className="animated-text-wrap">
-                <AnimatedText delay={1.35}>
-                  <Nav />
-                </AnimatedText>
-              </span>
-              <div className={`${styles.downloadBtnWrap} animated-text-wrap`}>
-                <AnimatedText delay={1.45}>
-                  <Button text="Download" />
-                </AnimatedText>
-              </div>
+            <Nav title="Resume" />
+            <div className={`${styles.downloadBtnWrap} animated-text-wrap`}>
+              <AnimatedText delay={1.45}>
+                <Button text="Download" />
+              </AnimatedText>
             </div>
           </div>
           <motion.div

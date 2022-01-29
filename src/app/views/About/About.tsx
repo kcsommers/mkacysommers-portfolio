@@ -7,16 +7,7 @@ export const About: FC = () => {
     <div className={styles.aboutWrap}>
       <div className={styles.aboutWrapInner}>
         <div className="nav-wrap">
-          <div className="nav-wrap-inner">
-            <h3 className="animated-text-wrap">
-              <AnimatedText delay={1.25}>About</AnimatedText>
-            </h3>
-            <span className="animated-text-wrap">
-              <AnimatedText delay={1.35}>
-                <Nav />
-              </AnimatedText>
-            </span>
-          </div>
+          <Nav title="About" />
           <div className={styles.aboutBlurbWrap}>
             <p className="animated-text-wrap">
               <AnimatedText delay={1.45}>

@@ -12,16 +12,7 @@ export const Contact: FC = () => {
     <div className={styles.contactWrap}>
       <div className={styles.contactWrapInner}>
         <div className="nav-wrap">
-          <div className="nav-wrap-inner">
-            <h3 className="animated-text-wrap">
-              <AnimatedText delay={1.25}>Contact</AnimatedText>
-            </h3>
-            <span className="animated-text-wrap">
-              <AnimatedText delay={1.35}>
-                <Nav />
-              </AnimatedText>
-            </span>
-          </div>
+          <Nav title="Contact" />
           <div className={styles.contactBlurbWrap}>
             <p className="animated-text-wrap">
               <AnimatedText delay={1.45}>

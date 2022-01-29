@@ -21,16 +21,7 @@ export const Work: FC = () => {
       {!selectedProject ? (
         <div className={styles.workWrapInner}>
           <div className="nav-wrap">
-            <div className="nav-wrap-inner">
-              <h3 className="animated-text-wrap">
-                <AnimatedText delay={1.25}>Work</AnimatedText>
-              </h3>
-              <span className="animated-text-wrap">
-                <AnimatedText delay={1.35}>
-                  <Nav />
-                </AnimatedText>
-              </span>
-            </div>
+            <Nav title="Work" />
             <div className={styles.workBlurbWrap}>
               <p className="animated-text-wrap">
                 <AnimatedText delay={1.45}>
