@@ -1,25 +1,6 @@
 @import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
-
-div.resumeWrap {
-  min-height: 100vh;
-  position: relative;
-  padding-bottom: 4rem;
-  z-index: 300;
-}
-
-div.resumeWrapInner {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  @include for-tablet-landscape-up {
-    flex-direction: row;
-  }
-}
 
 div.resumeImgWrap {
-  margin-top: 5%;
-  padding: 3rem 6rem 0 6rem;
   > img {
     box-shadow: $box-shadow;
     width: 100%;

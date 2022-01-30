@@ -1,4 +1,5 @@
 @import './styles/colors.scss';
+@import './styles/mixins.scss';
 
 main.appWrap {
   height: 100%;
@@ -13,13 +14,19 @@ div.logoWrap {
   max-height: 100vh;
   display: flex;
   align-items: center;
-  right: 15%;
+  right: 50%;
   width: 25%;
   min-width: 375px;
   animation: fadeInLogo 2s forwards;
+  transform: translateX(50%);
+  transition: all 0.2s ease;
   img {
     width: 100%;
     display: inline-block;
+  }
+  @include for-tablet-portrait-up {
+    right: 15%;
+    transform: none;
   }
 }
 

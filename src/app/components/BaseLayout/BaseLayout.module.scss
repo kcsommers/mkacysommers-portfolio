@@ -17,30 +17,47 @@ div.layoutWrapInner {
 }
 
 div.pageContentLeft {
-  margin: 27vh 0 0 0;
-  min-width: 305px;
   flex: 1;
-  padding: 0 10%;
   transition: all 0.2s ease;
+  padding-top: 30vh;
   @include for-tablet-landscape-up {
-    margin-left: 15%;
+    flex: 0.85;
+  }
+}
+
+div.navWrap {
+  margin-bottom: 30px;
+}
+
+div.navWrap,
+div.pageContentLeftInner {
+  position: relative;
+  left: 0;
+  padding: 0 15%;
+  @include for-tablet-landscape-up {
+    left: 30%;
     padding: 0;
   }
+}
 
-  > div.pageContentLeftInner {
-    width: 100%;
-    margin-top: 30px;
-    @include for-tablet-landscape-up {
-      width: 275px;
-    }
+div.pageContentLeftInner {
+  @include for-tablet-landscape-up {
+    max-width: 275px;
   }
 }
 
 div.pageContentRight {
-  margin: 10vh 0 0 0;
-  padding: 0 10%;
+  flex: 1;
   transition: all 0.2s ease;
+  padding-top: 10vh;
   @include for-tablet-landscape-up {
-    padding: 0 5%;
+    padding-top: 20vh;
+  }
+}
+
+div.pageContentRightInner {
+  padding: 0 15%;
+  @include for-tablet-landscape-up {
+    padding: 0 15% 0 5%;
   }
 }

@@ -2,14 +2,14 @@ import { FC, ReactNode } from 'react';
 import { Nav } from '../Nav';
 import styles from './BaseLayout.module.scss';
 
-interface ILayoutProps {
-  leftContent: ReactNode;
-  rightContent: ReactNode;
+interface IBaseLayoutProps {
+  leftContent?: ReactNode;
+  rightContent?: ReactNode;
   pageTitle: string;
   pageSubtext?: string;
 }
 
-export const BaseLayout: FC<ILayoutProps> = ({
+export const BaseLayout: FC<IBaseLayoutProps> = ({
   leftContent,
   rightContent,
   pageTitle,
@@ -19,10 +19,14 @@ export const BaseLayout: FC<ILayoutProps> = ({
     <div className={styles.layoutWrap}>
       <div className={styles.layoutWrapInner}>
         <div className={styles.pageContentLeft}>
-          <Nav title={pageTitle} subtext={pageSubtext} />
+          <div className={styles.navWrap}>
+            <Nav title={pageTitle} subtext={pageSubtext} />
+          </div>
           <div className={styles.pageContentLeftInner}>{leftContent}</div>
         </div>
-        <div className={styles.pageContentRight}>{rightContent}</div>
+        <div className={styles.pageContentRight}>
+          <div className={styles.pageContentRightInner}>{rightContent}</div>
+        </div>
       </div>
     </div>
   );

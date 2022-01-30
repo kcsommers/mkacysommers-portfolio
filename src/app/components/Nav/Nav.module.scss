@@ -1,22 +1,37 @@
 @import '../../styles/colors.scss';
 
 div.navWrap {
+  position: relative;
+  min-height: 91px;
+}
+
+div.navPlaceholder {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+div.navWrapInner {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  top: -1px;
-  position: sticky;
   z-index: 100;
   padding-top: 20px;
   min-width: 305px;
+  position: relative;
 
   > p {
     margin-bottom: 20px;
   }
 
   &.navFixed {
-    background-color: rgba($light, 0.75);
+    background-color: rgba($light, 0.85);
     backdrop-filter: blur(2px);
+    position: fixed;
+    top: -1px;
+    width: 100%;
   }
 }
 

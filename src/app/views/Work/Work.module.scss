@@ -2,7 +2,9 @@
 @import '../../styles/mixins.scss';
 
 div.projectWrap {
-  margin: 3rem 0;
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
   &:hover {
     > a > h2 {
       transform: skew(-8deg);

@@ -20,7 +20,10 @@ div#root {
 h2 {
   font-family: Marcellus;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 25px;
+  @include for-tablet-portrait-up {
+    font-size: 30px;
+  }
 }
 
 h3,
