@@ -1,0 +1,46 @@
+@import '../../styles/mixins.scss';
+
+div.layoutWrap {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 4rem;
+  z-index: 300;
+}
+
+div.layoutWrapInner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  @include for-tablet-landscape-up {
+    flex-direction: row;
+  }
+}
+
+div.pageContentLeft {
+  margin: 27vh 0 0 0;
+  min-width: 305px;
+  flex: 1;
+  padding: 0 10%;
+  transition: all 0.2s ease;
+  @include for-tablet-landscape-up {
+    margin-left: 15%;
+    padding: 0;
+  }
+
+  > div.pageContentLeftInner {
+    width: 100%;
+    margin-top: 30px;
+    @include for-tablet-landscape-up {
+      width: 275px;
+    }
+  }
+}
+
+div.pageContentRight {
+  margin: 10vh 0 0 0;
+  padding: 0 10%;
+  transition: all 0.2s ease;
+  @include for-tablet-landscape-up {
+    padding: 0 5%;
+  }
+}

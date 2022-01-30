@@ -1,28 +1,7 @@
 @import '../../styles/variables.scss';
-
-div.workWrap {
-  min-height: 100vh;
-  position: relative;
-  padding-bottom: 4rem;
-  z-index: 300;
-}
-
-div.workWrapInner {
-  display: flex;
-  position: relative;
-}
-
-div.workBlurbWrap {
-  width: 275px;
-  margin-top: 30px;
-}
-
-div.projectsWrap {
-  margin-top: 5%;
-}
+@import '../../styles/mixins.scss';
 
 div.projectWrap {
-  padding: 0 6rem;
   margin: 3rem 0;
   &:hover {
     > a > h2 {

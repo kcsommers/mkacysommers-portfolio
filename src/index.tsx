@@ -1,11 +1,10 @@
+import './app/styles/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './app/styles/main.scss';
-import { App } from './app/App';
-import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { App } from './app/App';
 import { TransitionContextProvider } from './app/core';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>

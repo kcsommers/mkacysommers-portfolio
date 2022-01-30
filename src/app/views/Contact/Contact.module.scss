@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 div.contactWrap {
   min-height: 100vh;
@@ -9,24 +10,14 @@ div.contactWrap {
 
 div.contactWrapInner {
   display: flex;
+  flex-direction: column;
   position: relative;
-}
-
-div.contactNavWrap {
-  margin-left: 15%;
-  min-width: 305px;
-  margin-top: 30vh;
-}
-
-div.contactBlurbWrap {
-  width: 275px;
-  margin-top: 30px;
+  @include for-tablet-landscape-up {
+    flex-direction: row;
+  }
 }
 
 div.contactFormWrap {
-  margin-top: 5%;
-  flex: 1;
-  padding: 3rem 6rem 0 6rem;
   > h2 {
     margin-bottom: 0.5rem;
   }

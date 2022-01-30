@@ -5,7 +5,7 @@ import { ITransitionContext } from './transition-context.interface';
 export const TransitionContextProvider: FC<PropsWithChildren<{}>> = ({
   children,
 }) => {
-  const [inTransition, setInTransition] = useState(false);
+  const [inTransition, setInTransition] = useState(true);
 
   const memoedValue = useMemo<ITransitionContext>(
     () => ({

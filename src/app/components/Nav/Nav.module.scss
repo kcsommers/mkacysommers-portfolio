@@ -1,17 +1,22 @@
 @import '../../styles/colors.scss';
 
-div.navWrapInner {
+div.navWrap {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  top: 0;
+  top: -1px;
   position: sticky;
   z-index: 100;
-  background-color: rgba($light, 0.75);
-  backdrop-filter: blur(2px);
+  padding-top: 20px;
+  min-width: 305px;
 
   > p {
     margin-bottom: 20px;
+  }
+
+  &.navFixed {
+    background-color: rgba($light, 0.75);
+    backdrop-filter: blur(2px);
   }
 }
 

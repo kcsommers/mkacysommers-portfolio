@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 div.resumeWrap {
   min-height: 100vh;
@@ -9,32 +10,11 @@ div.resumeWrap {
 
 div.resumeWrapInner {
   display: flex;
-  position: relative;
-}
-
-div.resumeNavWrap {
-  margin-left: 15%;
-  min-width: 305px;
-  margin-top: 30vh;
-  position: sticky;
-  top: 0;
-}
-
-div.resumeNavWrapInner {
-  display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  top: 0;
-  position: sticky;
-  z-index: 100;
-  > h3 {
-    margin-bottom: 20px;
+  position: relative;
+  @include for-tablet-landscape-up {
+    flex-direction: row;
   }
-}
-
-div.resumeBlurbWrap {
-  width: 275px;
-  margin-top: 30px;
 }
 
 div.resumeImgWrap {

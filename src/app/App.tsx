@@ -1,30 +1,21 @@
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AnimatePresence } from 'framer-motion';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
-import { useTransition } from './core';
-import {
-  About,
-  Contact,
-  Home,
-  ResumeView,
-  TransitionView,
-  Work,
-} from './views';
+import { TransitionView } from './components';
+import { About, Contact, Home, ResumeView, Work } from './views';
 
 export const App = () => {
   const location = useLocation();
-  const { inTransition, setInTransition } = useTransition();
 
   return (
     <main className={styles.appWrap}>
       <div className={styles.socialNavWrap}>
         <a href="https://www.linkedin.com/in/kacy-sommers/">linkedin</a>
         <a href="https://github.com/kcsommers?tab=repositories">github</a>
+        <span className={styles.socialNavSlash}>\</span>
         <span>&copy; 2022</span>
       </div>
-      <AnimatePresence onExitComplete={() => setInTransition(false)}>
+      <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           <Route
             path="/"

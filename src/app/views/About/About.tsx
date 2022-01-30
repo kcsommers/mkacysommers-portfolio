@@ -6,9 +6,9 @@ export const About: FC = () => {
   return (
     <div className={styles.aboutWrap}>
       <div className={styles.aboutWrapInner}>
-        <div className="nav-wrap">
+        <div className="page-content-left">
           <Nav title="About" />
-          <div className={styles.aboutBlurbWrap}>
+          <div className="page-content-left-inner">
             <p className="animated-text-wrap">
               <AnimatedText delay={1.45}>
                 Hi, I'm Kacy I'm a Seattle based developer who loves to create

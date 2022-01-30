@@ -5,10 +5,10 @@ import styles from './Resume.module.scss';
 
 export const ResumeView = () => {
   return (
-    <>
-      <div className={styles.resumeWrap}>
-        <div className={styles.resumeWrapInner}>
-          <div className="nav-wrap">
+    <div className={styles.resumeWrap}>
+      <div className={styles.resumeWrapInner}>
+        <div className="page-content-left-inner">
+          <div className="page-content-left">
             <Nav title="Resume" />
             <div className={`${styles.downloadBtnWrap} animated-text-wrap`}>
               <AnimatedText delay={1.45}>
@@ -48,6 +48,6 @@ export const ResumeView = () => {
           </motion.div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

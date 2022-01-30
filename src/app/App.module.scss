@@ -16,7 +16,7 @@ div.logoWrap {
   right: 15%;
   width: 25%;
   min-width: 375px;
-  opacity: 0.25;
+  animation: fadeInLogo 2s forwards;
   img {
     width: 100%;
     display: inline-block;
@@ -31,9 +31,14 @@ div.socialNavWrap {
   span {
     font-weight: bold;
     margin-right: 1rem;
+    &.socialNavSlash {
+      margin: 0 0.5rem;
+    }
   }
   > a {
-    margin-right: 1rem;
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
     position: relative;
     &:after {
       content: '';
@@ -68,5 +73,14 @@ div.socialNavWrap {
   to {
     opacity: 1;
     right: 8px;
+  }
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.2;
   }
 }

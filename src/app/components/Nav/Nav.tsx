@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, useEffect, useMemo, useRef } from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { AnimatedText } from '../AnimatedText';
 import { useTransition } from '../../core';
 import styles from './Nav.module.scss';
+import { useInView } from 'react-intersection-observer';
 
 interface INavProps {
   title?: string;
@@ -13,10 +14,18 @@ interface INavProps {
 export const Nav: FC<INavProps> = ({ title, subtext }) => {
   const location = useLocation();
   const pathname: string = location.pathname;
-  const { setInTransition } = useTransition();
+  const { inTransition, setInTransition } = useTransition();
+  const [navWrapRef, inView] = useInView({
+    threshold: 1,
+  });
 
   return (
-    <div className={styles.navWrapInner}>
+    <div
+      className={`${styles.navWrap} ${
+        !inView && !inTransition ? styles.navFixed : ''
+      }`}
+      ref={navWrapRef}
+    >
       <h3
         className="animated-text-wrap"
         style={{
