@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import resume from '../../../assets/images/resume/MKacySommers_resume.svg';
 import { AnimatedText, BaseLayout, Button } from '../../components';
 import styles from './Resume.module.scss';
 
@@ -43,7 +42,10 @@ export const ResumeView = () => {
             duration: 0.5,
           }}
         >
-          <img src={resume} alt="M Kacy Sommers Resume" />
+          <img
+            src="https://res.cloudinary.com/kcsommers/image/upload/v1643525897/M%20Kacy%20Sommers/MKacySommers-resume_01-2022.png"
+            alt="M Kacy Sommers Resume"
+          />
         </motion.div>
       }
     />

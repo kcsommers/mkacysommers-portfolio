@@ -34,9 +34,9 @@ div.pageContentLeftInner {
   position: relative;
   left: 0;
   padding: 0 15%;
+  box-sizing: initial;
   @include for-tablet-landscape-up {
-    left: 30%;
-    padding: 0;
+    padding: 0 0 0 30%;
   }
 }
 

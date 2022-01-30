@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useRef } from 'react';
+import { FC } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';

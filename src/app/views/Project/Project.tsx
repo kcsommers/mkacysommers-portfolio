@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { IProject } from '../../core';
+import { IProject, IProjectSection } from '../../core';
 import styles from './Project.module.scss';
 
 interface IProjectViewProps {
@@ -74,33 +74,40 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
           delay: 0.75,
         }}
       >
-        <img src={project.images[0]} alt={project.title} />
+        <img src={project.coverImage} alt={project.title} />
       </motion.div>
-      <motion.p
-        className={styles.projectDescription}
-        initial="enter"
-        animate="center"
-        variants={slideUpVariants}
-        transition={{
-          duration: DURATION,
-          delay: 0.75,
-        }}
-      >
-        {project.description}
-      </motion.p>
-      {project.images.slice(1).map((_url: string) => (
-        <motion.div
-          className={styles.projectImgWrap}
-          initial="enter"
-          animate="center"
-          variants={slideUpVariants}
-          transition={{
-            duration: DURATION,
-            delay: 0.75,
-          }}
-        >
-          <img src={_url} alt={project.title} />
-        </motion.div>
+      {project.sections.map((_section: IProjectSection) => (
+        <>
+          {_section.text && (
+            <motion.p
+              className={styles.projectDescription}
+              style={_section.text.styles}
+              initial="enter"
+              animate="center"
+              variants={slideUpVariants}
+              transition={{
+                duration: DURATION,
+                delay: 0.75,
+              }}
+            >
+              {_section.text.content}
+            </motion.p>
+          )}
+          {(_section.images || []).slice(1).map((_url: string) => (
+            <motion.div
+              className={styles.projectImgWrap}
+              initial="enter"
+              animate="center"
+              variants={slideUpVariants}
+              transition={{
+                duration: DURATION,
+                delay: 0.75,
+              }}
+            >
+              <img src={_url} alt={project.title} />
+            </motion.div>
+          ))}
+        </>
       ))}
     </div>
   );
