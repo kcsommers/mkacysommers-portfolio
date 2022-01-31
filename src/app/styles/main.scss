@@ -26,8 +26,14 @@ h2 {
   }
 }
 
-h3,
-h3 > span {
+h3 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  line-height: 33px;
+}
+
+h4,
+h4 > span {
   font-size: 15px;
   letter-spacing: 2px;
   font-weight: bold;

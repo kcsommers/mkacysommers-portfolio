@@ -11,4 +11,5 @@ export interface IProject {
     site: string;
   };
   sections: IProjectSection[];
+  roles?: string[];
 }

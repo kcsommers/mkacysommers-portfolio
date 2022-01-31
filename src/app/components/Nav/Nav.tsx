@@ -27,14 +27,14 @@ export const Nav: FC<INavProps> = ({ title, subtext }) => {
           !inView && !inTransition ? styles.navFixed : ''
         }`}
       >
-        <h3
+        <h4
           className="animated-text-wrap"
           style={{
             marginBottom: subtext ? '10px' : '20px',
           }}
         >
           <AnimatedText delay={1.25}>{title}</AnimatedText>
-        </h3>
+        </h4>
         {subtext && (
           <p className="animated-text-wrap">
             <AnimatedText delay={1.35}>{subtext}</AnimatedText>

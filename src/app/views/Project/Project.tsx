@@ -52,7 +52,10 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
       >
         {project.title}
       </motion.h2>
-      <motion.p
+      {project.roles && (
+        <span className={styles.roles}>{project.roles.join(', ')}</span>
+      )}
+      <motion.h3
         className={styles.projectBlurb}
         initial="enter"
         animate="center"
@@ -63,24 +66,12 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
         }}
       >
         {project.blurb}
-      </motion.p>
-      <motion.div
-        className={styles.projectImgWrap}
-        initial="enter"
-        animate="center"
-        variants={slideUpVariants}
-        transition={{
-          duration: DURATION,
-          delay: 0.75,
-        }}
-      >
-        <img src={project.coverImage} alt={project.title} />
-      </motion.div>
+      </motion.h3>
       {project.sections.map((_section: IProjectSection) => (
         <>
           {_section.text && (
             <motion.p
-              className={styles.projectDescription}
+              className={styles.sectionText}
               style={_section.text.styles}
               initial="enter"
               animate="center"
@@ -93,7 +84,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
               {_section.text.content}
             </motion.p>
           )}
-          {(_section.images || []).slice(1).map((_url: string) => (
+          {(_section.images || []).map((_url: string) => (
             <motion.div
               className={styles.projectImgWrap}
               initial="enter"

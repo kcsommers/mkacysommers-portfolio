@@ -1,5 +1,5 @@
 div.projectViewWrap {
-  padding: 6rem;
+  padding: 6rem 15%;
   position: relative;
   z-index: 300;
 }
@@ -21,8 +21,8 @@ div.backBtnWrap {
   }
 }
 
-p.projectBlurb {
-  margin: 2rem 0 3rem 0;
+h3.projectBlurb {
+  margin: 30px 0 20px 0;
 }
 
 div.projectImgWrap {
@@ -30,6 +30,10 @@ div.projectImgWrap {
   > img {
     width: 100%;
   }
+}
+
+p.sectionText {
+  margin-bottom: 20px;
 }
 
 @keyframes slideRight {

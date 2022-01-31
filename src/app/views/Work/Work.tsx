@@ -56,7 +56,7 @@ export const Work: FC = () => {
       rightContent={Object.keys(projects).map((_type: string) => {
         return (
           <>
-            <h3>{_type}</h3>
+            <h4>{_type}</h4>
             {projects[_type].map((_p: IProject) => (
               <motion.div
                 key={_p.title}
