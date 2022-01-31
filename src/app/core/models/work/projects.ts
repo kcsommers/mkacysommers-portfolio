@@ -6,15 +6,52 @@ export const projects: { [projectType: string]: IProject[] } = {
       title: 'Adaptiva',
       param: 'adaptiva',
       blurb:
-        "Adaptiva is a Bellevue, WA based company offering industry leading endpoint management software. It's flagship product leverages innovative peer-to-peer protocols to enable serverless software distribution with zero throttling at enterprise scale.",
-      sections: [],
-      tools: ['Angular', 'SCSS', 'Git', 'Jira', 'Java', 'D3'],
+        'Full time senior front end engineering role for Adaptiva, an industry leading endpoint management software company based in Bellevue, WA.',
+      tools: ['Angular', 'SCSS', 'Git', 'Java', 'SQL'],
       coverImage:
         'https://res.cloudinary.com/kcsommers/image/upload/v1643244724/M%20Kacy%20Sommers/adaptiva/adaptiva-7.png',
       links: {
         github: 'https://github.com/kcsommers/project2-bookkeeper',
         site: 'https://bookkeeper212.herokuapp.com/',
       },
+      roles: ['Senior Front End Engineer'],
+      sections: [
+        {
+          images: [
+            'https://res.cloudinary.com/kcsommers/image/upload/v1643244724/M%20Kacy%20Sommers/adaptiva/adaptiva-7.png',
+          ],
+        },
+        {
+          text: {
+            content:
+              "I was brought on to Adaptiva's engineering team in November of 2018 as an entry level developer. As one of the company's first front end hires, our initial goal was to create a more modern UI for the browser which would replace the company's outdated native UI. The new cloud based framework was written in Angular, a framework which pairs well with Java, Adaptiva's primary back end language.",
+          },
+        },
+        {
+          text: {
+            content:
+              'With massive customers such as Walmart and the US Department of Defense, a primary challenge the front end team dealt with regularly was building UI which intuitively represented their data without overwhelming and potentially crashing the browser. To address this challenge we often employed web workers to offload intensive processes from the main javascript thread.',
+          },
+        },
+        {
+          text: {
+            content:
+              'As our Angular codebase grew and we continued to ship new products, we hired new developers to focus on existing products as the senior team made improvements and added new features to the platform. Scalability was a main concern, as poorly designed code quickly became apparent during intense sprints. The lessons learned from these designs and the experience gained from fixing them gave me very valuable insight into proper app architecture.',
+          },
+        },
+        {
+          text: {
+            content:
+              'As a senior engineer on the platform team, I was able to take on some very interesting and challening projects. One such project was a vast improvement to our existing UI building tool. The result was a SquareSpace like experience which our customers and support team could use to build custom dashboards in minutes. This greatly improved product demoability, as any data could be quickly visualized without writing any code.',
+          },
+        },
+        {
+          text: {
+            content:
+              "During my years at Adaptiva I gained invaluable knowledge and professional experience as a developer. As this was my first full time role, I'm forever grateful to the company for taking a chance on hiring me, for trusting me with significant and challenging deliverables, and providing me with plenty of room to grow on a team of incredibly talented engineers I could continuously learn from.",
+          },
+        },
+      ],
     },
     {
       title: 'Statrookie - Financials Junior GM',
