@@ -6,9 +6,9 @@ export interface IProject {
   blurb: string;
   tools: string[];
   coverImage: string;
-  links: {
-    github: string;
-    site: string;
+  links?: {
+    github?: string;
+    site?: string;
   };
   sections: IProjectSection[];
   roles?: string[];

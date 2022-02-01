@@ -10,10 +10,6 @@ export const projects: { [projectType: string]: IProject[] } = {
       tools: ['Angular', 'SCSS', 'Git', 'Java', 'SQL'],
       coverImage:
         'https://res.cloudinary.com/kcsommers/image/upload/v1643244724/M%20Kacy%20Sommers/adaptiva/adaptiva-7.png',
-      links: {
-        github: 'https://github.com/kcsommers/project2-bookkeeper',
-        site: 'https://bookkeeper212.herokuapp.com/',
-      },
       roles: ['Senior Front End Engineer'],
       sections: [
         {
@@ -53,47 +49,61 @@ export const projects: { [projectType: string]: IProject[] } = {
         },
       ],
     },
+  ],
+  Freelance: [
     {
       title: 'Statrookie - Financials Junior GM',
       param: 'statrookie',
+      roles: ['Front End Engineer', 'Designer'],
       blurb:
-        'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
-      tools: [
-        'HTML5',
-        'CSS',
-        'Materialize',
-        'JavaScript',
-        'jQuery',
-        'Node',
-        'Express',
-        'Postgresql',
-        'Sequelize',
-      ],
+        'Lead front end engineer developing a web based game for Statrookie, a startup focusing on equitable math education and data literacy through sports analytics.',
+      tools: ['React', 'Typescript', 'SCSS', 'Lerna', 'Framer Motion', 'Git'],
       coverImage:
-        'https://res.cloudinary.com/kcsommers/image/upload/v1643243496/M%20Kacy%20Sommers/statrookie/statrookie-1.png',
+        'https://res.cloudinary.com/kcsommers/image/upload/v1643697784/M%20Kacy%20Sommers/statrookie/statrookie-9.png',
       links: {
         github: 'https://github.com/kcsommers/project2-bookkeeper',
         site: 'https://bookkeeper212.herokuapp.com/',
       },
-      sections: [],
+      sections: [
+        {
+          images: [
+            'https://res.cloudinary.com/kcsommers/image/upload/v1643697784/M%20Kacy%20Sommers/statrookie/statrookie-9.png',
+          ],
+        },
+        {
+          text: {
+            content:
+              "In January of 2021 I began building a game designed to help 2nd and 3rd graders build their skills in math and statitics by acting as the general manager of a hockey team. Statrookie's client was the San Jose Sharks, who launched the game a part of their free education programs for communities across northern California.",
+          },
+        },
+        {
+          text: {
+            content:
+              "This project was a great opportunity for me to build something from scratch that would be widely used by a large organization. With a tight deadline and ever changing demands, the initial version was tightly coupled with the original customer. Understanding the limitations this presents for scalability, it's been a continuous undertaking to abstract the core components and logic into a separate libraries to be reused for new customers as the company continues to grow.",
+          },
+        },
+        {
+          text: {
+            content:
+              'One unique challenge in this project was the creative use of svg elements and animations as interactive props in the game. The complex animations were acheived using a React library called Framer Motion. I also used this library to animate an ineractive tutorial that students could walk through the first time they played the game.',
+          },
+        },
+      ],
     },
-  ],
-  Freelance: [
     {
       title: 'Sonrisa Donuts',
       param: 'sonrisa',
+      roles: ['Full Stack Developer', 'Designer'],
       blurb:
-        'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
+        'Full stack ecommerce site developed end to end for Seattle based bakery Sonrisa Donuts.',
       tools: [
-        'HTML5',
-        'CSS',
-        'Materialize',
-        'JavaScript',
-        'jQuery',
+        'React',
+        'Typescript',
+        'SCSS',
         'Node',
         'Express',
-        'Postgresql',
-        'Sequelize',
+        'Square',
+        'Google APIs',
       ],
       coverImage:
         'https://res.cloudinary.com/kcsommers/image/upload/v1643243498/M%20Kacy%20Sommers/sonrisa/sonrisa-1.png',
@@ -101,31 +111,97 @@ export const projects: { [projectType: string]: IProject[] } = {
         github: 'https://github.com/kcsommers/project2-bookkeeper',
         site: 'https://bookkeeper212.herokuapp.com/',
       },
-      sections: [],
+      sections: [
+        {
+          images: [
+            'https://res.cloudinary.com/kcsommers/image/upload/v1643243498/M%20Kacy%20Sommers/sonrisa/sonrisa-1.png',
+          ],
+        },
+        {
+          text: {
+            content:
+              "Sonrisa was a fun project I worked on for a baker new to the Seattle area trying to improve their presence on the web. It is integrated with the client's square account and utilizes Square's SDK and API for online ordering. It also uses the Gmail API to send notifications and confirmations when orders are placed.",
+          },
+        },
+        {
+          text: {
+            content:
+              "While I certainly consider myself more of a coder than a designer, I was really able to exercise my designer chops for this project. I even took professional photos of the client's donuts for the site and photoshoped the images to fit into my design.",
+          },
+        },
+      ],
+    },
+    {
+      title: 'Lichter Photography',
+      param: 'lichter-photo',
+      roles: ['Front End Developer'],
+      blurb:
+        'Front End Developer adding custom features to a Photoshelter website for photographer Michael Lichter.',
+      tools: [
+        'Javascript',
+        'CSS',
+        'Webpack',
+        'Babel',
+        'jsDelivr',
+        'Photoshelter',
+        'Webflow',
+      ],
+      coverImage:
+        'https://res.cloudinary.com/kcsommers/image/upload/v1643243815/M%20Kacy%20Sommers/lichter%20photo/lichterphoto1.jpg',
+      links: {
+        github: 'https://github.com/kcsommers/project2-bookkeeper',
+        site: 'https://bookkeeper212.herokuapp.com/',
+      },
+      sections: [
+        {
+          images: [
+            'https://res.cloudinary.com/kcsommers/image/upload/v1643243815/M%20Kacy%20Sommers/lichter%20photo/lichterphoto1.jpg',
+          ],
+        },
+        {
+          text: {
+            content:
+              'For this project I was brought on to add some very specific feature requests to an existing Photoshelter site. Photoshelter is pretty rigid in the customizations it allows, and some of the features required some clever workarounds.',
+          },
+        },
+        {
+          text: {
+            content:
+              'To integrate these features I injected external scripts in the head of the Photoshelter html using jsDeliver. I also used babel polyfills and webpack dev server for a better development experience and utilized webpack for a production build.',
+          },
+        },
+        {
+          text: {
+            content:
+              "Occasionally the client made feature requests that simply weren't possible on the Photoshelter platform. For these request I redirected certain URLs to webflow to display fully customized pages which interacted with Photoshelter's API to retrieve data.",
+          },
+        },
+      ],
     },
     {
       title: 'K9 Precheck',
       param: 'k9precheck',
-      blurb:
-        'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
-      tools: [
-        'HTML5',
-        'CSS',
-        'Materialize',
-        'JavaScript',
-        'jQuery',
-        'Node',
-        'Express',
-        'Postgresql',
-        'Sequelize',
-      ],
+      roles: ['Full Stack Developer', 'Designer'],
+      blurb: "Details a'comin",
+      tools: ['Angular', 'Node', 'Express', 'Smartsheet API'],
       coverImage:
         'https://res.cloudinary.com/kcsommers/image/upload/v1643244169/M%20Kacy%20Sommers/k9precheck/k9precheck-1.png',
       links: {
         github: 'https://github.com/kcsommers/project2-bookkeeper',
         site: 'https://bookkeeper212.herokuapp.com/',
       },
-      sections: [],
+      sections: [
+        {
+          images: [
+            'https://res.cloudinary.com/kcsommers/image/upload/v1643244169/M%20Kacy%20Sommers/k9precheck/k9precheck-1.png',
+          ],
+        },
+        {
+          text: {
+            content: "Details a'comin",
+          },
+        },
+      ],
     },
     {
       title: 'Lo Wolf Music',
@@ -147,30 +223,6 @@ export const projects: { [projectType: string]: IProject[] } = {
           },
         },
       ],
-    },
-    {
-      title: 'Lichter Photo',
-      param: 'lichter-photo',
-      blurb:
-        'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
-      tools: [
-        'HTML5',
-        'CSS',
-        'Materialize',
-        'JavaScript',
-        'jQuery',
-        'Node',
-        'Express',
-        'Postgresql',
-        'Sequelize',
-      ],
-      coverImage:
-        'https://res.cloudinary.com/kcsommers/image/upload/v1643243815/M%20Kacy%20Sommers/lichter%20photo/lichterphoto1.jpg',
-      links: {
-        github: 'https://github.com/kcsommers/project2-bookkeeper',
-        site: 'https://bookkeeper212.herokuapp.com/',
-      },
-      sections: [],
     },
   ],
   'Early Days': [
