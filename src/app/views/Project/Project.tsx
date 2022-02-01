@@ -55,6 +55,18 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
       {project.roles && (
         <span className={styles.roles}>{project.roles.join(', ')}</span>
       )}
+      <motion.div
+        className={styles.projectImgWrap}
+        initial="enter"
+        animate="center"
+        variants={slideUpVariants}
+        transition={{
+          duration: DURATION,
+          delay: 0.75,
+        }}
+      >
+        <img src={project.coverImage} alt={project.title} />
+      </motion.div>
       <motion.h3
         className={styles.projectBlurb}
         initial="enter"
@@ -67,6 +79,19 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
       >
         {project.blurb}
       </motion.h3>
+      <div className={styles.projectDetailsWrap}>
+        <div className={styles.technologiesWrap}>
+          <h4>Technologies</h4>
+          <p>{project.tools.join(', ')}</p>
+        </div>
+        {project.links && (
+          <div className={styles.linksWrap}>
+            <h4>Links</h4>
+            {project.links.github && <a href={project.links.github}>github</a>}
+            {project.links.site && <a href={project.links.site}>site</a>}
+          </div>
+        )}
+      </div>
       {project.sections.map((_section: IProjectSection) => (
         <>
           {_section.text && (

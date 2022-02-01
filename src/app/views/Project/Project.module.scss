@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 div.projectViewWrap {
   padding: 6rem 15%;
   position: relative;
@@ -21,8 +23,34 @@ div.backBtnWrap {
   }
 }
 
+span.roles {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
 h3.projectBlurb {
-  margin: 30px 0 20px 0;
+  margin: 30px auto 20px auto;
+  width: 85%;
+}
+
+div.projectDetailsWrap {
+  margin: 30px auto 20px auto;
+  width: 85%;
+  h4 {
+    border-bottom: 2px solid $dark;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  > div {
+    margin-bottom: 30px;
+  }
+}
+
+div.linksWrap {
+  > a {
+    display: block;
+    margin-bottom: 5px;
+  }
 }
 
 div.projectImgWrap {

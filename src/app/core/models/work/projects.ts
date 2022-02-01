@@ -206,6 +206,7 @@ export const projects: { [projectType: string]: IProject[] } = {
     {
       title: 'Lo Wolf Music',
       param: 'lowolf-music',
+      roles: ['Full Stack Developer', 'Designer'],
       blurb:
         'Website for singer-songwriter Lo Wolf, with a store for purchasing digital tracks and hard copies, and an admin page for logging transactions, adding shows and keeping track of new subscribers.',
       tools: ['Vue', 'Node', 'Express', 'Postgresql', 'Sequelize'],
@@ -229,6 +230,7 @@ export const projects: { [projectType: string]: IProject[] } = {
     {
       title: 'Bookkeeper',
       param: 'bookkeeper',
+      roles: ['Full Stack Developer', 'Designer'],
       blurb:
         'Node application for finding or creating book clubs, organizing books into customized lists, and storing notes and quotes.',
       tools: [
@@ -260,6 +262,7 @@ export const projects: { [projectType: string]: IProject[] } = {
     {
       title: 'Good Market',
       param: 'good-market',
+      roles: ['Full Stack Developer', 'Designer'],
       blurb:
         "Full stack ecommerce site for buying and selling items, and donating portions of each sale to an organization of the user's choosing.",
       tools: [
@@ -289,6 +292,7 @@ export const projects: { [projectType: string]: IProject[] } = {
     {
       title: 'Star Stacker',
       param: 'star-stacker',
+      roles: ['Full Stack Developer', 'Designer'],
       blurb:
         'Two player front-end game, based on SEGA’s Columns, in which players match colored pieces vertically, horizontally and diagonally as they drop down the screen at increasing speeds.',
       tools: ['HTML5', 'CSS', 'CSS Canvas', 'JavaScript', 'jQuery'],
