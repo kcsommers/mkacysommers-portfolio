@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FC, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { AnimatedText, BaseLayout } from '../../components';
+import { BaseLayout } from '../../components';
 import { IProject, projects } from '../../core';
 import { ProjectView } from '../Project';
 import styles from './Work.module.scss';
@@ -32,27 +32,7 @@ export const Work: FC = () => {
   return !selectedProject ? (
     <BaseLayout
       pageTitle="Work"
-      leftContent={
-        <>
-          <p className="animated-text-wrap">
-            <AnimatedText delay={1.45}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci
-              earum sapiente veritatis saepe, maiores facere odit aut sunt
-              nesciunt cum fugit quae omnis doloremque provident culpa, sed amet
-              ducimus nobis?
-            </AnimatedText>
-          </p>
-          <br />
-          <p className="animated-text-wrap">
-            <AnimatedText delay={1.55}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci
-              earum sapiente veritatis saepe, maiores facere odit aut sunt
-              nesciunt cum fugit quae omnis doloremque provident culpa, sed amet
-              ducimus nobis?
-            </AnimatedText>
-          </p>
-        </>
-      }
+      leftContent={<></>}
       rightContent={Object.keys(projects).map((_type: string) => {
         return (
           <>
