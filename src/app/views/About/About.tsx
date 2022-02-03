@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion';
 import { FC } from 'react';
 import { AnimatedText, BaseLayout } from '../../components';
+import styles from './About.module.scss';
 
 export const About: FC = () => {
   return (
@@ -7,14 +9,15 @@ export const About: FC = () => {
       pageTitle="About"
       leftContent={
         <>
-          <p className="animated-text-wrap">
+          <p className={`animated-text-wrap ${styles.aboutText}`}>
             <AnimatedText delay={1.45}>
-              Hi, I'm Kacy! I'm a software engineer who specializes in building
-              clean and intuitive web-based applications.
+              <span className={styles.hiWrap}>Hi, I'm Kacy!</span> I'm a
+              software engineer who specializes in building clean and intuitive
+              web-based applications.
             </AnimatedText>
           </p>
-          <p className="animated-text-wrap">
-            <AnimatedText delay={1.45}>
+          <p className={`animated-text-wrap ${styles.aboutText}`}>
+            <AnimatedText delay={1.55}>
               In other words, I love JavaScript. I first started learning it in
               2017 when my tolerance for delivering food and pouring lattes had
               officially run out. I read Jon Duckett's JavaScript and JQuery
@@ -27,8 +30,8 @@ export const About: FC = () => {
               code requires, and I've been in love with it ever since.
             </AnimatedText>
           </p>
-          <p className="animated-text-wrap">
-            <AnimatedText delay={1.45}>
+          <p className={`animated-text-wrap ${styles.aboutText}`}>
+            <AnimatedText delay={1.65}>
               A few months and a grueling job search later, I landed my first
               full-time front-end engineering role at Adaptiva, an endpoint
               management software company based in Kirkland, WA. Once I was
@@ -46,7 +49,43 @@ export const About: FC = () => {
           </p>
         </>
       }
-      rightContent={<></>}
+      rightContent={
+        <>
+          <motion.div
+            className={styles.aboutImgWrap}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            variants={{
+              enter: {
+                opacity: 0,
+                scale: 1.1,
+              },
+              center: {
+                opacity: 1,
+                scale: 1,
+              },
+              exit: {
+                opacity: 0,
+                scale: 1.1,
+                transition: {
+                  delay: 0,
+                  duration: 0.25,
+                },
+              },
+            }}
+            transition={{
+              delay: 1.45,
+              duration: 0.5,
+            }}
+          >
+            <img
+              src="https://res.cloudinary.com/kcsommers/image/upload/v1643868947/M%20Kacy%20Sommers/mkacy-beach.jpg"
+              alt="M Kacy Sommers"
+            />
+          </motion.div>
+        </>
+      }
     />
   );
 };

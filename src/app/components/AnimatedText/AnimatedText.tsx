@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { FC, PropsWithChildren } from 'react';
 
 interface IAnimatedTextProps {
-  delay: number;
+  delay?: number;
 }
 
 export const AnimatedText: FC<PropsWithChildren<IAnimatedTextProps>> = ({

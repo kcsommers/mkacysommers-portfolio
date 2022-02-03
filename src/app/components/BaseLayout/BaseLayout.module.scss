@@ -32,7 +32,7 @@ div.navWrap {
 div.pageContentLeftInner {
   position: relative;
   left: 0;
-  padding: 0 15%;
+  padding: 0 10%;
   box-sizing: initial;
   @include for-tablet-landscape-up {
     padding: 0 0 0 30%;
@@ -55,8 +55,8 @@ div.pageContentRight {
 }
 
 div.pageContentRightInner {
-  padding: 0 15%;
+  padding: 0 10%;
   @include for-tablet-landscape-up {
-    padding: 0 15% 0 5%;
+    padding: 0 15% 0 0%;
   }
 }

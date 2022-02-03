@@ -31,45 +31,77 @@ div.logoWrap {
 }
 
 div.socialNavWrap {
-  position: absolute;
+  position: fixed;
   z-index: 400;
-  top: 1rem;
-  right: 0;
-  span {
-    font-weight: bold;
-    margin-right: 1rem;
-    &.socialNavSlash {
-      margin: 0 0.5rem;
-    }
-  }
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+
   > a {
-    &:not(:last-of-type) {
-      margin-right: 1rem;
-    }
-    position: relative;
-    &:after {
-      content: '';
-      background: $dark;
-      position: absolute;
-      left: 0;
-      right: 8px;
-      bottom: -4px;
-      height: 3px;
-      opacity: 0;
-    }
-    &.activeLink:after {
-      opacity: 1;
-    }
-    &:not(.activeLink) {
-      &:hover,
-      &:focus {
-        &:after {
-          display: inline-block;
-          animation: shortenFade 0.5s forwards;
-        }
-      }
+    font-size: 16px;
+    margin: 10px 0;
+    transition: all 0.2s ease;
+    display: inline-block;
+    transform-origin: bottom;
+    &:hover {
+      transform: scale(1.2);
     }
   }
+}
+
+div.emailWrap {
+  position: fixed;
+  z-index: 400;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+
+  > span {
+    font-size: 12px;
+    margin: 10px 0;
+    transition: all 0.2s ease;
+    display: inline-block;
+    transform: rotate(90deg) translate(-50%, 50%);
+    transform-origin: bottom;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1) rotate(90deg) translate(-50%, 50%);
+    }
+  }
+}
+
+div.initialsWrap {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  z-index: 1000;
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  > span {
+    border: 2px solid $dark;
+    padding: 5px 7px;
+  }
+
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+div.line {
+  height: 22vh;
+  background-color: $dark;
+  width: 1px;
+  margin-top: 10px;
 }
 
 @keyframes shortenFade {

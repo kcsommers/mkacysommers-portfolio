@@ -1,4 +1,11 @@
+import {
+  faGithub,
+  faGithubAlt,
+  faLinkedinIn,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
 import { TransitionView } from './components';
@@ -9,11 +16,21 @@ export const App = () => {
 
   return (
     <main className={styles.appWrap}>
+      <div className={styles.initialsWrap}>
+        <span>MKS</span>
+      </div>
       <div className={styles.socialNavWrap}>
-        <a href="https://www.linkedin.com/in/kacy-sommers/">linkedin</a>
-        <a href="https://github.com/kcsommers?tab=repositories">github</a>
-        <span className={styles.socialNavSlash}>\</span>
-        <span>&copy; 2022</span>
+        <a href="https://www.linkedin.com/in/kacy-sommers/">
+          <FontAwesomeIcon icon={faLinkedinIn} />
+        </a>
+        <a href="https://github.com/kcsommers?tab=repositories">
+          <FontAwesomeIcon icon={faGithub} />
+        </a>
+        <div className={styles.line}></div>
+      </div>
+      <div className={styles.emailWrap}>
+        <span>kacysommers@gmail.com</span>
+        <div className={styles.line}></div>
       </div>
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>

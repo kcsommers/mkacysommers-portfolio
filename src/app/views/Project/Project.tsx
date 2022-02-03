@@ -47,13 +47,24 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
         variants={slideUpVariants}
         transition={{
           duration: DURATION,
-          delay: 0.25,
+          delay: 0.1,
         }}
       >
         {project.title}
       </motion.h2>
       {project.roles && (
-        <span className={styles.roles}>{project.roles.join(', ')}</span>
+        <motion.span
+          className={styles.roles}
+          initial="enter"
+          animate="center"
+          variants={slideUpVariants}
+          transition={{
+            duration: DURATION,
+            delay: 0.2,
+          }}
+        >
+          {project.roles.join(', ')}
+        </motion.span>
       )}
       <motion.div
         className={styles.projectImgWrap}
@@ -62,7 +73,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
         variants={slideUpVariants}
         transition={{
           duration: DURATION,
-          delay: 0.75,
+          delay: 0.3,
         }}
       >
         <img src={project.coverImage} alt={project.title} />
@@ -74,7 +85,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
         variants={slideUpVariants}
         transition={{
           duration: DURATION,
-          delay: 0.5,
+          delay: 0.4,
         }}
       >
         {project.blurb}
@@ -103,7 +114,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
               variants={slideUpVariants}
               transition={{
                 duration: DURATION,
-                delay: 0.75,
+                delay: 0.5,
               }}
             >
               {_section.text.content}
@@ -117,7 +128,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
               variants={slideUpVariants}
               transition={{
                 duration: DURATION,
-                delay: 0.75,
+                delay: 0.5,
               }}
             >
               <img src={_url} alt={project.title} />

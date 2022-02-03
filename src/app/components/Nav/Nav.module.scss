@@ -4,7 +4,7 @@
 div.navWrap {
   position: relative;
   min-height: 91px;
-  padding: 0 15%;
+  padding: 0 10%;
   box-sizing: initial;
   @include for-tablet-landscape-up {
     padding: 0 0 0 30%;
@@ -34,8 +34,8 @@ div.navWrapInner {
   }
 
   &.navFixed {
-    background-color: rgba(#fff, 0.85);
-    backdrop-filter: blur(2px);
+    background-color: rgba($light, 0.85);
+    backdrop-filter: blur(3px);
     position: fixed;
     top: -1px;
     width: 100%;
