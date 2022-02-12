@@ -27,12 +27,18 @@ export const Work: FC = () => {
         }
       }
     }
+    window.scrollTo({ top: 0 });
     return _selectedProject!;
   }, [projectParam]);
+
+  useEffect(() => {
+    setOnPage(true);
+  }, []);
 
   return !selectedProject ? (
     <BaseLayout
       pageTitle="Work"
+      animationDelay={0}
       leftContent={<></>}
       rightContent={Object.keys(projects).map((_type: string) => {
         return (
@@ -53,7 +59,7 @@ export const Work: FC = () => {
                 },
               }}
               transition={{
-                delay: 1.75,
+                delay: onPage ? 0 : 1.75,
                 duration: 0.5,
               }}
             >
@@ -80,7 +86,7 @@ export const Work: FC = () => {
                   },
                 }}
                 transition={{
-                  delay: 1.75,
+                  delay: onPage ? 0 : 1.75,
                   duration: 0.5,
                 }}
               >

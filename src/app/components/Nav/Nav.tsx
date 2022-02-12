@@ -9,9 +9,14 @@ import styles from './Nav.module.scss';
 interface INavProps {
   title?: string;
   subtext?: string;
+  animationDelay?: number;
 }
 
-export const Nav: FC<INavProps> = ({ title, subtext }) => {
+export const Nav: FC<INavProps> = ({
+  title,
+  subtext,
+  animationDelay = 1.25,
+}) => {
   const location = useLocation();
   const pathname: string = location.pathname;
   const { inTransition, setInTransition } = useTransition();
@@ -33,15 +38,17 @@ export const Nav: FC<INavProps> = ({ title, subtext }) => {
             marginBottom: subtext ? '10px' : '20px',
           }}
         >
-          <AnimatedText delay={1.25}>{title}</AnimatedText>
+          <AnimatedText delay={animationDelay}>{title}</AnimatedText>
         </h4>
         {subtext && (
           <p className="animated-text-wrap">
-            <AnimatedText delay={1.35}>{subtext}</AnimatedText>
+            <AnimatedText delay={animationDelay + 0.1}>{subtext}</AnimatedText>
           </p>
         )}
         <span className="animated-text-wrap">
-          <AnimatedText delay={subtext ? 1.45 : 1.35}>
+          <AnimatedText
+            delay={subtext ? animationDelay + 0.2 : animationDelay + 0.1}
+          >
             <div className={styles.nav}>
               <Link
                 to="/"

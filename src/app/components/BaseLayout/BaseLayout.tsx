@@ -7,6 +7,7 @@ interface IBaseLayoutProps {
   rightContent?: ReactNode;
   pageTitle: string;
   pageSubtext?: string;
+  animationDelay?: number;
 }
 
 export const BaseLayout: FC<IBaseLayoutProps> = ({
@@ -14,13 +15,18 @@ export const BaseLayout: FC<IBaseLayoutProps> = ({
   rightContent,
   pageTitle,
   pageSubtext,
+  animationDelay,
 }) => {
   return (
     <div className={styles.layoutWrap}>
       <div className={styles.layoutWrapInner}>
         <div className={styles.pageContentLeft}>
           <div className={styles.navWrap}>
-            <Nav title={pageTitle} subtext={pageSubtext} />
+            <Nav
+              title={pageTitle}
+              subtext={pageSubtext}
+              animationDelay={animationDelay}
+            />
           </div>
           <div className={styles.pageContentLeftInner}>{leftContent}</div>
         </div>
