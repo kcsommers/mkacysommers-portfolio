@@ -56,13 +56,17 @@ export const Work: FC = () => {
     const observer = new IntersectionObserver(_intersectionCallback, {
       threshold: 0.25,
     });
+    if (selectedProject) {
+      observer.disconnect();
+      return;
+    }
     Object.keys(projects).forEach((_type: string) => {
       projects[_type].forEach((_project: IProject) => {
         const _el = getRef(_project.title) as RefObject<Element>;
         observer.observe(_el.current!);
       });
     });
-  }, []);
+  }, [selectedProject]);
 
   return !selectedProject ? (
     <BaseLayout
@@ -104,7 +108,7 @@ export const Work: FC = () => {
                       },
                     }}
                     transition={{
-                      delay: 1.45,
+                      delay: onPage ? 0 : 1.45,
                       duration: 0.5,
                     }}
                   >
@@ -121,6 +125,6 @@ export const Work: FC = () => {
       }
     />
   ) : (
-    <ProjectView project={selectedProject!} />
+    <ProjectView project={selectedProject!} delayAnimation={!onPage} />
   );
 };

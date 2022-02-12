@@ -8,6 +8,7 @@ import styles from './Project.module.scss';
 
 interface IProjectViewProps {
   project: IProject;
+  delayAnimation?: boolean;
 }
 
 const slideUpVariants = {
@@ -23,7 +24,10 @@ const slideUpVariants = {
 
 const DURATION = 0.75;
 
-export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
+export const ProjectView: FC<IProjectViewProps> = ({
+  project,
+  delayAnimation,
+}) => {
   return (
     <div className={styles.projectViewWrap}>
       <motion.div
@@ -47,7 +51,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
         variants={slideUpVariants}
         transition={{
           duration: DURATION,
-          delay: 0.1,
+          delay: delayAnimation ? 1.55 : 0.1,
         }}
       >
         {project.title}
@@ -60,7 +64,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
           variants={slideUpVariants}
           transition={{
             duration: DURATION,
-            delay: 0.2,
+            delay: delayAnimation ? 1.65 : 0.2,
           }}
         >
           {project.roles.join(', ')}
@@ -73,7 +77,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
         variants={slideUpVariants}
         transition={{
           duration: DURATION,
-          delay: 0.3,
+          delay: delayAnimation ? 1.75 : 0.3,
         }}
       >
         <img src={project.coverImage} alt={project.title} />
@@ -85,7 +89,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
         variants={slideUpVariants}
         transition={{
           duration: DURATION,
-          delay: 0.4,
+          delay: delayAnimation ? 1.85 : 0.4,
         }}
       >
         {project.blurb}
@@ -104,7 +108,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
         )}
       </div>
       {project.sections.map((_section: IProjectSection) => (
-        <>
+        <div key={Math.random()}>
           {_section.text && (
             <motion.p
               className={styles.sectionText}
@@ -114,7 +118,7 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
               variants={slideUpVariants}
               transition={{
                 duration: DURATION,
-                delay: 0.5,
+                delay: delayAnimation ? 1.95 : 0.5,
               }}
             >
               {_section.text.content}
@@ -122,19 +126,20 @@ export const ProjectView: FC<IProjectViewProps> = ({ project }) => {
           )}
           {(_section.images || []).map((_url: string) => (
             <motion.div
+              key={_url}
               className={styles.projectImgWrap}
               initial="enter"
               animate="center"
               variants={slideUpVariants}
               transition={{
                 duration: DURATION,
-                delay: 0.5,
+                delay: delayAnimation ? 1.95 : 0.5,
               }}
             >
               <img src={_url} alt={project.title} />
             </motion.div>
           ))}
-        </>
+        </div>
       ))}
     </div>
   );
