@@ -71,7 +71,7 @@ export const Work: FC = () => {
   return !selectedProject ? (
     <BaseLayout
       pageTitle="Work"
-      animationDelay={0}
+      animationDelay={onPage ? 0 : 1.45}
       leftContent={<></>}
       rightContent={
         <div className={styles.workRightWrap}>
