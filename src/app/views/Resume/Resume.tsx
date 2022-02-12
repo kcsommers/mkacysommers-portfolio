@@ -1,15 +1,24 @@
 import { motion } from 'framer-motion';
 import { AnimatedText, BaseLayout, Button } from '../../components';
 import styles from './Resume.module.scss';
+import resume from './MKacySommers-resume.pdf';
 
 export const ResumeView = () => {
+  const downloadResume = () => {
+    const _a: HTMLAnchorElement = document.createElement('a');
+    _a.href = resume;
+    _a.download = 'M Kacy Sommers Resume';
+    _a.target = '_blank';
+    _a.click();
+  };
+
   return (
     <BaseLayout
       pageTitle="Resume"
       leftContent={
         <div className={`${styles.downloadBtnWrap} animated-text-wrap`}>
           <AnimatedText delay={1.45}>
-            <Button text="Download" />
+            <Button text="Download" onClick={downloadResume} />
           </AnimatedText>
         </div>
       }
@@ -43,7 +52,7 @@ export const ResumeView = () => {
           }}
         >
           <img
-            src="https://res.cloudinary.com/kcsommers/image/upload/v1643525897/M%20Kacy%20Sommers/MKacySommers-resume_01-2022.png"
+            src="https://res.cloudinary.com/kcsommers/image/upload/v1644706993/M%20Kacy%20Sommers/MKacySommers-resume_01-2022.png"
             alt="M Kacy Sommers Resume"
           />
         </motion.div>
