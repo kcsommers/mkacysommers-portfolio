@@ -32,7 +32,7 @@ export const App = () => {
         <div className={styles.line}></div>
       </div>
       <div className={styles.emailWrap}>
-        <span>kacysommers@gmail.com</span>
+        <a href="mailto:kacysommers@gmail.com">kacysommers@gmail.com</a>
         <div className={styles.line}></div>
       </div>
       <AnimatePresence>
