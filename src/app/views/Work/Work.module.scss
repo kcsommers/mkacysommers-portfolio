@@ -2,9 +2,19 @@
 @import '../../styles/mixins.scss';
 
 div.projectWrap {
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateY(10%);
+  &.projectVisible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   &:not(:last-child) {
     margin-bottom: 40px;
   }
+}
+
+div.projectWrapInner {
   &:hover {
     > a > h2 {
       transform: skew(-8deg);
@@ -13,13 +23,17 @@ div.projectWrap {
   > a {
     > h2 {
       margin-bottom: 0.5rem;
-      transition: transform 0.2s ease;
-      transform-origin: bottom left;
     }
 
     > img {
       width: 100%;
     }
+  }
+}
+
+div.projectTypeWrap {
+  &:not(:last-child) {
+    margin-bottom: 50px;
   }
 }
 
