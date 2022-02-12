@@ -122,7 +122,8 @@ div.initialsWrap {
   }
 
   @include for-phone-only {
-    display: none;
+    position: absolute;
+    left: 10px;
   }
 }
 
