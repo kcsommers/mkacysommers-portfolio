@@ -57,3 +57,19 @@
     @content;
   }
 }
+
+@mixin logoFade($max, $end, $delay: 0) {
+  animation: logoFade 1s ease-in-out forwards;
+  animation-delay: $delay;
+  @keyframes logoFade {
+    0% {
+      opacity: 0;
+    }
+    80% {
+      opacity: $max;
+    }
+    100% {
+      opacity: $end;
+    }
+  }
+}

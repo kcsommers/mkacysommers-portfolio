@@ -9,10 +9,13 @@ import { Link } from 'react-router-dom';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
 import { TransitionView } from './components';
+import { useTransition } from './core';
 import { About, Contact, Home, ResumeView, Work } from './views';
 
 export const App = () => {
   const location = useLocation();
+
+  const { inTransition } = useTransition();
 
   return (
     <main className={styles.appWrap}>
@@ -75,7 +78,23 @@ export const App = () => {
             }
           />
         </Routes>
-        <div className={styles.logoWrap}>
+        <div
+          className={`${styles.logoWrap}${
+            inTransition ? ` ${styles.transitioning}` : ''
+          }`}
+        >
+          <img
+            src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
+            alt="M Kacy Sommers logo"
+          />
+          <img
+            src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
+            alt="M Kacy Sommers logo"
+          />
+          <img
+            src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
+            alt="M Kacy Sommers logo"
+          />
           <img
             src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
             alt="M Kacy Sommers logo"

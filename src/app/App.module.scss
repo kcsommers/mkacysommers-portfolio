@@ -20,9 +20,38 @@ div.logoWrap {
   animation: fadeInLogo 2s forwards;
   transform: translateX(50%);
   transition: all 0.2s ease;
+  &.transitioning {
+    img {
+      &:nth-child(2) {
+        @include logoFade(0.5, 0.25, 0);
+      }
+      &:nth-child(3) {
+        @include logoFade(0.75, 0.5, 0.25s);
+      }
+      &:nth-child(4) {
+        @include logoFade(0.65, 0.45, 0.5s);
+      }
+    }
+  }
   img {
     width: 100%;
     display: inline-block;
+    &:not(:first-child) {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    &:nth-child(2) {
+      left: 100%;
+    }
+    &:nth-child(3) {
+      left: -100%;
+    }
+    &:nth-child(4) {
+      left: -200%;
+    }
   }
   @include for-tablet-portrait-up {
     right: 15%;

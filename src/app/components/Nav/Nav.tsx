@@ -46,35 +46,35 @@ export const Nav: FC<INavProps> = ({ title, subtext }) => {
               <Link
                 to="/"
                 className={pathname === '/' ? styles.activeLink : ''}
-                onClick={() => setInTransition(true)}
+                onClick={() => pathname !== '/' && setInTransition(true)}
               >
                 home
               </Link>
               <Link
                 to="/work"
                 className={pathname === '/work' ? styles.activeLink : ''}
-                onClick={() => setInTransition(true)}
+                onClick={() => pathname !== '/work' && setInTransition(true)}
               >
                 work
               </Link>
               <Link
                 to="/about"
                 className={pathname === '/about' ? styles.activeLink : ''}
-                onClick={() => setInTransition(true)}
+                onClick={() => pathname !== '/about' && setInTransition(true)}
               >
                 about
               </Link>
               <Link
                 to="/contact"
                 className={pathname === '/contact' ? styles.activeLink : ''}
-                onClick={() => setInTransition(true)}
+                onClick={() => pathname !== '/contact' && setInTransition(true)}
               >
                 contact
               </Link>
               <Link
                 to="/resume"
                 className={pathname === '/resume' ? styles.activeLink : ''}
-                onClick={() => setInTransition(true)}
+                onClick={() => pathname !== '/resume' && setInTransition(true)}
               >
                 resume
               </Link>
