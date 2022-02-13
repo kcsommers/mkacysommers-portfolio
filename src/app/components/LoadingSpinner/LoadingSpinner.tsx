@@ -14,12 +14,12 @@ export const LoadingSpinner = ({ size = 'lg' }: LoadingSpinnerProps) => {
           ? ` ${styles.loadingSpinnerSmall}`
           : ''
       }`}
-      // style={{
-      //   borderLeftColor: `rgba(${rgbRef}, 0.3)`,
-      //   borderRightColor: `rgba(${rgbRef}, 0.3)`,
-      //   borderBottomColor: `rgba(${rgbRef}, 0.3)`,
-      //   borderTopColor: `rgb(${rgbRef})`,
-      // }}
+      style={{
+        borderLeftColor: `rgba(0, 0, 0, 0.3)`,
+        borderRightColor: `rgba(0, 0, 0, 0.3)`,
+        borderBottomColor: `rgba(0, 0, 0, 0.3)`,
+        borderTopColor: `rgb(255, 255, 255)`,
+      }}
     ></div>
   );
 };

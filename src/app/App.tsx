@@ -5,17 +5,22 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import styles from './App.module.scss';
 import { TransitionView } from './components';
 import { useTransition } from './core';
 import { About, Contact, Home, ResumeView, Work } from './views';
+import emailjs from 'emailjs-com';
+import { useEffect } from 'react';
 
 export const App = () => {
   const location = useLocation();
 
   const { inTransition } = useTransition();
+
+  useEffect(() => {
+    emailjs.init('user_oe7QXUZo6RbkfylkjBt5j');
+  }, []);
 
   return (
     <main className={styles.appWrap}>

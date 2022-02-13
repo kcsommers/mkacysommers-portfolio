@@ -1,11 +1,19 @@
+import { EmailJSResponseStatus, send } from 'emailjs-com';
 import { motion } from 'framer-motion';
-import { FC } from 'react';
-import { AnimatedText, BaseLayout, ContactForm, Nav } from '../../components';
+import { FC, useState } from 'react';
+import {
+  AnimatedText,
+  BaseLayout,
+  ContactForm,
+  IContactParams,
+} from '../../components';
 import styles from './Contact.module.scss';
 
 export const Contact: FC = () => {
-  const onFormSubmit = (success: boolean) => {
-    console.log('form submitted:::: ', success);
+  const onFormSubmit = (
+    _params: IContactParams
+  ): Promise<EmailJSResponseStatus> => {
+    return send('service_s2set2t', 'template_007413u', _params as any);
   };
 
   return (

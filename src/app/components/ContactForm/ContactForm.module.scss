@@ -36,3 +36,10 @@ div.inputWrap > textarea {
   height: 150px;
   resize: none;
 }
+
+div.messageWrap {
+  margin: 15px 0 10px 0;
+  &.errorMsg {
+    color: $error;
+  }
+}

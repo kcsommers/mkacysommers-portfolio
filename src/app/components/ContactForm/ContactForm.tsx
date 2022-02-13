@@ -2,13 +2,14 @@ import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Button } from '../Button/Button';
+import { IContactParams } from './contact-params.interface';
 import styles from './ContactForm.module.scss';
 
-interface ContactFormProps {
-  onSubmit: (success: boolean) => void;
+interface IContactFormProps {
+  onSubmit: (_params: IContactParams) => Promise<any>;
 }
 
-export const ContactForm = ({ onSubmit }: ContactFormProps) => {
+export const ContactForm = ({ onSubmit }: IContactFormProps) => {
   const [name, setName] = useState('');
 
   const [nameError, setNameError] = useState('');
@@ -24,6 +25,10 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
   const [message, setMessage] = useState('');
 
   const [submittingForm, setSubmittingForm] = useState(false);
+
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const [successMsg, setSuccessMsg] = useState('');
 
   const validateForm = (): boolean => {
     let isValid = true;
@@ -52,16 +57,32 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
     return isValid;
   };
 
+  const clearForm = () => {
+    setName('');
+    setPhoneNumber('');
+    setErrorMsg('');
+    setMessage('');
+  };
+
   const submit = async () => {
     if (!validateForm()) {
       return;
     }
 
     setSubmittingForm(true);
-    window.setTimeout(() => {
-      setSubmittingForm(false);
-      onSubmit(true);
-    }, 2000);
+    onSubmit({ name, emailAddress, phoneNumber, message })
+      .then(() => {
+        setSubmittingForm(false);
+        setSuccessMsg('Thank You! Your message has been sent');
+        setErrorMsg('');
+        clearForm();
+      })
+      .catch((_error: any) => {
+        setSubmittingForm(false);
+        setSuccessMsg('');
+        setErrorMsg('Whoops! Something went wrong. Please try again');
+        console.error(_error);
+      });
   };
 
   return (
@@ -116,7 +137,12 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
           onChange={(e) => setMessage(e.target.value)}
         />
       </div>
-
+      {errorMsg && (
+        <div className={`${styles.messageWrap} ${styles.errorMsg}`}>
+          {errorMsg}
+        </div>
+      )}
+      {successMsg && <div className={styles.messageWrap}>{successMsg}</div>}
       <div className={styles.inputWrap}>
         <Button
           isDisabled={!name || !emailAddress || !phoneNumber || !message}
