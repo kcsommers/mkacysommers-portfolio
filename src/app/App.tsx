@@ -12,11 +12,12 @@ import { useTransition } from './core';
 import { About, Contact, Home, ResumeView, Work } from './views';
 import emailjs from 'emailjs-com';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export const App = () => {
   const location = useLocation();
 
-  const { inTransition } = useTransition();
+  const { inTransition, setInTransition } = useTransition();
 
   useEffect(() => {
     emailjs.init('user_oe7QXUZo6RbkfylkjBt5j');
@@ -25,7 +26,12 @@ export const App = () => {
   return (
     <main className={styles.appWrap}>
       <div className={styles.initialsWrap}>
-        <span>MKS</span>
+        <Link
+          to="/"
+          onClick={() => location.pathname !== '/' && setInTransition(true)}
+        >
+          MKS
+        </Link>
       </div>
       <div className={styles.socialNavWrap}>
         <a href="https://www.linkedin.com/in/kacy-sommers/">
