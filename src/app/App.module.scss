@@ -3,8 +3,12 @@
 
 main.appWrap {
   height: 100%;
-  margin: 0 auto;
   position: relative;
+}
+
+div.appWrapInner {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 div.logoWrap {

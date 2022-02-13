@@ -46,72 +46,74 @@ export const App = () => {
         <a href="mailto:kacysommers@gmail.com">kacysommers@gmail.com</a>
         <div className={styles.line}></div>
       </div>
-      <AnimatePresence>
-        <Routes location={location} key={location.pathname}>
-          <Route
-            path="/"
-            element={
-              <TransitionView>
-                <Home />
-              </TransitionView>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <TransitionView>
-                <About />
-              </TransitionView>
-            }
-          />
-          <Route
-            path="/work/*"
-            element={
-              <TransitionView>
-                <Work />
-              </TransitionView>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <TransitionView>
-                <Contact />
-              </TransitionView>
-            }
-          />
-          <Route
-            path="/resume"
-            element={
-              <TransitionView>
-                <ResumeView />
-              </TransitionView>
-            }
-          />
-        </Routes>
-        <div
-          className={`${styles.logoWrap}${
-            inTransition ? ` ${styles.transitioning}` : ''
-          }`}
-        >
-          <img
-            src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
-            alt="M Kacy Sommers logo"
-          />
-          <img
-            src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
-            alt="M Kacy Sommers logo"
-          />
-          <img
-            src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
-            alt="M Kacy Sommers logo"
-          />
-          <img
-            src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
-            alt="M Kacy Sommers logo"
-          />
-        </div>
-      </AnimatePresence>
+      <div className={styles.appWrapInner}>
+        <AnimatePresence>
+          <Routes location={location} key={location.pathname}>
+            <Route
+              path="/"
+              element={
+                <TransitionView>
+                  <Home />
+                </TransitionView>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <TransitionView>
+                  <About />
+                </TransitionView>
+              }
+            />
+            <Route
+              path="/work/*"
+              element={
+                <TransitionView>
+                  <Work />
+                </TransitionView>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <TransitionView>
+                  <Contact />
+                </TransitionView>
+              }
+            />
+            <Route
+              path="/resume"
+              element={
+                <TransitionView>
+                  <ResumeView />
+                </TransitionView>
+              }
+            />
+          </Routes>
+          <div
+            className={`${styles.logoWrap}${
+              inTransition ? ` ${styles.transitioning}` : ''
+            }`}
+          >
+            <img
+              src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
+              alt="M Kacy Sommers logo"
+            />
+            <img
+              src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
+              alt="M Kacy Sommers logo"
+            />
+            <img
+              src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
+              alt="M Kacy Sommers logo"
+            />
+            <img
+              src="https://res.cloudinary.com/kcsommers/image/upload/v1643329476/M%20Kacy%20Sommers/mksommerslogo-gray1.png"
+              alt="M Kacy Sommers logo"
+            />
+          </div>
+        </AnimatePresence>
+      </div>
     </main>
   );
 };
