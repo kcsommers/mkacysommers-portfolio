@@ -13,6 +13,7 @@ import { About, Contact, Home, ResumeView, Work } from './views';
 import emailjs from 'emailjs-com';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export const App = () => {
   const location = useLocation();
@@ -35,10 +36,10 @@ export const App = () => {
       </div>
       <div className={styles.socialNavWrap}>
         <a href="https://www.linkedin.com/in/kacy-sommers/">
-          <FontAwesomeIcon icon={faLinkedinIn} />
+          <FontAwesomeIcon icon={faLinkedinIn as IconProp} />
         </a>
         <a href="https://github.com/kcsommers?tab=repositories">
-          <FontAwesomeIcon icon={faGithub} />
+          <FontAwesomeIcon icon={faGithub as IconProp} />
         </a>
         <div className={styles.line}></div>
       </div>

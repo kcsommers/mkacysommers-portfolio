@@ -1,3 +1,4 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
@@ -96,7 +97,9 @@ export const ContactForm = ({ onSubmit }: IContactFormProps) => {
         />
         {nameError && (
           <p className={`${styles.inputErrorText} error-color`}>
-            <FontAwesomeIcon icon={faExclamationCircle}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faExclamationCircle as IconProp}
+            ></FontAwesomeIcon>
             {nameError}
           </p>
         )}
@@ -110,7 +113,9 @@ export const ContactForm = ({ onSubmit }: IContactFormProps) => {
         />
         {emailAddressError && (
           <p className={`${styles.inputErrorText} error-color`}>
-            <FontAwesomeIcon icon={faExclamationCircle}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faExclamationCircle as IconProp}
+            ></FontAwesomeIcon>
             {emailAddressError}
           </p>
         )}
@@ -124,7 +129,9 @@ export const ContactForm = ({ onSubmit }: IContactFormProps) => {
         />
         {phoneNumberError && (
           <p className={`${styles.inputErrorText} error-color`}>
-            <FontAwesomeIcon icon={faExclamationCircle}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faExclamationCircle as IconProp}
+            ></FontAwesomeIcon>
             {phoneNumberError}
           </p>
         )}

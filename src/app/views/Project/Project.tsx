@@ -1,3 +1,4 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
@@ -40,7 +41,7 @@ export const ProjectView: FC<IProjectViewProps> = ({
         }}
       >
         <Link to="/work" className={styles.backBtn}>
-          <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faAngleLeft as IconProp}></FontAwesomeIcon>
           Back to projects
         </Link>
       </motion.div>
