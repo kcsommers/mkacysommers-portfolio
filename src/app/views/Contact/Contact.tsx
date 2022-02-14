@@ -1,6 +1,6 @@
 import { EmailJSResponseStatus, send } from 'emailjs-com';
 import { motion } from 'framer-motion';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import {
   AnimatedText,
   BaseLayout,

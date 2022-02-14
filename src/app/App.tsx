@@ -1,19 +1,15 @@
-import {
-  faGithub,
-  faGithubAlt,
-  faLinkedinIn,
-} from '@fortawesome/free-brands-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import emailjs from 'emailjs-com';
 import { AnimatePresence } from 'framer-motion';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
+
 import styles from './App.module.scss';
 import { TransitionView } from './components';
 import { useTransition } from './core';
 import { About, Contact, Home, ResumeView, Work } from './views';
-import emailjs from 'emailjs-com';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export const App = () => {
   const location = useLocation();
