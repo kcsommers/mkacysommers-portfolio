@@ -7,7 +7,7 @@ export const projects: { [projectType: string]: IProject[] } = {
       param: 'adaptiva',
       blurb:
         'Full time senior front end engineering role for Adaptiva, an industry leading endpoint management software company based in Bellevue, WA.',
-      tools: ['Angular', 'SCSS', 'Git', 'Java', 'SQL'],
+      tools: ['Angular', 'SCSS', 'D3', 'Git', 'Java', 'SQL'],
       coverImage:
         'https://res.cloudinary.com/kcsommers/image/upload/v1643244724/M%20Kacy%20Sommers/adaptiva/adaptiva-7.png',
       roles: ['Senior Front End Engineer'],
@@ -79,7 +79,7 @@ export const projects: { [projectType: string]: IProject[] } = {
         {
           text: {
             content:
-              "In January of 2021 I began building a game designed to help 2nd and 3rd graders build their skills in math and statitics by acting as the general manager of a hockey team. Statrookie's client was the San Jose Sharks, who launched the game a part of their free education programs for communities across northern California.",
+              "In January of 2021 I began building a game designed to help 2nd and 3rd graders build their skills in math and statistics by acting as the general manager of a hockey team. Statrookie's client was the San Jose Sharks, who launched the game a part of their free education programs for communities across northern California.",
           },
           images: [
             'https://res.cloudinary.com/kcsommers/image/upload/v1643243497/M%20Kacy%20Sommers/statrookie/statrookie-2.png',
@@ -98,7 +98,7 @@ export const projects: { [projectType: string]: IProject[] } = {
         {
           text: {
             content:
-              'One unique challenge in this project was the creative use of svg elements and animations as interactive props in the game. The complex animations were acheived using a React library called Framer Motion. I also used this library to animate an ineractive tutorial that students could walk through the first time they played the game.',
+              'One unique challenge in this project was the creative use of SVG elements and animations as interactive props in the game. The complex animations were achieved using a React library called Framer Motion. I also used this library to animate an interactive tutorial that students could walk through the first time they played the game.',
           },
           images: [
             'https://res.cloudinary.com/kcsommers/image/upload/v1643243498/M%20Kacy%20Sommers/statrookie/statrookie-3.png',
