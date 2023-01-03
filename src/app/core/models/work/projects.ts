@@ -3,14 +3,34 @@ import { IProject } from './project.interface';
 export const projects: { [projectType: string]: IProject[] } = {
   'Full Time': [
     {
+      title: 'Peerspace',
+      param: 'peerspace',
+      blurb:
+        'Full time front end engineering role for Peerspace, a peer-to-peer marketplace for booking space for events, meetings and productions',
+      tools: ['React', 'Next JS', 'Git', 'Docker'],
+      coverImage:
+        'https://res.cloudinary.com/kcsommers/image/upload/v1672717870/M%20Kacy%20Sommers/peerspace/peerspace-1.png',
+      roles: ['Front End Engineer'],
+      sections: [
+        {
+          images: [
+            'https://res.cloudinary.com/kcsommers/image/upload/v1672717870/M%20Kacy%20Sommers/peerspace/peerspace-1.png',
+            'https://res.cloudinary.com/kcsommers/image/upload/v1672717778/M%20Kacy%20Sommers/peerspace/peerspace-2.png',
+            'https://res.cloudinary.com/kcsommers/image/upload/v1672717813/M%20Kacy%20Sommers/peerspace/peerspace-4.png',
+            'https://res.cloudinary.com/kcsommers/image/upload/v1672717981/M%20Kacy%20Sommers/peerspace/peerspace-3.png',
+          ],
+        },
+      ],
+    },
+    {
       title: 'Adaptiva',
       param: 'adaptiva',
       blurb:
-        'Full time senior front end engineering role for Adaptiva, an industry leading endpoint management software company based in Bellevue, WA.',
+        'Full time front end engineering role for Adaptiva, an industry leading endpoint management software company based in Bellevue, WA.',
       tools: ['Angular', 'SCSS', 'D3', 'Git', 'Java', 'SQL'],
       coverImage:
         'https://res.cloudinary.com/kcsommers/image/upload/v1643244724/M%20Kacy%20Sommers/adaptiva/adaptiva-7.png',
-      roles: ['Senior Front End Engineer'],
+      roles: ['Front End Engineer'],
       sections: [
         {
           images: [
