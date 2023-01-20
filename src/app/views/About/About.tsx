@@ -12,14 +12,14 @@ export const About: FC = () => {
           <p className={`animated-text-wrap ${styles.aboutText}`}>
             <AnimatedText delay={1.45}>
               <span className={styles.hiWrap}>Hi, I'm Kacy!</span> I'm a
-              software engineer who specializes in building clean and intuitive
-              web-based applications.
+              software engineer who specializes in building scalable and
+              intuitive web-based applications.
             </AnimatedText>
           </p>
           <p className={`animated-text-wrap ${styles.aboutText}`}>
             <AnimatedText delay={1.55}>
               In other words, I love JavaScript. I first started learning it in
-              2017 when my tolerance for delivering food and pouring lattes had
+              2017 when my tolerance for delivering food and slinging lattes had
               officially run out. I read Jon Duckett's JavaScript and JQuery
               cover to cover, buried myself in Youtube tutorials, and eventually
               signed up for a web development bootcamp in Seattle, WA. And even
