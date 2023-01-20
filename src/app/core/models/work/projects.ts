@@ -24,6 +24,11 @@ export const projects: { [projectType: string]: IProject[] } = {
       roles: ['Front End Engineer'],
       sections: [
         {
+          images: [
+            'https://res.cloudinary.com/kcsommers/image/upload/v1672717778/M%20Kacy%20Sommers/peerspace/peerspace-2.png',
+          ],
+        },
+        {
           text: {
             content:
               'I joined Peerspace in March of 2022, excited to drop into the fast paced environment of this growing startup. Initially I was placed on the SEO team, and worked closely with product, marketing and design to execute long term strategies for improving traffic, CTR and convesion. I learned a great deal about SEO best practices and was able to watch our numbers climb as we implemented our strategies.',
@@ -35,7 +40,7 @@ export const projects: { [projectType: string]: IProject[] } = {
               'During my time on this team the company underwent a rebrand, and I was tasked with leading the development of the new homepage. The designs for this rebranded page were ambitious, with complex scroll animations and lots and lots of high res images. As this was our main landing page, performace was of top concern. I built the page with a constant eye on lighthouse scores, employing strategies like code splitting, css inlining and image optimization.',
           },
           images: [
-            'https://res.cloudinary.com/kcsommers/image/upload/v1672717778/M%20Kacy%20Sommers/peerspace/peerspace-2.png',
+            'https://res.cloudinary.com/kcsommers/image/upload/v1672717813/M%20Kacy%20Sommers/peerspace/peerspace-4.png',
           ],
         },
         {
@@ -44,7 +49,6 @@ export const projects: { [projectType: string]: IProject[] } = {
               'After the rebrand I moved deeper into the funnel, and began working in our bookings and checkout flows. In order to collect data on the features our users would utilize, we deployed painted door and A/B tests to gather information and decide on worthwhile features, e.g. split payments, buy now pay later, and differing fee structures.',
           },
           images: [
-            'https://res.cloudinary.com/kcsommers/image/upload/v1672717813/M%20Kacy%20Sommers/peerspace/peerspace-4.png',
             'https://res.cloudinary.com/kcsommers/image/upload/v1672717981/M%20Kacy%20Sommers/peerspace/peerspace-3.png',
           ],
         },
