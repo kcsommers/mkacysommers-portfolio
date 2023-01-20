@@ -52,7 +52,7 @@ export const ResumeView = () => {
           }}
         >
           <img
-            src="https://res.cloudinary.com/kcsommers/image/upload/v1644706993/M%20Kacy%20Sommers/MKacySommers-resume_01-2022.png"
+            src="https://res.cloudinary.com/kcsommers/image/upload/v1674185811/M%20Kacy%20Sommers/MKacySommers-resume.png"
             alt="M Kacy Sommers Resume"
           />
         </motion.div>
