@@ -1,0 +1,44 @@
+@import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
+
+div.checkoutFormWrap {
+  display: block;
+}
+
+p.inputErrorText {
+  position: relative;
+  top: -0.75rem;
+  > svg {
+    display: inline-block;
+    margin-right: 8px;
+  }
+}
+
+div.inputWrap > input,
+div.inputWrap > textarea {
+  display: block;
+  width: 100%;
+  outline: none;
+  border: none;
+  box-shadow: $box-shadow;
+  padding: 0.75rem 0.5rem;
+  background-color: #fff;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  font-family: 'Source Sans Pro', sans-serif;
+  &:focus {
+    box-shadow: $box-shadow;
+  }
+}
+
+div.inputWrap > textarea {
+  height: 150px;
+  resize: none;
+}
+
+div.messageWrap {
+  margin: 15px 0 10px 0;
+  &.errorMsg {
+    color: $error;
+  }
+}

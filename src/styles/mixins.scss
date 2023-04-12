@@ -1,0 +1,75 @@
+@import './functions.scss';
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      line-height: line-height($min-font-size);
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+        line-height: calc(
+          (
+            #{$min-font-size + $min-font-size * 0.5} + #{strip-unit(
+                ($max-font-size + $max-font-size * 0.5) -
+                  ($min-font-size + $min-font-size * 0.5)
+              )} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+          )
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+        line-height: line-height($max-font-size);
+      }
+    }
+  }
+}
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+@mixin logoFade($max, $end, $delay: 0) {
+  animation: logoFade 1s ease-in-out forwards;
+  animation-delay: $delay;
+  @keyframes logoFade {
+    0% {
+      opacity: 0;
+    }
+    80% {
+      opacity: $max;
+    }
+    100% {
+      opacity: $end;
+    }
+  }
+}

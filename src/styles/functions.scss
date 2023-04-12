@@ -1,0 +1,7 @@
+@function line-height($f-size) {
+  @return $f-size + ($f-size * 0.5);
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
