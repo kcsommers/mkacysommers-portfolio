@@ -15,12 +15,16 @@ export const GutterLayout = ({ children }: PropsWithChildren<{}>) => {
       >
         <a
           href="https://www.linkedin.com/in/kacy-sommers/"
-          className="my-2 transition-all origin-bottom hover:scale-125"
+          className="transition-all origin-bottom hover:scale-125 my-4"
+        >
+          {/* @ts-ignore */}
+          <LinkedInIcon width={18} />
+        </a>
+        <a
+          href="https://github.com/kcsommers?tab=repositories"
+          className="my-4"
         >
           <GithubIcon />
-        </a>
-        <a href="https://github.com/kcsommers?tab=repositories">
-          <LinkedInIcon />
         </a>
         <div className="h-[22vh] w-[1px] mt-2 bg-neutral-900"></div>
       </div>
