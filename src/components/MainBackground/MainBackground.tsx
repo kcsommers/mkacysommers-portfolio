@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useMemo, useRef } from 'react';
-import { useWindowSize } from '../../app/utils/hooks/use-window-size';
+import { useWindowSize } from '../../utils/hooks/use-window-size';
 
 export const MainBackground = () => {
   const windowDims = useWindowSize();
