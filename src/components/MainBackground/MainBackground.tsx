@@ -19,7 +19,7 @@ export const MainBackground = () => {
   }, [windowDims.width]);
 
   return (
-    <div className="absolute top-0 left-0 w-full z-10 h-screen overflow-hidden bg-background">
+    <div className="fixed top-0 left-0 w-full z-10 h-screen overflow-hidden">
       <div
         className={`absolute left-0 w-full top-1/2 -translate-y-1/2 flex justify-center`}
       >
@@ -32,11 +32,11 @@ export const MainBackground = () => {
           {[...Array(logoCount).keys()].map((i) => (
             <div
               key={`mkacy-logo-${i}`}
-              className="flex-1 relative"
+              className="flex-1 relative m-4"
               ref={(ref) => logoRefs.current.push(ref)}
               style={{
                 height: `${logoHeght}px`,
-                opacity: i === logoCount - 2 ? 0.5 : 0,
+                opacity: i === logoCount - 2 ? 0.25 : 0,
                 minWidth: '350px',
                 maxWidth: '420px',
               }}

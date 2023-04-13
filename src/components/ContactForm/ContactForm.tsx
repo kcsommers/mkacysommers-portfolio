@@ -1,34 +1,27 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Button } from '../Button/Button';
-import { IContactParams } from './contact-params.interface';
+import ExclamationIcon from '../svg/circle-exclamation-solid.svg';
 import styles from './ContactForm.module.scss';
+import { IContactParams } from './contact-params.interface';
 
-interface IContactFormProps {
+type ContactFormProps = {
   onSubmit: (_params: IContactParams) => Promise<any>;
-}
+};
 
-export const ContactForm = ({ onSubmit }: IContactFormProps) => {
+export const ContactForm = ({ onSubmit }: ContactFormProps) => {
   const [name, setName] = useState('');
-
   const [nameError, setNameError] = useState('');
 
   const [emailAddress, setEmailAddress] = useState('');
-
   const [emailAddressError, setEmailAddressError] = useState('');
 
   const [phoneNumber, setPhoneNumber] = useState('');
-
   const [phoneNumberError, setPhoneNumberError] = useState('');
 
   const [message, setMessage] = useState('');
-
   const [submittingForm, setSubmittingForm] = useState(false);
 
-  const [errorMsg, setErrorMsg] = useState('');
-
+  const [error_msg, seterror_msg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
 
   const validateForm = (): boolean => {
@@ -61,11 +54,13 @@ export const ContactForm = ({ onSubmit }: IContactFormProps) => {
   const clearForm = () => {
     setName('');
     setPhoneNumber('');
-    setErrorMsg('');
+    seterror_msg('');
     setMessage('');
   };
 
-  const submit = async () => {
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     if (!validateForm()) {
       return;
     }
@@ -75,89 +70,91 @@ export const ContactForm = ({ onSubmit }: IContactFormProps) => {
       .then(() => {
         setSubmittingForm(false);
         setSuccessMsg('Thank You! Your message has been sent');
-        setErrorMsg('');
+        seterror_msg('');
         clearForm();
       })
       .catch((_error: any) => {
         setSubmittingForm(false);
         setSuccessMsg('');
-        setErrorMsg('Whoops! Something went wrong. Please try again');
+        seterror_msg('Whoops! Something went wrong. Please try again');
         console.error(_error);
       });
   };
 
   return (
-    <div className={styles.checkoutFormWrap}>
-      <div className={styles.inputWrap}>
+    <form onSubmit={submit}>
+      <div className={styles.input_wrap}>
+        {nameError && (
+          <p
+            className={`${styles.inputErrorText} text-danger text-sm flex items-center mb-2`}
+          >
+            {/* @ts-ignore */}
+            <ExclamationIcon className="fill-danger mr-2" width={18} />
+            {nameError}
+          </p>
+        )}
         <input
           type="name"
           placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {nameError && (
-          <p className={`${styles.inputErrorText} error-color`}>
-            <FontAwesomeIcon
-              icon={faExclamationCircle as IconProp}
-            ></FontAwesomeIcon>
-            {nameError}
+      </div>
+      <div className={styles.input_wrap}>
+        {emailAddressError && (
+          <p
+            className={`${styles.inputErrorText} text-danger text-sm flex items-center mb-2`}
+          >
+            {/* @ts-ignore */}
+            <ExclamationIcon className="fill-danger mr-2" width={18} />
+            {emailAddressError}
           </p>
         )}
-      </div>
-      <div className={styles.inputWrap}>
         <input
           type="email"
           placeholder="Email Address"
           value={emailAddress}
           onChange={(e) => setEmailAddress(e.target.value)}
         />
-        {emailAddressError && (
-          <p className={`${styles.inputErrorText} error-color`}>
-            <FontAwesomeIcon
-              icon={faExclamationCircle as IconProp}
-            ></FontAwesomeIcon>
-            {emailAddressError}
+      </div>
+      <div className={styles.input_wrap}>
+        {phoneNumberError && (
+          <p
+            className={`${styles.inputErrorText} text-danger text-sm flex items-center mb-2`}
+          >
+            {/* @ts-ignore */}
+            <ExclamationIcon className="fill-danger mr-2" width={18} />
+            {phoneNumberError}
           </p>
         )}
-      </div>
-      <div className={styles.inputWrap}>
         <input
           type="phone"
           placeholder="Phone Number"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
-        {phoneNumberError && (
-          <p className={`${styles.inputErrorText} error-color`}>
-            <FontAwesomeIcon
-              icon={faExclamationCircle as IconProp}
-            ></FontAwesomeIcon>
-            {phoneNumberError}
-          </p>
-        )}
       </div>
 
-      <div className={styles.inputWrap}>
+      <div className={styles.input_wrap}>
         <textarea
           placeholder="Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
       </div>
-      {errorMsg && (
-        <div className={`${styles.messageWrap} ${styles.errorMsg}`}>
-          {errorMsg}
+      {error_msg && (
+        <div className={`${styles.message_wrap} ${styles.error_msg}`}>
+          {error_msg}
         </div>
       )}
-      {successMsg && <div className={styles.messageWrap}>{successMsg}</div>}
-      <div className={styles.inputWrap}>
+      {successMsg && <div className={styles.message_wrap}>{successMsg}</div>}
+      <div className={styles.input_wrap}>
         <Button
           isDisabled={!name || !emailAddress || !phoneNumber || !message}
           text="Submit"
-          onClick={submit}
           showSpinner={submittingForm}
         />
       </div>
-    </div>
+    </form>
   );
 };

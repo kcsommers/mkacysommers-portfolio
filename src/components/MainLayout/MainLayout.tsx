@@ -21,15 +21,9 @@ export const MainLayout = ({
     <>
       <div className="relative z-20">
         <GutterLayout>
-          <div className="fixed left-0 top-8 w-[10%] flex justify-center">
-            <Link className="py-2 px-4 border-2 border-neutral-900" href="/">
-              MKS
-            </Link>
-          </div>
-
-          <div className="min-h-screen">
+          <div className="min-h-screen pb-16">
             <div className="flex flex-col tablet-landscape-up:flex-row">
-              <div className="flex-[0.85] mt-[50vh] ml-[10%] -translate-y-full">
+              <div className="flex-[0.85] mt-[30vh] tablet-landscape-up:ml-[5%]">
                 <h1 className="uppercase font-medium spacing tracking-widest text-lg">
                   {pageTitle}
                 </h1>

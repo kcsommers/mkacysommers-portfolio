@@ -1,40 +1,26 @@
-@import '../../styles/variables.scss';
-
 .btn {
   background: none;
   outline: none;
-  cursor: pointer;
-  border-radius: $border-radius;
+  border-radius: 3px;
   border: none;
-  display: inline-block;
   background-color: #fff;
   transition: all 0.2s ease;
-  color: $dark;
+  color: rgb(var(--color-foreground));
   max-width: 100%;
-  border: 2px solid $dark;
+  border: 2px solid rgb(var(--color-foreground));
   position: relative;
 
   &:hover,
   &:focus {
-    background-color: $dark;
+    background-color: rgb(var(--color-foreground));
     color: #fff;
   }
 }
 
-.btn-md {
-  padding: 0rem 3rem;
-  height: 30px;
+.btn_md {
+  padding: 0.5rem 1rem;
 }
 
-.btn-sm {
-  padding: 0 0.5rem;
-}
-
-.btnFullWidth {
-  width: 100%;
-}
-
-.btnDisabled {
-  pointer-events: none;
-  opacity: 0.75;
+.btn_sm {
+  padding: 0.25rem 0.5rem;
 }

@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -32,6 +34,10 @@ module.exports = {
       'tablet-landscape-up': '1025px',
       'desktop-up': '1200px',
       'big-desktop-up': '1800px',
+    },
+    fontFamily: {
+      montserrat: ['var(--font-montserrat)', ...fontFamily.sans],
+      marcellus: ['var(--font-marcellus)', ...fontFamily.sans],
     },
   },
   safelist: [

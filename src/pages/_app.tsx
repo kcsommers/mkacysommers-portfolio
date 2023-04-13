@@ -1,7 +1,8 @@
+import classNames from 'classnames';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
+import { Marcellus, Montserrat } from 'next/font/google';
 import { ReactElement, ReactNode } from 'react';
-import { Montserrat } from 'next/font/google';
 import '../styles/globals.scss';
 
 type NextPageWithLayout = NextPage & {
@@ -12,7 +13,15 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-const montserrat = Montserrat({ subsets: ['latin'] });
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+});
+const marcellus = Marcellus({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-marcellus',
+});
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   // Use the custom layout defined at the page level, if available
@@ -20,12 +29,14 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
 
   return (
     <>
-      <style jsx global>{`
-        html {
-          font-family: ${montserrat.style.fontFamily};
-        }
-      `}</style>
-      <main className={montserrat.className}>
+      <main
+        className={classNames(
+          montserrat.className,
+          montserrat.variable,
+          marcellus.variable,
+          'bg-background'
+        )}
+      >
         {getLayout(<Component {...pageProps} />)}
       </main>
     </>

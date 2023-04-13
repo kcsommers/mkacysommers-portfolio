@@ -17,7 +17,7 @@ export const Nav = () => {
             className={classNames(styles.nav_link, {
               [styles.active_link]: router.pathname === '/',
             })}
-            onClick={() => router.pathname !== '/' && setInTransition(true)}
+            // onClick={() => router.pathname !== '/' && setInTransition(true)}
           >
             home
           </Link>
@@ -26,7 +26,7 @@ export const Nav = () => {
             className={classNames(styles.nav_link, {
               [styles.active_link]: router.pathname === '/work',
             })}
-            onClick={() => router.pathname !== '/work' && setInTransition(true)}
+            // onClick={() => router.pathname !== '/work' && setInTransition(true)}
           >
             work
           </Link>
@@ -35,9 +35,9 @@ export const Nav = () => {
             className={classNames(styles.nav_link, {
               [styles.active_link]: router.pathname === '/about',
             })}
-            onClick={() =>
-              router.pathname !== '/about' && setInTransition(true)
-            }
+            // onClick={() =>
+            //   router.pathname !== '/about' && setInTransition(true)
+            // }
           >
             about
           </Link>
@@ -46,9 +46,9 @@ export const Nav = () => {
             className={classNames(styles.nav_link, {
               [styles.active_link]: router.pathname === '/contact',
             })}
-            onClick={() =>
-              router.pathname !== '/contact' && setInTransition(true)
-            }
+            // onClick={() =>
+            //   router.pathname !== '/contact' && setInTransition(true)
+            // }
           >
             contact
           </Link>
@@ -57,9 +57,9 @@ export const Nav = () => {
             className={classNames(styles.nav_link, {
               [styles.active_link]: router.pathname === '/resume',
             })}
-            onClick={() =>
-              router.pathname !== '/resume' && setInTransition(true)
-            }
+            // onClick={() =>
+            //   router.pathname !== '/resume' && setInTransition(true)
+            // }
           >
             resume
           </Link>

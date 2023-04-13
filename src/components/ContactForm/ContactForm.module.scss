@@ -1,44 +1,27 @@
 @import '../../styles/colors.scss';
 @import '../../styles/variables.scss';
 
-div.checkoutFormWrap {
-  display: block;
-}
-
-p.inputErrorText {
-  position: relative;
-  top: -0.75rem;
-  > svg {
-    display: inline-block;
-    margin-right: 8px;
-  }
-}
-
-div.inputWrap > input,
-div.inputWrap > textarea {
+div.input_wrap > input,
+div.input_wrap > textarea {
   display: block;
   width: 100%;
   outline: none;
   border: none;
-  box-shadow: $box-shadow;
+  box-shadow: var(--box-shadow-mat);
   padding: 0.75rem 0.5rem;
   background-color: #fff;
   margin-bottom: 0.5rem;
-  transition: all 0.3s ease;
-  font-family: 'Source Sans Pro', sans-serif;
-  &:focus {
-    box-shadow: $box-shadow;
-  }
+  transition: all 0.175s ease;
 }
 
-div.inputWrap > textarea {
+div.input_wrap > textarea {
   height: 150px;
   resize: none;
 }
 
-div.messageWrap {
+div.message_wrap {
   margin: 15px 0 10px 0;
-  &.errorMsg {
+  &.error_msg {
     color: $error;
   }
 }

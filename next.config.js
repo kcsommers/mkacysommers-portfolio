@@ -15,6 +15,14 @@ const nextConfig = {
       test: /\.tsx?$/i,
       use: [options.defaultLoaders.babel],
     });
+    config.module.rules.push({
+      test: /\.pdf$/,
+      use: [
+        {
+          loader: 'file-loader',
+        },
+      ],
+    });
 
     return config;
   },
