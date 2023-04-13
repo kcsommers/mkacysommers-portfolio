@@ -1,12 +1,10 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 import { GutterLayout } from '../../components/GutterLayout/GutterLayout';
 import { MainBackground } from '../../components/MainBackground/MainBackground';
+import ChevronLeftIcon from '../../components/svg/chevron-left-solid.svg';
 import { Project, projects } from '../../projects/projects';
 import styles from './Project.module.scss';
 
@@ -28,9 +26,7 @@ const ProjectPage = () => {
             <div className="py-24">
               <div className={styles.backBtnWrap}>
                 <Link href="/work" className={styles.backBtn}>
-                  <FontAwesomeIcon
-                    icon={faAngleLeft as IconProp}
-                  ></FontAwesomeIcon>
+                  <ChevronLeftIcon />
                   Back to projects
                 </Link>
               </div>

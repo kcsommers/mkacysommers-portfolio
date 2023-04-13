@@ -4,10 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "next build",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": [
@@ -28,39 +26,25 @@
     ]
   },
   "dependencies": {
-    "@craco/craco": "^6.2.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.35",
-    "@fortawesome/free-brands-svg-icons": "^5.15.3",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@fortawesome/react-fontawesome": "^0.1.14",
     "@svgr/webpack": "^7.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "classnames": "^2.3.2",
-    "craco-alias": "^3.0.1",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^4.1.17",
     "next": "^13.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-intersection-observer": "^8.33.1",
-    "react-router": "^6.2.1",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
-    "use-dynamic-refs": "^1.0.0",
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",
     "@types/node": "^12.20.19",
     "@types/react": "^17.0.18",
-    "@types/react-dom": "^17.0.9",
-    "@types/react-router-dom": "^5.1.8",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "sass": "^1.49.0",
-    "tailwind": "^4.0.0",
     "tailwindcss": "^3.3.1",
     "typescript": "^4.5.5"
   }
