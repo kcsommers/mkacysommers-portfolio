@@ -70,7 +70,7 @@ export const MainLayout = ({
             {[...Array(logoCount).keys()].map((i) => (
               <div
                 key={`mkacy-logo-${i}`}
-                className="flex-1 relative m-4"
+                className="flex-1 relative m-4 opacity-30"
                 ref={(ref) => logoRefs.current.push(ref)}
                 style={{
                   height: `${logoHeght}px`,
