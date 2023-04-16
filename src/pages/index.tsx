@@ -1,6 +1,8 @@
+import { ReactElement } from 'react';
 import { MainLayout } from '../components/MainLayout/MainLayout';
+import { TransitionView } from '../components/TransitionView/TransitionView';
 
-export default () => {
+const HomePage = () => {
   return (
     <MainLayout
       pageTitle="M Kacy Sommers"
@@ -8,3 +10,9 @@ export default () => {
     />
   );
 };
+
+HomePage.getLayout = function getLayout(page: ReactElement) {
+  return <TransitionView>{page}</TransitionView>;
+};
+
+export default HomePage;

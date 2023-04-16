@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import { ReactElement } from 'react';
 import { Button } from '../components/Button/Button';
 import { MainLayout } from '../components/MainLayout/MainLayout';
+import { TransitionView } from '../components/TransitionView/TransitionView';
 import DownloadIcon from '../components/svg/download-solid.svg';
 
 const ResumePage = () => {
@@ -45,6 +47,10 @@ const ResumePage = () => {
       }
     />
   );
+};
+
+ResumePage.getLayout = function getLayout(page: ReactElement) {
+  return <TransitionView>{page}</TransitionView>;
 };
 
 export default ResumePage;

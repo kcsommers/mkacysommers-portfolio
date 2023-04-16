@@ -1,6 +1,8 @@
 import { EmailJSResponseStatus, send } from 'emailjs-com';
+import { ReactElement } from 'react';
 import { ContactForm } from '../components/ContactForm/ContactForm';
 import { MainLayout } from '../components/MainLayout/MainLayout';
+import { TransitionView } from '../components/TransitionView/TransitionView';
 
 type ContactParams = {
   name: string;
@@ -34,6 +36,10 @@ const ContactPage = () => {
       }
     />
   );
+};
+
+ContactPage.getLayout = function getLayout(page: ReactElement) {
+  return <TransitionView>{page}</TransitionView>;
 };
 
 export default ContactPage;

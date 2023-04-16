@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import { ReactElement } from 'react';
 import { MainLayout } from '../components/MainLayout/MainLayout';
+import { TransitionView } from '../components/TransitionView/TransitionView';
 
 const AboutPage = () => {
   return (
@@ -60,6 +62,10 @@ const AboutPage = () => {
       }
     />
   );
+};
+
+AboutPage.getLayout = function getLayout(page: ReactElement) {
+  return <TransitionView>{page}</TransitionView>;
 };
 
 export default AboutPage;

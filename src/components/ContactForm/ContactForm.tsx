@@ -88,7 +88,6 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
           <p
             className={`${styles.inputErrorText} text-danger text-sm flex items-center mb-2`}
           >
-            {/* @ts-ignore */}
             <ExclamationIcon className="fill-danger mr-2" width={18} />
             {nameError}
           </p>
@@ -105,7 +104,6 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
           <p
             className={`${styles.inputErrorText} text-danger text-sm flex items-center mb-2`}
           >
-            {/* @ts-ignore */}
             <ExclamationIcon className="fill-danger mr-2" width={18} />
             {emailAddressError}
           </p>

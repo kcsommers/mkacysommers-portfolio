@@ -3,10 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 import { GutterLayout } from '../../components/GutterLayout/GutterLayout';
-import { MainBackground } from '../../components/MainBackground/MainBackground';
 import ChevronLeftIcon from '../../components/svg/chevron-left-solid.svg';
 import { Project, projects } from '../../projects/projects';
-import styles from './Project.module.scss';
 
 const ProjectPage = () => {
   const router = useRouter();
@@ -24,20 +22,18 @@ const ProjectPage = () => {
         <div className="relative z-20">
           <GutterLayout>
             <div className="py-24">
-              <div className={styles.backBtnWrap}>
-                <Link href="/work" className={styles.backBtn}>
+              <Link href="/work" className="inline-flex items-center">
+                <span className="mr-2">
                   <ChevronLeftIcon />
-                  Back to projects
-                </Link>
-              </div>
-              <h2 className="uppercase font-marcellus text-3xl mb-2">
+                </span>
+                Back to projects
+              </Link>
+              <h2 className="uppercase font-marcellus text-3xl my-2">
                 {project.title}
               </h2>
-              {project.roles && (
-                <span className={styles.roles}>{project.roles.join(', ')}</span>
-              )}
+              {project.roles && <span>{project.roles.join(', ')}</span>}
               <div
-                className="relative"
+                className="relative mt-8"
                 style={{
                   aspectRatio: '999 / 545',
                 }}
@@ -80,7 +76,7 @@ const ProjectPage = () => {
                     {(section.images || []).map((url: string) => (
                       <div
                         key={url}
-                        className="relative"
+                        className="relative my-8"
                         style={{
                           aspectRatio: '999 / 545',
                         }}
@@ -100,7 +96,6 @@ const ProjectPage = () => {
           </GutterLayout>
         </div>
       )}
-      <MainBackground />
     </>
   );
 };

@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ReactElement } from 'react';
 import { MainLayout } from '../../components/MainLayout/MainLayout';
+import { TransitionView } from '../../components/TransitionView/TransitionView';
 import { projects } from '../../projects/projects';
 
 const WorkPage = () => {
@@ -44,6 +46,10 @@ const WorkPage = () => {
       }
     />
   );
+};
+
+WorkPage.getLayout = function getLayout(page: ReactElement) {
+  return <TransitionView>{page}</TransitionView>;
 };
 
 export default WorkPage;
