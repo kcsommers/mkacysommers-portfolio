@@ -50,7 +50,7 @@ export const TransitionView = ({ children }: PropsWithChildren<{}>) => {
 
   const logoVariants = (i: number) => {
     return {
-      hidden: { opacity: i === logoCount - 2 ? 0.25 : 0 },
+      hidden: { opacity: i === logoCount - 2 ? 0.25 : 0.15 },
       show: {
         opacity: 0.75,
         transition: {
@@ -116,7 +116,6 @@ export const TransitionView = ({ children }: PropsWithChildren<{}>) => {
             initialState: {
               clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)',
             },
-
             animateState: {
               clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
               transition: {
