@@ -23,14 +23,17 @@ export const TransitionProvider = ({ children }: PropsWithChildren<{}>) => {
   const [isTransitioning, setIsTransitioning] = useState(true);
 
   useEffect(() => {
-    const onRouteChangeStart = () => {
+    const onRouteChangeStart = (newPath: string) => {
+      if (newPath === router.asPath) {
+        return;
+      }
       setIsTransitioning(true);
     };
 
     router.events.on('routeChangeStart', onRouteChangeStart);
 
     return () => router.events.off('routeChangeStart', onRouteChangeStart);
-  }, []);
+  }, [router.asPath]);
 
   const memoizedValue = useMemo(
     () => ({

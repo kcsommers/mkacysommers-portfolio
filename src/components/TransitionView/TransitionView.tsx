@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
-import { useWindowSize } from '../../utils/hooks/use-window-size';
+import { PropsWithChildren, useMemo, useRef } from 'react';
 import { useTransition } from '../../context/use-transition';
+import { useWindowSize } from '../../utils/hooks/use-window-size';
 
 const SLIDE_DURATION = 0.5;
 const SLIDE_EASE = [0.66, 0.1, 0.9, 0.68];

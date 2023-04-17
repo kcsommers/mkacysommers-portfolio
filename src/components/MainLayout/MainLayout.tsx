@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ReactNode, useMemo, useRef } from 'react';
 import { useTransition } from '../../context/use-transition';
 import { useWindowSize } from '../../utils/hooks/use-window-size';
 import { Nav } from '../Nav/Nav';
 import GithubIcon from '../svg/github.svg';
 import LinkedInIcon from '../svg/linkedin-in.svg';
-import Link from 'next/link';
 
 type MainLayoutProps = {
   leftContent?: ReactNode;
@@ -61,37 +61,51 @@ export const MainLayout = ({
   return (
     <>
       <motion.div
+        className={classNames(
+          'absolute top-8 w-[10%] flex items-center justify-center left-8 z-30',
+          'tablet-landscape-up:fixed tablet-landscape-up:left-0 tablet-portrait-up:left-6'
+        )}
+        animate={isTransitioning ? 'animateState' : 'staticState'}
+        variants={blurVariants}
+      >
+        <span>
+          <Link
+            className={classNames(
+              'py-2 px-4 border-2 border-neutral-900 text-sm',
+              'tablet-landscape-up:text-base'
+            )}
+            href="/"
+          >
+            MKS
+          </Link>
+        </span>
+      </motion.div>
+      <motion.div
         className="fixed top-0 left-0 h-screen w-full z-20 origin-top"
         animate={isTransitioning ? 'animateState' : 'staticState'}
         variants={blurVariants}
       >
         <div
           className={classNames(
-            'flex flex-col justify-between items-center absolute h-full bottom-0 left-0',
-            'min-w-[10%] max-w-[10%] pt-8'
+            'flex flex-col justify-end items-center absolute h-full bottom-0 left-0',
+            'min-w-[10%] max-w-[10%]'
           )}
         >
-          <div className="flex justify-center">
-            <Link className="py-2 px-4 border-2 border-neutral-900" href="/">
-              MKS
-            </Link>
-          </div>
-          <div className="flex flex-col items-center">
-            <a
-              href="https://www.linkedin.com/in/kacy-sommers/"
-              className="transition-all origin-bottom hover:scale-125 my-4"
-            >
-              {/* @ts-ignore */}
-              <LinkedInIcon width={18} />
-            </a>
-            <a
-              href="https://github.com/kcsommers?tab=repositories"
-              className="transition-all origin-bottom hover:scale-125 my-4"
-            >
-              <GithubIcon />
-            </a>
-            <div className="h-[22vh] w-[1px] mt-2 bg-neutral-900"></div>
-          </div>
+          <a
+            href="https://www.linkedin.com/in/kacy-sommers/"
+            className="transition-all origin-bottom hover:scale-125 my-4 w-[13px] tablet-portrait-up:w-[18px]"
+          >
+            {/* @ts-ignore */}
+            <LinkedInIcon className="w-full" />
+          </a>
+          <a
+            href="https://github.com/kcsommers?tab=repositories"
+            className="transition-all origin-bottom hover:scale-125 my-4 w-[15px] tablet-portrait-up:w-[20px]"
+          >
+            {/* @ts-ignore */}
+            <GithubIcon className="w-full" />
+          </a>
+          <div className="h-[22vh] w-[1px] mt-2 bg-neutral-900"></div>
         </div>
 
         <div
@@ -102,7 +116,7 @@ export const MainLayout = ({
         >
           <a
             href="mailto:kacysommers@gmail.com"
-            className="transition-all hover:tracking-widest"
+            className="transition-all hover:tracking-widest tablet-portrait-up:text-base text-xs"
             style={{
               transform: 'rotate(90deg) translateX(-50%)',
             }}
@@ -119,9 +133,16 @@ export const MainLayout = ({
           animate={isTransitioning ? 'animateState' : 'staticState'}
           variants={blurVariants}
         >
-          <div className="min-h-screen pb-16">
-            <div className="flex flex-col tablet-landscape-up:flex-row">
-              <div className="flex-[0.85] mt-[30vh] tablet-landscape-up:ml-[5%]">
+          <div className="min-h-screen pb-24">
+            <div className="flex flex-col items-start tablet-landscape-up:flex-row">
+              <div
+                className={classNames(
+                  'flex-[0.85] pt-[30vh] tablet-landscape-up:ml-[5%]',
+                  {
+                    'sticky top-0': windowDims.width > 1025,
+                  }
+                )}
+              >
                 <h1 className="uppercase font-medium spacing tracking-widest text-lg">
                   {pageTitle}
                 </h1>
@@ -135,7 +156,7 @@ export const MainLayout = ({
                 </div>
                 {leftContent}
               </div>
-              <div className="flex-1">{rightContent}</div>
+              <div className="flex-1 w-full">{rightContent}</div>
             </div>
           </div>
         </motion.div>
