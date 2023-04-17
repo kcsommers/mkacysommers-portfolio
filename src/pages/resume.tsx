@@ -24,7 +24,7 @@ const ResumePage = () => {
             onClick={downloadResume}
             isFullWidth={false}
             // @ts-ignore
-            icon={<DownloadIcon width={18} />}
+            icon={<DownloadIcon width={18} className="fill-inherit" />}
           />
         </div>
       }

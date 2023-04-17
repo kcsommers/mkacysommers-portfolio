@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import { Marcellus, Montserrat } from 'next/font/google';
-import { useRouter } from 'next/router';
 import { ReactElement, ReactNode } from 'react';
+import { TransitionProvider } from '../context/use-transition';
 import '../styles/globals.scss';
 
 type NextPageWithLayout = NextPage & {
@@ -28,19 +28,20 @@ const marcellus = Marcellus({
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   // Use the custom layout defined at the page level, if available
   const getLayout = Component.getLayout || ((page) => page);
-  const router = useRouter();
 
   return (
-    <main
-      className={classNames(
-        montserrat.className,
-        montserrat.variable,
-        marcellus.variable,
-        'bg-background'
-      )}
-    >
-      {getLayout(<Component {...pageProps} />)}
-    </main>
+    <TransitionProvider>
+      <main
+        className={classNames(
+          montserrat.className,
+          montserrat.variable,
+          marcellus.variable,
+          'bg-background'
+        )}
+      >
+        {getLayout(<Component {...pageProps} />)}
+      </main>
+    </TransitionProvider>
   );
 };
 

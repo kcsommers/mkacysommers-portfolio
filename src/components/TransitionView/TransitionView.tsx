@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
 import { useWindowSize } from '../../utils/hooks/use-window-size';
+import { useTransition } from '../../context/use-transition';
 
 const SLIDE_DURATION = 0.5;
 const SLIDE_EASE = [0.66, 0.1, 0.9, 0.68];
@@ -10,17 +11,7 @@ const SLIDE_EASE = [0.66, 0.1, 0.9, 0.68];
 export const TransitionView = ({ children }: PropsWithChildren<{}>) => {
   const router = useRouter();
 
-  const [isTransitioning, setIsTransitioning] = useState(true);
-
-  useEffect(() => {
-    const onRouteChangeStart = () => {
-      setIsTransitioning(true);
-    };
-
-    router.events.on('routeChangeStart', onRouteChangeStart);
-
-    return () => router.events.off('routeChangeStart', onRouteChangeStart);
-  }, []);
+  const { isTransitioning, setIsTransitioning } = useTransition();
 
   const windowDims = useWindowSize();
   const logoCount = useMemo(() => {
