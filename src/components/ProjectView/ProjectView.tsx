@@ -1,21 +1,26 @@
-import Link from 'next/link';
-import { Project } from '../../projects/projects';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { MutableRefObject, useRef } from 'react';
+import { Project } from '../../projects/projects';
 import { useIntersectionObserver } from '../../utils/hooks/use-intersection-observer';
-import { useRef } from 'react';
+
+type ProjectViewProps = {
+  project: Project;
+  fullView: boolean;
+};
 
 type ProjectThumbProps = {
   project: Project;
+  thumbRef: MutableRefObject<HTMLDivElement>;
 };
 
-export const ProjectThumb = ({ project }: ProjectThumbProps) => {
-  const elRef = useRef();
-  const { isVisible } = useIntersectionObserver(elRef, 0.25);
+export const ProjectThumb = ({ project, thumbRef }: ProjectThumbProps) => {
+  const { isVisible } = useIntersectionObserver(thumbRef, 0.25);
 
   return (
     <motion.div
-      ref={elRef}
+      ref={thumbRef}
       className="mb-12"
       animate={isVisible ? 'visible' : 'hidden'}
       variants={{
@@ -33,7 +38,7 @@ export const ProjectThumb = ({ project }: ProjectThumbProps) => {
       }}
     >
       <div>
-        <Link href={`/work/${project.param}`}>
+        <Link href={`/work?p=${project.param}`}>
           <h4 className="font-marcellus text-3xl uppercase mb-2">
             {project.title}
           </h4>
@@ -54,4 +59,10 @@ export const ProjectThumb = ({ project }: ProjectThumbProps) => {
       </div>
     </motion.div>
   );
+};
+
+export const ProjectView = ({ project, fullView }: ProjectViewProps) => {
+  const thumbRef = useRef();
+
+  return <ProjectThumb project={project} thumbRef={thumbRef} />;
 };

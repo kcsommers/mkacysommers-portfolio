@@ -24,7 +24,7 @@ export const TransitionProvider = ({ children }: PropsWithChildren<{}>) => {
 
   useEffect(() => {
     const onRouteChangeStart = (newPath: string) => {
-      if (newPath === router.asPath) {
+      if (newPath.split('?')[0] === router.pathname) {
         return;
       }
       setIsTransitioning(true);
@@ -33,7 +33,7 @@ export const TransitionProvider = ({ children }: PropsWithChildren<{}>) => {
     router.events.on('routeChangeStart', onRouteChangeStart);
 
     return () => router.events.off('routeChangeStart', onRouteChangeStart);
-  }, [router.asPath]);
+  }, [router.pathname]);
 
   const memoizedValue = useMemo(
     () => ({

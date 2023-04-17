@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { ReactElement } from 'react';
+import { AppBackground } from '../components/AppBackground/AppBackground';
+import { AppGutters } from '../components/AppGutters/AppGutters';
 import { Button } from '../components/Button/Button';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { TransitionView } from '../components/TransitionView/TransitionView';
@@ -15,37 +17,41 @@ const ResumePage = () => {
   };
 
   return (
-    <MainLayout
-      pageTitle="Resume"
-      leftContent={
-        <div className="my-8">
-          <Button
-            text="Download"
-            onClick={downloadResume}
-            isFullWidth={false}
-            // @ts-ignore
-            icon={<DownloadIcon width={18} className="fill-inherit" />}
-          />
-        </div>
-      }
-      rightContent={
-        <div
-          className="relative shadow-mat tablet-landscape-up:mt-[20vh]"
-          style={{
-            aspectRatio: '588 / 761',
-          }}
-        >
-          <Image
-            src="https://res.cloudinary.com/kcsommers/image/upload/v1674185811/M%20Kacy%20Sommers/MKacySommers-resume.png"
-            alt="M Kacy Sommers Resume"
-            fill={true}
+    <>
+      <AppGutters />
+      <AppBackground />
+      <MainLayout
+        pageTitle="Resume"
+        leftContent={
+          <div className="my-8">
+            <Button
+              text="Download"
+              onClick={downloadResume}
+              isFullWidth={false}
+              // @ts-ignore
+              icon={<DownloadIcon width={18} className="fill-inherit" />}
+            />
+          </div>
+        }
+        rightContent={
+          <div
+            className="relative shadow-mat tablet-landscape-up:mt-[20vh]"
             style={{
-              objectFit: 'cover',
+              aspectRatio: '588 / 761',
             }}
-          />
-        </div>
-      }
-    />
+          >
+            <Image
+              src="https://res.cloudinary.com/kcsommers/image/upload/v1674185811/M%20Kacy%20Sommers/MKacySommers-resume.png"
+              alt="M Kacy Sommers Resume"
+              fill={true}
+              style={{
+                objectFit: 'cover',
+              }}
+            />
+          </div>
+        }
+      />
+    </>
   );
 };
 

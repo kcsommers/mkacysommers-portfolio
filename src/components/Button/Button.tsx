@@ -46,7 +46,7 @@ export const Button = ({
       className={classNames(
         styles.btn,
         styles[`btn_${size}`],
-        'text-center inline-flex items-center fill-foreground hover:fill-background',
+        'text-center inline-flex items-center justify-center fill-foreground hover:fill-background',
         {
           'w-full': isFullWidth,
           'pointer-events-none opacity-75': isDisabled,

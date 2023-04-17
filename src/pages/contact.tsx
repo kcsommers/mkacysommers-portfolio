@@ -1,5 +1,7 @@
 import { EmailJSResponseStatus, send } from 'emailjs-com';
 import { ReactElement } from 'react';
+import { AppBackground } from '../components/AppBackground/AppBackground';
+import { AppGutters } from '../components/AppGutters/AppGutters';
 import { ContactForm } from '../components/ContactForm/ContactForm';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { TransitionView } from '../components/TransitionView/TransitionView';
@@ -19,22 +21,26 @@ const ContactPage = () => {
   };
 
   return (
-    <MainLayout
-      pageTitle="Contact"
-      leftContent={
-        <p className="tablet-landscape-up:pr-16 mt-8">
-          I am always on the lookout for new projects, fresh challenges and kind
-          folks to collaborate with. If you have an idea, an open position or
-          just want to talk code, please get in touch.
-        </p>
-      }
-      rightContent={
-        <div className="mt-8 tablet-landscape-up:mt-[20vh]">
-          <h3 className="font-marcellus text-3xl mt-8 mb-4">Get in touch!</h3>
-          <ContactForm onSubmit={onFormSubmit} />
-        </div>
-      }
-    />
+    <>
+      <AppGutters />
+      <AppBackground />
+      <MainLayout
+        pageTitle="Contact"
+        leftContent={
+          <p className="tablet-landscape-up:pr-16 mt-8">
+            I am always on the lookout for new projects, fresh challenges and
+            kind folks to collaborate with. If you have an idea, an open
+            position or just want to talk code, please get in touch.
+          </p>
+        }
+        rightContent={
+          <div className="mt-8 tablet-landscape-up:mt-[20vh]">
+            <h3 className="font-marcellus text-3xl mt-8 mb-4">Get in touch!</h3>
+            <ContactForm onSubmit={onFormSubmit} />
+          </div>
+        }
+      />
+    </>
   );
 };
 
