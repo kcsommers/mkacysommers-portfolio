@@ -1,16 +1,16 @@
-export const blurVariants = {
-  animateState: {
+export const blurVariants = (blurDuration = 1, nonBlurDuration = 0.5) => ({
+  blurState: {
     filter: 'blur(10px)',
     opacity: 0,
     transition: {
-      duration: 1,
+      duration: blurDuration,
     },
   },
-  staticState: {
+  nonBlurState: {
     filter: 'blur(0px)',
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: nonBlurDuration,
     },
   },
-};
+});

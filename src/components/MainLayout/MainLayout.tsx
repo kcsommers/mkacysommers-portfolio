@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import { useTransition } from '../../context/use-transition';
 import { useWindowSize } from '../../utils/hooks/use-window-size';
 import { Nav } from '../Nav/Nav';
+import { blurVariants } from '../../utils/animations/blur-variants';
 
 type MainLayoutProps = {
   leftContent?: ReactNode;
@@ -21,29 +22,13 @@ export const MainLayout = ({
   const { isTransitioning } = useTransition();
 
   const windowDims = useWindowSize();
-  const blurVariants = {
-    animateState: {
-      filter: 'blur(10px)',
-      opacity: 0,
-      transition: {
-        duration: 1,
-      },
-    },
-    staticState: {
-      filter: 'blur(0px)',
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
 
   return (
-    <div className="flex relative">
+    <div className="flex relative flex-1">
       <motion.div
         className="relative z-30 flex-1 mx-[10%]"
-        animate={isTransitioning ? 'animateState' : 'staticState'}
-        variants={blurVariants}
+        animate={isTransitioning ? 'blurState' : 'nonBlurState'}
+        variants={blurVariants()}
       >
         <div className="min-h-screen pb-24">
           <div className="flex flex-col items-start tablet-landscape-up:flex-row">

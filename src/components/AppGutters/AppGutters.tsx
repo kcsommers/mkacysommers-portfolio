@@ -16,8 +16,8 @@ export const AppGutters = () => {
           'absolute top-8 w-[10%] flex items-center justify-center left-8 z-30',
           'tablet-landscape-up:fixed tablet-landscape-up:left-0 tablet-portrait-up:left-6'
         )}
-        animate={isTransitioning ? 'animateState' : 'staticState'}
-        variants={blurVariants}
+        animate={isTransitioning ? 'blurState' : 'nonBlurState'}
+        variants={blurVariants()}
       >
         <span>
           <Link
@@ -33,8 +33,8 @@ export const AppGutters = () => {
       </motion.div>
       <motion.div
         className="fixed top-0 left-0 h-screen w-full z-20 origin-top"
-        animate={isTransitioning ? 'animateState' : 'staticState'}
-        variants={blurVariants}
+        animate={isTransitioning ? 'blurState' : 'nonBlurState'}
+        variants={blurVariants()}
       >
         <div
           className={classNames(
