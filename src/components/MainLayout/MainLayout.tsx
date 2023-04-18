@@ -1,12 +1,9 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import { ReactNode, useMemo, useRef } from 'react';
+import { ReactNode } from 'react';
 import { useTransition } from '../../context/use-transition';
 import { useWindowSize } from '../../utils/hooks/use-window-size';
 import { Nav } from '../Nav/Nav';
-
-import { AppBackground } from '../AppBackground/AppBackground';
-import { AppGutters } from '../AppGutters/AppGutters';
 
 type MainLayoutProps = {
   leftContent?: ReactNode;
@@ -24,20 +21,6 @@ export const MainLayout = ({
   const { isTransitioning } = useTransition();
 
   const windowDims = useWindowSize();
-  const logoCount = useMemo(() => {
-    if (windowDims.width > 1600) {
-      return 5;
-    }
-    if (windowDims.width > 600) {
-      return 4;
-    }
-    return 3;
-  }, [windowDims.width]);
-  const logoRefs = useRef<HTMLDivElement[]>([]);
-  const logoHeght = useMemo(() => {
-    return logoRefs.current[0]?.offsetWidth * 1.455;
-  }, [windowDims.width]);
-
   const blurVariants = {
     animateState: {
       filter: 'blur(10px)',
@@ -58,7 +41,7 @@ export const MainLayout = ({
   return (
     <div className="flex relative">
       <motion.div
-        className="relative z-30 flex-1 mx-[10%] origin-top"
+        className="relative z-30 flex-1 mx-[10%]"
         animate={isTransitioning ? 'animateState' : 'staticState'}
         variants={blurVariants}
       >
