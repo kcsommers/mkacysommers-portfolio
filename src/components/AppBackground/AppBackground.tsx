@@ -1,9 +1,12 @@
-import { motion } from 'framer-motion';
+import classNames from 'classnames';
+import { Variants, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useMemo, useRef } from 'react';
 import { useTransition } from '../../context/use-transition';
+import { getTheme } from '../../themes/themes';
+import { useTheme } from '../../themes/use-theme';
+import { Color, Solver } from '../../utils/color-filter';
 import { useWindowSize } from '../../utils/hooks/use-window-size';
-import classNames from 'classnames';
 
 type AppBackgroundProps = {
   isTransitionView?: boolean;
@@ -11,7 +14,17 @@ type AppBackgroundProps = {
 
 export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
   const windowDims = useWindowSize();
-  const { isTransitioning, setIsTransitioning } = useTransition();
+  const { isTransitioning } = useTransition();
+
+  const { currentTheme } = useTheme();
+  const logoFilter = useMemo(() => {
+    const theme = getTheme(currentTheme);
+    let color = new Color(theme.primary[0], theme.primary[1], theme.primary[2]);
+    let solver = new Solver(color);
+    let result = solver.solve();
+    let filterCSS = result.filter;
+    return filterCSS;
+  }, []);
 
   const logoCount = useMemo(() => {
     if (windowDims.width > 1600) {
@@ -38,11 +51,12 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
     },
   };
 
-  const logoVariants = (i: number) => {
+  const logoVariants = (i: number): Variants => {
     return {
       hidden: { opacity: i === logoCount - 2 ? 0.25 : 0.15 },
       show: {
         opacity: 0.75,
+        filter: logoFilter,
         transition: {
           duration: 1,
         },
@@ -53,7 +67,7 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
   return (
     <div
       className={classNames(
-        'fixed top-0 right-0 bottom-0 left-0 z-10',
+        'fixed top-0 right-0 bottom-0 left-0 z-10 transition-colors',
         isTransitionView ? 'bg-foreground' : 'bg-background'
       )}
     >
@@ -81,10 +95,12 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
             >
               {(i === logoCount - 2 || isTransitionView) && (
                 <Image
-                  src="https://res.cloudinary.com/kcsommers/image/upload/v1644788416/M%20Kacy%20Sommers/mkacysommers_logo2.png"
+                  src="https://res.cloudinary.com/kcsommers/image/upload/v1681933306/M%20Kacy%20Sommers/mkacysommers_logo2.png"
                   alt="M Kacy Sommers logo"
                   fill={true}
-                  style={{ objectFit: 'contain' }}
+                  style={{
+                    objectFit: 'contain',
+                  }}
                 />
               )}
             </motion.div>
