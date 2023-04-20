@@ -6,7 +6,7 @@ a.nav_link {
   position: relative;
   &:after {
     content: '';
-    background: $dark;
+    background: rgb(var(--color-secondary));
     position: absolute;
     left: 0;
     right: 8px;

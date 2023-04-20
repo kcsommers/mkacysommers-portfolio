@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { Button } from '../Button/Button';
 import ExclamationIcon from '../svg/circle-exclamation-solid.svg';
-import styles from './ContactForm.module.scss';
-import { IContactParams } from './contact-params.interface';
+
+type ContactParams = {
+  name: string;
+  emailAddress: string;
+  phoneNumber: string;
+  message: string;
+};
 
 type ContactFormProps = {
-  onSubmit: (_params: IContactParams) => Promise<any>;
+  onSubmit: (params: ContactParams) => Promise<any>;
 };
 
 export const ContactForm = ({ onSubmit }: ContactFormProps) => {
@@ -83,49 +88,45 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
 
   return (
     <form onSubmit={submit}>
-      <div className={styles.input_wrap}>
+      <div>
         {nameError && (
-          <p
-            className={`${styles.inputErrorText} text-danger text-sm flex items-center mb-2`}
-          >
-            <ExclamationIcon className="fill-danger mr-2" width={18} />
+          <p className="text-red-700 text-sm flex items-center mb-2">
+            <ExclamationIcon className="fill-red-700 mr-2" width={18} />
             {nameError}
           </p>
         )}
         <input
+          className="block w-full shadow-mat py-3 px-2 bg-white mb-2"
           type="name"
           placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div className={styles.input_wrap}>
+      <div>
         {emailAddressError && (
-          <p
-            className={`${styles.inputErrorText} text-danger text-sm flex items-center mb-2`}
-          >
-            <ExclamationIcon className="fill-danger mr-2" width={18} />
+          <p className="text-red-700 text-sm flex items-center mb-2">
+            <ExclamationIcon className="fill-red-700 mr-2" width={18} />
             {emailAddressError}
           </p>
         )}
         <input
+          className="block w-full shadow-mat py-3 px-2 bg-white mb-2"
           type="email"
           placeholder="Email Address"
           value={emailAddress}
           onChange={(e) => setEmailAddress(e.target.value)}
         />
       </div>
-      <div className={styles.input_wrap}>
+      <div>
         {phoneNumberError && (
-          <p
-            className={`${styles.inputErrorText} text-danger text-sm flex items-center mb-2`}
-          >
-            {/* @ts-ignore */}
-            <ExclamationIcon className="fill-danger mr-2" width={18} />
+          <p className="text-red-700 text-sm flex items-center mb-2">
+            <ExclamationIcon className="fill-red-700 mr-2" width={18} />
             {phoneNumberError}
           </p>
         )}
         <input
+          className="block w-full shadow-mat py-3 px-2 bg-white mb-2"
           type="phone"
           placeholder="Phone Number"
           value={phoneNumber}
@@ -133,20 +134,17 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
         />
       </div>
 
-      <div className={styles.input_wrap}>
+      <div>
         <textarea
+          className="block w-full shadow-mat py-3 px-2 bg-white mb-2 h-[150px] resize-none"
           placeholder="Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
       </div>
-      {error_msg && (
-        <div className={`${styles.message_wrap} ${styles.error_msg}`}>
-          {error_msg}
-        </div>
-      )}
-      {successMsg && <div className={styles.message_wrap}>{successMsg}</div>}
-      <div className={styles.input_wrap}>
+      {error_msg && <div className="mt-4 mb-3 text-red-700">{error_msg}</div>}
+      {successMsg && <div className="mt-4 mb-3">{successMsg}</div>}
+      <div>
         <Button
           isDisabled={!name || !emailAddress || !phoneNumber || !message}
           text="Submit"

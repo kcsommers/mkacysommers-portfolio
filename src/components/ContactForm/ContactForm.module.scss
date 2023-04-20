@@ -1,27 +1,8 @@
-@import '../../styles/colors.scss';
-@import '../../styles/variables.scss';
-
 div.input_wrap > input,
 div.input_wrap > textarea {
-  display: block;
-  width: 100%;
-  outline: none;
-  border: none;
   box-shadow: var(--box-shadow-mat);
   padding: 0.75rem 0.5rem;
   background-color: #fff;
   margin-bottom: 0.5rem;
   transition: all 0.175s ease;
-}
-
-div.input_wrap > textarea {
-  height: 150px;
-  resize: none;
-}
-
-div.message_wrap {
-  margin: 15px 0 10px 0;
-  &.error_msg {
-    color: $error;
-  }
 }

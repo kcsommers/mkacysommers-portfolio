@@ -1,10 +1,9 @@
 import { ReactElement, useEffect, useRef } from 'react';
 import { LoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
-import styles from './Button.module.scss';
 import classNames from 'classnames';
 
 type ButtonProps = {
-  text: string;
+  text?: string;
   size?: 'lg' | 'md' | 'sm';
   isFullWidth?: boolean;
   showSpinner?: boolean;
@@ -44,12 +43,16 @@ export const Button = ({
   return (
     <button
       className={classNames(
-        styles.btn,
-        styles[`btn_${size}`],
-        'text-center inline-flex items-center justify-center fill-foreground hover:fill-background',
+        'text-foreground transition-colors border-foreground border-2 rounded-sm outline-none',
+        'text-center inline-flex items-center justify-center fill-foreground bg-background',
+        'hover:border-secondary',
         {
           'w-full': isFullWidth,
           'pointer-events-none opacity-75': isDisabled,
+        },
+        {
+          'px-4 py-2': size === 'md',
+          'px-2 py-1': size === 'sm',
         }
       )}
       onClick={clicked}
@@ -59,7 +62,9 @@ export const Button = ({
         <LoadingSpinner size="xs" />
       ) : (
         <>
-          {!!icon && <span className="mr-2">{icon}</span>}
+          {!!icon && (
+            <span className={classNames({ 'mr-2': !!text })}>{icon}</span>
+          )}
           {text}
         </>
       )}
