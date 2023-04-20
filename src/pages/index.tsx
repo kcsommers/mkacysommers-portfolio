@@ -10,7 +10,11 @@ const HomePage = () => {
       <AppGutters />
       <AppBackground />
       <MainLayout
-        pageTitle="M Kacy Sommers"
+        pageTitle={
+          <>
+            <span className="text-primary">M</span> Kacy Sommers
+          </>
+        }
         pageSubtext="Web Developer. Javascript Professional."
       />
     </>

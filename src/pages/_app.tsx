@@ -5,6 +5,7 @@ import { Marcellus, Montserrat } from 'next/font/google';
 import { ReactElement, ReactNode } from 'react';
 import { TransitionProvider } from '../context/use-transition';
 import '../styles/globals.scss';
+import { ThemeProvider } from '../themes/use-theme';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -30,18 +31,20 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <TransitionProvider>
-      <main
-        className={classNames(
-          montserrat.className,
-          montserrat.variable,
-          marcellus.variable,
-          'bg-background'
-        )}
-      >
-        {getLayout(<Component {...pageProps} />)}
-      </main>
-    </TransitionProvider>
+    <ThemeProvider>
+      <TransitionProvider>
+        <main
+          className={classNames(
+            montserrat.className,
+            montserrat.variable,
+            marcellus.variable,
+            'bg-background'
+          )}
+        >
+          {getLayout(<Component {...pageProps} />)}
+        </main>
+      </TransitionProvider>
+    </ThemeProvider>
   );
 };
 

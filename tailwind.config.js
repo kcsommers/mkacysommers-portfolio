@@ -7,13 +7,9 @@ module.exports = {
     extend: {
       colors: {
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
-        'primary-2': 'rgb(var(--color-primary-2) / <alpha-value>)',
         secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
-        'secondary-2': 'rgb(var(--color-secondary-2) / <alpha-value>)',
         foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
         background: 'rgb(var(--color-background) / <alpha-value>)',
-        highlight: 'rgb(var(--color-highlight) / <alpha-value>)',
-        danger: 'rgb(var(--color-danger) / <alpha-value>)',
       },
       boxShadow: {
         mat: 'var(--box-shadow-mat)',

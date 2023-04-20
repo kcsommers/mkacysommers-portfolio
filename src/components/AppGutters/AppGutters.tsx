@@ -1,13 +1,34 @@
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
+import { AnimatePresence, Variants, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTransition } from '../../context/use-transition';
 import { blurVariants } from '../../utils/animations/blur-variants';
 import GithubIcon from '../svg/github.svg';
 import LinkedInIcon from '../svg/linkedin-in.svg';
+import MoonIcon from '../svg/moon-solid.svg';
+import SunIcon from '../svg/sun-solid.svg';
+import { useTheme } from '../../themes/use-theme';
 
 export const AppGutters = () => {
   const { isTransitioning } = useTransition();
+  const { currentTheme, setCurrentTheme } = useTheme();
+
+  const themeToggleVariants: Variants = {
+    initial: {
+      opacity: 0,
+      rotate: '-270deg',
+    },
+    show: {
+      opacity: 1,
+      rotate: '0deg',
+      scale: 1,
+    },
+    exit: {
+      opacity: 0,
+      rotate: '270deg',
+      scale: 0.75,
+    },
+  };
 
   return (
     <>
@@ -19,17 +40,15 @@ export const AppGutters = () => {
         animate={isTransitioning ? 'blurState' : 'nonBlurState'}
         variants={blurVariants()}
       >
-        <span>
-          <Link
-            className={classNames(
-              'py-2 px-4 border-2 border-neutral-900 text-sm',
-              'tablet-landscape-up:text-base'
-            )}
-            href="/"
-          >
-            MKS
-          </Link>
-        </span>
+        <Link
+          className={classNames(
+            'py-2 px-4 border-2 border-primary text-sm',
+            'tablet-landscape-up:text-base text-foreground transition-colors'
+          )}
+          href="/"
+        >
+          MKS
+        </Link>
       </motion.div>
       <motion.div
         className="fixed top-0 left-0 h-screen w-full z-20 origin-top"
@@ -44,19 +63,62 @@ export const AppGutters = () => {
         >
           <a
             href="https://www.linkedin.com/in/kacy-sommers/"
-            className="transition-all origin-bottom hover:scale-125 my-4 w-[13px] tablet-portrait-up:w-[18px]"
+            className="transition-all origin-bottom hover:scale-125 my-4 w-[13px] w tablet-portrait-up:w-[18px]"
           >
-            {/* @ts-ignore */}
-            <LinkedInIcon className="w-full" />
+            <LinkedInIcon className="w-full fill-foreground transition-colors" />
           </a>
           <a
             href="https://github.com/kcsommers?tab=repositories"
-            className="transition-all origin-bottom hover:scale-125 my-4 w-[15px] tablet-portrait-up:w-[20px]"
+            className="transition-all origin-bottom hover:scale-125 my-4 w-4 tablet-portrait-up:w-5"
           >
-            {/* @ts-ignore */}
-            <GithubIcon className="w-full" />
+            <GithubIcon className="w-full fill-foreground transition-colors" />
           </a>
-          <div className="h-[22vh] w-[1px] mt-2 bg-neutral-900"></div>
+          <button
+            className={classNames(
+              'transition-all origin-bottom hover:scale-125 my-4 inline-block relative w-3 h-4',
+              'tablet-portrait-up:w-4'
+            )}
+            onClick={() =>
+              setCurrentTheme((prevTheme) =>
+                prevTheme === 'DARK' ? 'LIGHT' : 'DARK'
+              )
+            }
+          >
+            <AnimatePresence>
+              {currentTheme === 'LIGHT' ? (
+                <motion.span
+                  key="dark-theme-logo"
+                  className="inline-block absolute w-full h-full top-0 left-0"
+                  initial="initial"
+                  animate="show"
+                  exit="exit"
+                  transition={{
+                    type: 'spring',
+                    stiffness: 50,
+                  }}
+                  variants={themeToggleVariants}
+                >
+                  <MoonIcon className="w-full fill-foreground transition-colors" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="light-theme-logo"
+                  className="inline-block absolute w-[115%] h-full top-0 left-0"
+                  initial="initial"
+                  animate="show"
+                  exit="exit"
+                  transition={{
+                    type: 'spring',
+                    stiffness: 50,
+                  }}
+                  variants={themeToggleVariants}
+                >
+                  <SunIcon className="w-full fill-foreground transition-colors" />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+          <div className="h-[22vh] w-[1px] mt-2 bg-primary"></div>
         </div>
 
         <div
@@ -67,14 +129,14 @@ export const AppGutters = () => {
         >
           <a
             href="mailto:kacysommers@gmail.com"
-            className="transition-all hover:tracking-widest tablet-portrait-up:text-base text-xs"
+            className="transition-all hover:tracking-widest tablet-portrait-up:text-base text-xs text-foreground"
             style={{
               transform: 'rotate(90deg) translateX(-50%)',
             }}
           >
             kacysommers@gmail.com
           </a>
-          <div className="h-[22vh] w-[1px] mt-2 bg-neutral-900"></div>
+          <div className="h-[22vh] w-[1px] mt-2 bg-primary"></div>
         </div>
       </motion.div>
     </>
