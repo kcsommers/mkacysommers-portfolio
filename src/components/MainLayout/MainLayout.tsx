@@ -1,15 +1,15 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { useTransition } from '../../context/use-transition';
+import { blurVariants } from '../../utils/animations/blur-variants';
 import { useWindowSize } from '../../utils/hooks/use-window-size';
 import { Nav } from '../Nav/Nav';
-import { blurVariants } from '../../utils/animations/blur-variants';
 
 type MainLayoutProps = {
   leftContent?: ReactNode;
   rightContent?: ReactNode;
-  pageTitle: string;
+  pageTitle: string | ReactNode;
   pageSubtext?: string;
 };
 
@@ -20,13 +20,16 @@ export const MainLayout = ({
   pageSubtext,
 }: MainLayoutProps) => {
   const { isTransitioning } = useTransition();
-
   const windowDims = useWindowSize();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   return (
     <div className="flex relative flex-1">
       <motion.div
-        className="relative z-30 flex-1 mx-[10%]"
+        className="relative z-30 flex-1 mx-[10%] text-foreground transition-colors"
         animate={isTransitioning ? 'blurState' : 'nonBlurState'}
         variants={blurVariants()}
       >

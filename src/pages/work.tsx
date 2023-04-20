@@ -65,7 +65,7 @@ const WorkPage = () => {
                       {projects[type].map((p) => (
                         <div className="mb-12">
                           <LazyItem>
-                            <Link href={`/work?p=${p.param}`}>
+                            <Link href={`/work?p=${p.param}`} scroll={false}>
                               <h4 className="font-marcellus text-3xl uppercase mb-2">
                                 {p.title}
                               </h4>

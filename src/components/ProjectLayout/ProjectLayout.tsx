@@ -3,18 +3,23 @@ import Link from 'next/link';
 import ChevronLeftIcon from '../../components/svg/chevron-left-solid.svg';
 import { Project } from '../../projects/projects';
 import { LazyItem } from '../LazyItem/LazyItem';
+import { useEffect } from 'react';
 
 type ProjectLayoutProps = {
   project: Project;
 };
 
 export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
   return (
-    <div className="flex relative z-20 mx-[10%]">
+    <div className="flex relative z-20 mx-[10%] text-foreground transition-colors">
       <div className="py-24 flex-1">
-        <Link href="/work" className="inline-flex items-center">
+        <Link href="/work" className="inline-flex items-center" scroll={false}>
           <span className="mr-2">
-            <ChevronLeftIcon />
+            <ChevronLeftIcon className="fill-foreground transition-colors" />
           </span>
           Back to projects
         </Link>
@@ -39,14 +44,14 @@ export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
           <p className="text-2xl mt-12 mb-8">{project.blurb}</p>
           <h3 className="inline-block uppercase font-medium spacing tracking-widest text-lg leading-3">
             Technologies
-            <span className="inline-block w-full h-[2px] bg-foreground"></span>
+            <span className="inline-block w-full h-[2px] bg-foreground transition-colors"></span>
           </h3>
           <p>{project.tools.join(', ')}</p>
           {project.links && (
             <div className="mt-8">
               <h3 className="inline-block uppercase font-medium spacing tracking-widest text-lg leading-3">
                 Links
-                <span className="inline-block w-full h-[2px] bg-foreground"></span>
+                <span className="inline-block w-full h-[2px] bg-foreground transition-colors"></span>
               </h3>
               <div>
                 {project.links.github && (

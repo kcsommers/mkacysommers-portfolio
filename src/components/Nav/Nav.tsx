@@ -1,16 +1,23 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useTransition } from '../../context/use-transition';
 import styles from './Nav.module.scss';
 
 export const Nav = () => {
   const router = useRouter();
+  const { isTransitioning } = useTransition();
 
   return (
-    <nav className="text-sm">
+    <nav
+      className={classNames('text-sm', {
+        'pointer-events-none': isTransitioning,
+      })}
+    >
       <div className={styles.nav}>
         <Link
           href="/"
+          scroll={false}
           className={classNames(styles.nav_link, {
             [styles.active_link]: router.pathname === '/',
           })}
@@ -19,6 +26,7 @@ export const Nav = () => {
         </Link>
         <Link
           href="/work"
+          scroll={false}
           className={classNames(styles.nav_link, {
             [styles.active_link]: router.pathname === '/work',
           })}
@@ -27,6 +35,7 @@ export const Nav = () => {
         </Link>
         <Link
           href="/about"
+          scroll={false}
           className={classNames(styles.nav_link, {
             [styles.active_link]: router.pathname === '/about',
           })}
@@ -35,6 +44,7 @@ export const Nav = () => {
         </Link>
         <Link
           href="/contact"
+          scroll={false}
           className={classNames(styles.nav_link, {
             [styles.active_link]: router.pathname === '/contact',
           })}
@@ -43,6 +53,7 @@ export const Nav = () => {
         </Link>
         <Link
           href="/resume"
+          scroll={false}
           className={classNames(styles.nav_link, {
             [styles.active_link]: router.pathname === '/resume',
           })}
