@@ -16,7 +16,7 @@ export const AppGutters = () => {
   const themeToggleVariants: Variants = {
     initial: {
       opacity: 0,
-      rotate: '-270deg',
+      rotate: '-135deg',
     },
     show: {
       opacity: 1,
@@ -25,8 +25,8 @@ export const AppGutters = () => {
     },
     exit: {
       opacity: 0,
-      rotate: '270deg',
-      scale: 0.75,
+      rotate: '135deg',
+      scale: 0.5,
     },
   };
 
@@ -94,7 +94,6 @@ export const AppGutters = () => {
                   exit="exit"
                   transition={{
                     type: 'spring',
-                    stiffness: 50,
                   }}
                   variants={themeToggleVariants}
                 >
@@ -109,7 +108,6 @@ export const AppGutters = () => {
                   exit="exit"
                   transition={{
                     type: 'spring',
-                    stiffness: 50,
                   }}
                   variants={themeToggleVariants}
                 >
