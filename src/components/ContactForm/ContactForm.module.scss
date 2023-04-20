@@ -1,0 +1,8 @@
+div.input_wrap > input,
+div.input_wrap > textarea {
+  box-shadow: var(--box-shadow-mat);
+  padding: 0.75rem 0.5rem;
+  background-color: #fff;
+  margin-bottom: 0.5rem;
+  transition: all 0.175s ease;
+}
