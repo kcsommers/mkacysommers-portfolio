@@ -17,14 +17,14 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
   const { isTransitioning } = useTransition();
 
   const { currentTheme } = useTheme();
-  const logoFilter = useMemo(() => {
-    const theme = getTheme(currentTheme);
-    let color = new Color(theme.primary[0], theme.primary[1], theme.primary[2]);
-    let solver = new Solver(color);
-    let result = solver.solve();
-    let filterCSS = result.filter;
-    return filterCSS;
-  }, []);
+  // const logoFilter = useMemo(() => {
+  //   const theme = getTheme(currentTheme);
+  //   let color = new Color(theme.primary[0], theme.primary[1], theme.primary[2]);
+  //   let solver = new Solver(color);
+  //   let result = solver.solve();
+  //   let filterCSS = result.filter;
+  //   return filterCSS;
+  // }, []);
 
   const logoCount = useMemo(() => {
     if (windowDims.width > 1600) {
@@ -56,7 +56,7 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
       hidden: { opacity: i === logoCount - 2 ? 0.25 : 0.15 },
       show: {
         opacity: 0.75,
-        filter: logoFilter,
+        // filter: logoFilter,
         transition: {
           duration: 1,
         },
