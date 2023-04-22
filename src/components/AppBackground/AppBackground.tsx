@@ -71,11 +71,7 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
   return (
     <div
       className={classNames(
-<<<<<<< HEAD
         'fixed top-0 right-0 bottom-0 left-0 z-10 transition-colors',
-=======
-        'fixed top-0 right-0 left-0 z-10 transition-colors',
->>>>>>> develop
         isTransitionView ? 'bg-foreground' : 'bg-background'
       )}
     >
