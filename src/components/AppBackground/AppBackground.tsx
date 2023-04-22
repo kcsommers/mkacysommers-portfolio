@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { Variants, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useMemo, useRef } from 'react';
+import { isMobile } from 'react-device-detect';
 import { useTransition } from '../../context/use-transition';
 import { getTheme } from '../../themes/themes';
 import { useTheme } from '../../themes/use-theme';
@@ -17,14 +18,17 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
   const { isTransitioning } = useTransition();
 
   const { currentTheme } = useTheme();
-  // const logoFilter = useMemo(() => {
-  //   const theme = getTheme(currentTheme);
-  //   let color = new Color(theme.primary[0], theme.primary[1], theme.primary[2]);
-  //   let solver = new Solver(color);
-  //   let result = solver.solve();
-  //   let filterCSS = result.filter;
-  //   return filterCSS;
-  // }, []);
+  const logoFilter = useMemo(() => {
+    if (isMobile) {
+      return 'none';
+    }
+    const theme = getTheme(currentTheme);
+    let color = new Color(theme.primary[0], theme.primary[1], theme.primary[2]);
+    let solver = new Solver(color);
+    let result = solver.solve();
+    let filterCSS = result.filter;
+    return filterCSS;
+  }, [isMobile]);
 
   const logoCount = useMemo(() => {
     if (windowDims.width > 1600) {
@@ -56,7 +60,7 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
       hidden: { opacity: i === logoCount - 2 ? 0.25 : 0.15 },
       show: {
         opacity: 0.75,
-        // filter: logoFilter,
+        filter: logoFilter,
         transition: {
           duration: 1,
         },
@@ -67,7 +71,7 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
   return (
     <div
       className={classNames(
-        'fixed top-0 right-0 bottom-0 left-0 z-10 transition-colors',
+        'fixed top-0 right-0 left-0 z-10 transition-colors',
         isTransitionView ? 'bg-foreground' : 'bg-background'
       )}
     >
