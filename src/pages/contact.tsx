@@ -5,6 +5,7 @@ import { AppGutters } from '../components/AppGutters/AppGutters';
 import { ContactForm } from '../components/ContactForm/ContactForm';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { TransitionView } from '../components/TransitionView/TransitionView';
+import { SharedHead } from '../components/SharedHead/SharedHead';
 
 type ContactParams = {
   name: string;
@@ -22,6 +23,11 @@ const ContactPage = () => {
 
   return (
     <>
+      <SharedHead
+        metaTitle="M Kacy Sommers | Contact"
+        metaImage=""
+        pagePath="/contact"
+      />
       <AppGutters />
       <AppBackground />
       <MainLayout

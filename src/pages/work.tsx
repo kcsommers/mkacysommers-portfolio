@@ -8,6 +8,7 @@ import { AppGutters } from '../components/AppGutters/AppGutters';
 import { LazyItem } from '../components/LazyItem/LazyItem';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { ProjectLayout } from '../components/ProjectLayout/ProjectLayout';
+import { SharedHead } from '../components/SharedHead/SharedHead';
 import { TransitionView } from '../components/TransitionView/TransitionView';
 import { useTransition } from '../context/use-transition';
 import { Project, projects } from '../projects/projects';
@@ -38,6 +39,28 @@ const WorkPage = () => {
 
   return (
     <>
+      <SharedHead
+        metaTitle="M Kacy Sommers | Work"
+        metaImage=""
+        pagePath="/work"
+      >
+        {`
+          {
+            "@context": "http://schema.org",
+            "@type": "CollectionPage",
+            "name": "Work",
+            "description": "M Kacy Sommers' projects",
+            "itemListElement": ${allProjects().map((p, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: p.title,
+              url: p.links?.github || '',
+              desciption: p.blurb,
+              image: p.coverImage,
+            }))}
+          }
+        `}
+      </SharedHead>
       <AppGutters />
       <AppBackground />
       <AnimatePresence exitBeforeEnter>

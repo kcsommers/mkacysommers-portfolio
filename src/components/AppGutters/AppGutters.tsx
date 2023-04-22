@@ -80,7 +80,7 @@ export const AppGutters = () => {
             )}
             onClick={() =>
               setCurrentTheme((prevTheme) =>
-                prevTheme === 'DARK' ? 'LIGHT' : 'DARK'
+                prevTheme === 'DARK' ? 'LIGHT' : 'SPRING'
               )
             }
           >

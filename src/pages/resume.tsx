@@ -6,6 +6,7 @@ import { Button } from '../components/Button/Button';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { TransitionView } from '../components/TransitionView/TransitionView';
 import DownloadIcon from '../components/svg/download-solid.svg';
+import { SharedHead } from '../components/SharedHead/SharedHead';
 
 const ResumePage = () => {
   const downloadResume = () => {
@@ -18,6 +19,11 @@ const ResumePage = () => {
 
   return (
     <>
+      <SharedHead
+        metaTitle="M Kacy Sommers | Resume"
+        metaImage=""
+        pagePath="/resume"
+      />
       <AppGutters />
       <AppBackground />
       <MainLayout
