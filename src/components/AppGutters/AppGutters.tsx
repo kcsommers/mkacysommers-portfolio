@@ -34,7 +34,7 @@ export const AppGutters = () => {
     <>
       <motion.div
         className={classNames(
-          'absolute top-8 w-[10%] flex items-center justify-center left-8 z-30',
+          'absolute top-8 w-[10%] flex items-center justify-center left-8 z-50',
           'tablet-landscape-up:fixed tablet-landscape-up:left-0 tablet-portrait-up:left-6'
         )}
         animate={isTransitioning ? 'blurState' : 'nonBlurState'}

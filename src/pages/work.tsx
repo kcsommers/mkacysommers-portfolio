@@ -66,7 +66,7 @@ const WorkPage = () => {
         {!selectedProject ? (
           <motion.div
             key="work-main-layout"
-            className="flex relative z-30 flex-1 w-full"
+            className="flex relative z-30 flex-1 min-w-[80%] max-w-[80%] mx-auto"
             initial="blurState"
             animate="nonBlurState"
             exit="blurState"

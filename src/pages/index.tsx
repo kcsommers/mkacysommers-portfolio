@@ -11,14 +11,16 @@ const HomePage = () => {
       <SharedHead metaTitle="M Kacy Sommers" metaImage="" pagePath="/" />
       <AppGutters />
       <AppBackground />
-      <MainLayout
-        pageTitle={
-          <>
-            <span className="text-primary">M</span> Kacy Sommers
-          </>
-        }
-        pageSubtext="Web Developer. Javascript Professional."
-      />
+      <div className="flex flex-1 min-w-[80%] max-w-[80%] mx-auto">
+        <MainLayout
+          pageTitle={
+            <>
+              <span className="text-primary">M</span> Kacy Sommers
+            </>
+          }
+          pageSubtext="Web Developer. Javascript Professional."
+        />
+      </div>
     </>
   );
 };

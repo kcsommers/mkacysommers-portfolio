@@ -32,37 +32,39 @@ const ResumePage = () => {
       />
       <AppGutters />
       <AppBackground />
-      <MainLayout
-        pageTitle="Resume"
-        leftContent={
-          <div className="my-8">
-            <Button
-              text="Download"
-              onClick={downloadResume}
-              isFullWidth={false}
-              // @ts-ignore
-              icon={<DownloadIcon width={18} className="fill-inherit" />}
-            />
-          </div>
-        }
-        rightContent={
-          <div
-            className="relative shadow-mat tablet-landscape-up:mt-[20vh]"
-            style={{
-              aspectRatio: '588 / 761',
-            }}
-          >
-            <Image
-              src={imageCache.get(RESUME_IMG_URL) || RESUME_IMG_URL}
-              alt="M Kacy Sommers Resume"
-              fill={true}
+      <div className="flex flex-1 min-w-[80%] max-w-[80%] mx-auto">
+        <MainLayout
+          pageTitle="Resume"
+          leftContent={
+            <div className="my-8">
+              <Button
+                text="Download"
+                onClick={downloadResume}
+                isFullWidth={false}
+                // @ts-ignore
+                icon={<DownloadIcon width={18} className="fill-inherit" />}
+              />
+            </div>
+          }
+          rightContent={
+            <div
+              className="relative shadow-mat tablet-landscape-up:mt-[20vh]"
               style={{
-                objectFit: 'cover',
+                aspectRatio: '588 / 761',
               }}
-            />
-          </div>
-        }
-      />
+            >
+              <Image
+                src={imageCache.get(RESUME_IMG_URL) || RESUME_IMG_URL}
+                alt="M Kacy Sommers Resume"
+                fill={true}
+                style={{
+                  objectFit: 'cover',
+                }}
+              />
+            </div>
+          }
+        />
+      </div>
     </>
   );
 };
