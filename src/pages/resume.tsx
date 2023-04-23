@@ -4,11 +4,17 @@ import { AppBackground } from '../components/AppBackground/AppBackground';
 import { AppGutters } from '../components/AppGutters/AppGutters';
 import { Button } from '../components/Button/Button';
 import { MainLayout } from '../components/MainLayout/MainLayout';
+import { SharedHead } from '../components/SharedHead/SharedHead';
 import { TransitionView } from '../components/TransitionView/TransitionView';
 import DownloadIcon from '../components/svg/download-solid.svg';
-import { SharedHead } from '../components/SharedHead/SharedHead';
+import { useAssetCache } from '../context/use-asset-cache';
+
+const RESUME_IMG_URL =
+  'https://res.cloudinary.com/kcsommers/image/upload/v1674185811/M%20Kacy%20Sommers/MKacySommers-resume.png';
 
 const ResumePage = () => {
+  const { imageCache } = useAssetCache();
+
   const downloadResume = () => {
     const a: HTMLAnchorElement = document.createElement('a');
     a.href = '/MKacySommers-resume.pdf';
@@ -47,7 +53,7 @@ const ResumePage = () => {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/kcsommers/image/upload/v1674185811/M%20Kacy%20Sommers/MKacySommers-resume.png"
+              src={imageCache.get(RESUME_IMG_URL) || RESUME_IMG_URL}
               alt="M Kacy Sommers Resume"
               fill={true}
               style={{

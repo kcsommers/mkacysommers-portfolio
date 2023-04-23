@@ -3,6 +3,7 @@ import { Variants, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useMemo, useRef } from 'react';
 import { isMobile } from 'react-device-detect';
+import { useAssetCache } from '../../context/use-asset-cache';
 import { useTransition } from '../../context/use-transition';
 import { getTheme } from '../../themes/themes';
 import { useTheme } from '../../themes/use-theme';
@@ -13,9 +14,14 @@ type AppBackgroundProps = {
   isTransitionView?: boolean;
 };
 
+const LOGO_URL =
+  'https://res.cloudinary.com/kcsommers/image/upload/v1681933306/M%20Kacy%20Sommers/mkacysommers_logo2.png';
+
 export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
   const windowDims = useWindowSize();
   const { isTransitioning } = useTransition();
+
+  const { imageCache } = useAssetCache();
 
   const { currentTheme } = useTheme();
   const logoFilter = useMemo(() => {
@@ -99,7 +105,7 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
             >
               {(i === logoCount - 2 || isTransitionView) && (
                 <Image
-                  src="https://res.cloudinary.com/kcsommers/image/upload/v1681933306/M%20Kacy%20Sommers/mkacysommers_logo2.png"
+                  src={imageCache.get(LOGO_URL) || LOGO_URL}
                   alt="M Kacy Sommers logo"
                   fill={true}
                   style={{

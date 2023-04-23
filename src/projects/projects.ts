@@ -458,3 +458,23 @@ export const projects: { [projectType: string]: Project[] } = {
     },
   ],
 };
+
+export const allProjects = () => {
+  return Object.keys(projects).reduce((all, key) => {
+    all.push(...projects[key]);
+    return all;
+  }, [] as Project[]);
+};
+
+export const getProject = (projectParam: string) => {
+  return allProjects().find((p) => p.param === projectParam);
+};
+
+export const allProjectImages = (): string[] => {
+  return allProjects().reduce((allImgs, p) => {
+    const pImgs: string[] = [];
+    p.sections.forEach((s) => pImgs.push(...(s.images || [])));
+    allImgs.push(...pImgs);
+    return allImgs;
+  }, []);
+};
