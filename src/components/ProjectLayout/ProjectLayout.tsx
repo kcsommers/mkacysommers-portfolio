@@ -1,15 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import ChevronLeftIcon from '../../components/svg/chevron-left-solid.svg';
+import { useAssetCache } from '../../context/use-asset-cache';
 import { Project } from '../../projects/projects';
 import { LazyItem } from '../LazyItem/LazyItem';
-import { useEffect } from 'react';
 
 type ProjectLayoutProps = {
   project: Project;
 };
 
 export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
+  const { imageCache } = useAssetCache();
+
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
@@ -34,7 +37,7 @@ export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
           }}
         >
           <Image
-            src={project.coverImage}
+            src={imageCache.get(project.coverImage) || project.coverImage}
             alt={project.title}
             fill={true}
             style={{ objectFit: 'cover' }}
@@ -79,7 +82,7 @@ export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
                     }}
                   >
                     <Image
-                      src={url}
+                      src={imageCache.get(url) || url}
                       alt={project.title}
                       fill={true}
                       style={{ objectFit: 'cover' }}
