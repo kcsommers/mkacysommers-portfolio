@@ -3,10 +3,16 @@ import { ReactElement } from 'react';
 import { AppBackground } from '../components/AppBackground/AppBackground';
 import { AppGutters } from '../components/AppGutters/AppGutters';
 import { MainLayout } from '../components/MainLayout/MainLayout';
-import { TransitionView } from '../components/TransitionView/TransitionView';
 import { SharedHead } from '../components/SharedHead/SharedHead';
+import { TransitionView } from '../components/TransitionView/TransitionView';
+import { useAssetCache } from '../context/use-asset-cache';
+
+const MKACY_IMG_URL =
+  'https://res.cloudinary.com/kcsommers/image/upload/v1643868947/M%20Kacy%20Sommers/mkacy-beach.jpg';
 
 const AboutPage = () => {
+  const { imageCache } = useAssetCache();
+
   return (
     <>
       <SharedHead
@@ -64,7 +70,7 @@ const AboutPage = () => {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/kcsommers/image/upload/v1643868947/M%20Kacy%20Sommers/mkacy-beach.jpg"
+              src={imageCache.get(MKACY_IMG_URL) || MKACY_IMG_URL}
               alt="M Kacy Sommers"
               fill={true}
               style={{ objectFit: 'cover' }}

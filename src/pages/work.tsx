@@ -10,23 +10,20 @@ import { MainLayout } from '../components/MainLayout/MainLayout';
 import { ProjectLayout } from '../components/ProjectLayout/ProjectLayout';
 import { SharedHead } from '../components/SharedHead/SharedHead';
 import { TransitionView } from '../components/TransitionView/TransitionView';
+import { useAssetCache } from '../context/use-asset-cache';
 import { useTransition } from '../context/use-transition';
-import { Project, projects } from '../projects/projects';
+import {
+  Project,
+  allProjects,
+  getProject,
+  projects,
+} from '../projects/projects';
 import { blurVariants } from '../utils/animations/blur-variants';
-
-const allProjects = () => {
-  return Object.keys(projects).reduce((all, key) => {
-    all.push(...projects[key]);
-    return all;
-  }, [] as Project[]);
-};
-
-const getProject = (projectParam: string) => {
-  return allProjects().find((p) => p.param === projectParam);
-};
 
 const WorkPage = () => {
   const router = useRouter();
+  const { imageCache } = useAssetCache();
+
   const [selectedProject, setSelectedProject] = useState<Project>(
     getProject(router.query?.p as string)
   );
@@ -44,22 +41,24 @@ const WorkPage = () => {
         metaImage=""
         pagePath="/work"
       >
-        {`
-          {
-            "@context": "http://schema.org",
-            "@type": "CollectionPage",
-            "name": "Work",
-            "description": "M Kacy Sommers' projects",
-            "itemListElement": ${allProjects().map((p, i) => ({
-              '@type': 'ListItem',
-              position: i + 1,
-              name: p.title,
-              url: p.links?.github || '',
-              desciption: p.blurb,
-              image: p.coverImage,
-            }))}
-          }
-        `}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "http://schema.org",
+              "@type": "CollectionPage",
+              "name": "Work",
+              "description": "M Kacy Sommers' projects",
+              "itemListElement": ${allProjects().map((p, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: p.title,
+                url: p.links?.github || '',
+                desciption: p.blurb,
+                image: p.coverImage,
+              }))}
+            }
+          `}
+        </script>
       </SharedHead>
       <AppGutters />
       <AppBackground />
@@ -99,7 +98,9 @@ const WorkPage = () => {
                                 }}
                               >
                                 <Image
-                                  src={p.coverImage}
+                                  src={
+                                    imageCache.get(p.coverImage) || p.coverImage
+                                  }
                                   alt={p.title}
                                   fill={true}
                                   style={{ objectFit: 'cover' }}
