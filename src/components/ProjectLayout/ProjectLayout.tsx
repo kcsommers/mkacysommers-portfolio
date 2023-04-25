@@ -18,7 +18,7 @@ export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
   }, []);
 
   return (
-    <div className="flex relative z-20 mx-[10%] text-foreground transition-colors">
+    <div className="flex relative z-20 text-foreground transition-colors">
       <div className="py-24 flex-1">
         <Link href="/work" className="inline-flex items-center" scroll={false}>
           <span className="mr-2">

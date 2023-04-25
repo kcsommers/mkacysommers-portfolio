@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { ReactElement, useEffect, useState } from 'react';
 import { AppBackground } from '../components/AppBackground/AppBackground';
 import { AppGutters } from '../components/AppGutters/AppGutters';
+import { JoniVideo } from '../components/JoniVideo/JoniVideo';
 import { LazyItem } from '../components/LazyItem/LazyItem';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { ProjectLayout } from '../components/ProjectLayout/ProjectLayout';
@@ -23,6 +24,8 @@ import { blurVariants } from '../utils/animations/blur-variants';
 const WorkPage = () => {
   const router = useRouter();
   const { imageCache } = useAssetCache();
+  const [showJoni, setShowJoni] = useState(false);
+  const [joniSelected, setJoniSelected] = useState(false);
 
   const [selectedProject, setSelectedProject] = useState<Project>(
     getProject(router.query?.p as string)
@@ -60,7 +63,12 @@ const WorkPage = () => {
           `}
         </script>
       </SharedHead>
-      <AppGutters />
+      <AppGutters
+        setShowJoni={setShowJoni}
+        joniSelected={joniSelected}
+        setJoniSelected={setJoniSelected}
+      />
+      <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
       <AppBackground />
       <AnimatePresence exitBeforeEnter>
         {!selectedProject ? (
@@ -119,7 +127,7 @@ const WorkPage = () => {
         ) : (
           <motion.div
             key="work-project-layout"
-            className="relative z-20"
+            className="relative z-20 min-w-[80%] max-w-[80%] flex-1 mx-auto"
             initial="blurState"
             animate={isTransitioning ? 'blurState' : 'nonBlurState'}
             exit="blurState"

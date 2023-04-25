@@ -2,16 +2,43 @@ import classNames from 'classnames';
 import { AnimatePresence, Variants, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTransition } from '../../context/use-transition';
+import { useTheme } from '../../themes/use-theme';
 import { blurVariants } from '../../utils/animations/blur-variants';
 import GithubIcon from '../svg/github.svg';
 import LinkedInIcon from '../svg/linkedin-in.svg';
 import MoonIcon from '../svg/moon-solid.svg';
 import SunIcon from '../svg/sun-solid.svg';
-import { useTheme } from '../../themes/use-theme';
+import Image from 'next/image';
+import { useAssetCache } from '../../context/use-asset-cache';
+import { Dispatch, SetStateAction } from 'react';
 
-export const AppGutters = () => {
+const JONI_LOGO_BLACK =
+  'https://res.cloudinary.com/kcsommers/image/upload/v1682393412/M%20Kacy%20Sommers/joni_logo_black_sm.png';
+
+const JONI_LOGO_BLACK_SOLID =
+  'https://res.cloudinary.com/kcsommers/image/upload/v1682436150/M%20Kacy%20Sommers/joni_logo_black_sm_solid.png';
+
+const JONI_LOGO_WHITE =
+  'https://res.cloudinary.com/kcsommers/image/upload/v1682393420/M%20Kacy%20Sommers/joni_logo_white_sm.png';
+
+const JONI_LOGO_WHITE_SOLID =
+  'https://res.cloudinary.com/kcsommers/image/upload/v1682436152/M%20Kacy%20Sommers/joni_logo_white_sm_solid.png';
+
+type AppGuttersProps = {
+  setShowJoni: Dispatch<SetStateAction<boolean>>;
+  setJoniSelected: Dispatch<SetStateAction<boolean>>;
+  joniSelected: boolean;
+};
+
+export const AppGutters = ({
+  setShowJoni,
+  setJoniSelected,
+  joniSelected,
+}: AppGuttersProps) => {
   const { isTransitioning } = useTransition();
   const { currentTheme, setCurrentTheme } = useTheme();
+
+  const { imageCache } = useAssetCache();
 
   const themeToggleVariants: Variants = {
     initial: {
@@ -134,6 +161,38 @@ export const AppGutters = () => {
           >
             kacysommers@gmail.com
           </a>
+          <span
+            className="my-2 cursor-pointer"
+            onMouseOver={() => setShowJoni(true)}
+            onMouseOut={() => !joniSelected && setShowJoni(false)}
+            onClick={() => setJoniSelected((prev) => !prev)}
+          >
+            {joniSelected ? (
+              <Image
+                src={
+                  currentTheme === 'LIGHT'
+                    ? imageCache.get(JONI_LOGO_BLACK_SOLID) ||
+                      JONI_LOGO_BLACK_SOLID
+                    : imageCache.get(JONI_LOGO_WHITE_SOLID) ||
+                      JONI_LOGO_WHITE_SOLID
+                }
+                alt="Joni logo"
+                width={40}
+                height={15}
+              />
+            ) : (
+              <Image
+                src={
+                  currentTheme === 'LIGHT'
+                    ? imageCache.get(JONI_LOGO_BLACK) || JONI_LOGO_BLACK
+                    : imageCache.get(JONI_LOGO_WHITE) || JONI_LOGO_WHITE
+                }
+                alt="Joni logo"
+                width={40}
+                height={15}
+              />
+            )}
+          </span>
           <div className="h-[22vh] w-[1px] mt-2 bg-primary"></div>
         </div>
       </motion.div>
