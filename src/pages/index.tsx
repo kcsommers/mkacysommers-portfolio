@@ -1,16 +1,25 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { AppBackground } from '../components/AppBackground/AppBackground';
 import { AppGutters } from '../components/AppGutters/AppGutters';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { TransitionView } from '../components/TransitionView/TransitionView';
 import { SharedHead } from '../components/SharedHead/SharedHead';
+import { JoniVideo } from '../components/JoniVideo/JoniVideo';
 
 const HomePage = () => {
+  const [showJoni, setShowJoni] = useState(false);
+  const [joniSelected, setJoniSelected] = useState(false);
+
   return (
     <>
       <SharedHead metaTitle="M Kacy Sommers" metaImage="" pagePath="/" />
-      <AppGutters />
       <AppBackground />
+      <AppGutters
+        setShowJoni={setShowJoni}
+        joniSelected={joniSelected}
+        setJoniSelected={setJoniSelected}
+      />
+      <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
       <div className="flex flex-1 min-w-[80%] max-w-[80%] mx-auto">
         <MainLayout
           pageTitle={

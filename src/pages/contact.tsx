@@ -1,11 +1,12 @@
 import { EmailJSResponseStatus, send } from 'emailjs-com';
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { AppBackground } from '../components/AppBackground/AppBackground';
 import { AppGutters } from '../components/AppGutters/AppGutters';
 import { ContactForm } from '../components/ContactForm/ContactForm';
+import { JoniVideo } from '../components/JoniVideo/JoniVideo';
 import { MainLayout } from '../components/MainLayout/MainLayout';
-import { TransitionView } from '../components/TransitionView/TransitionView';
 import { SharedHead } from '../components/SharedHead/SharedHead';
+import { TransitionView } from '../components/TransitionView/TransitionView';
 
 type ContactParams = {
   name: string;
@@ -15,6 +16,9 @@ type ContactParams = {
 };
 
 const ContactPage = () => {
+  const [showJoni, setShowJoni] = useState(false);
+  const [joniSelected, setJoniSelected] = useState(false);
+
   const onFormSubmit = (
     params: ContactParams
   ): Promise<EmailJSResponseStatus> => {
@@ -28,7 +32,12 @@ const ContactPage = () => {
         metaImage=""
         pagePath="/contact"
       />
-      <AppGutters />
+      <AppGutters
+        setShowJoni={setShowJoni}
+        joniSelected={joniSelected}
+        setJoniSelected={setJoniSelected}
+      />
+      <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
       <AppBackground />
       <div className="flex flex-1 min-w-[80%] max-w-[80%] mx-auto">
         <MainLayout

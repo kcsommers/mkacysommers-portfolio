@@ -6,6 +6,7 @@ import {
   useMemo,
 } from 'react';
 import { loadImages } from '../utils/asset-loader/load-images';
+import { loadVideos } from '../utils/asset-loader/load-videos';
 
 type AssetCacheContext = {
   imageCache: Map<string, string>;
@@ -29,6 +30,7 @@ export const AssetCacheProvider = ({
 
   useEffect(() => {
     loadImages(imageUrls, imageCache);
+    loadVideos(videoUrls, videoCache);
   }, []);
 
   return (

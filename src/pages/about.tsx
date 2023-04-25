@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { AppBackground } from '../components/AppBackground/AppBackground';
 import { AppGutters } from '../components/AppGutters/AppGutters';
+import { JoniVideo } from '../components/JoniVideo/JoniVideo';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { SharedHead } from '../components/SharedHead/SharedHead';
 import { TransitionView } from '../components/TransitionView/TransitionView';
@@ -12,6 +13,8 @@ const MKACY_IMG_URL =
 
 const AboutPage = () => {
   const { imageCache } = useAssetCache();
+  const [showJoni, setShowJoni] = useState(false);
+  const [joniSelected, setJoniSelected] = useState(false);
 
   return (
     <>
@@ -20,7 +23,12 @@ const AboutPage = () => {
         metaImage=""
         pagePath="/about"
       />
-      <AppGutters />
+      <AppGutters
+        setShowJoni={setShowJoni}
+        joniSelected={joniSelected}
+        setJoniSelected={setJoniSelected}
+      />
+      <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
       <AppBackground />
       <div className="flex flex-1 min-w-[80%] max-w-[80%] mx-auto">
         <MainLayout
