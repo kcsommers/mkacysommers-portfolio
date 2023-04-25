@@ -47,6 +47,7 @@ export const JoniVideo = ({ isVisible, isSelected }: JoniVideoProps) => {
           <video
             ref={videoRef}
             className="w-full bg-neutral-200 object-cover h-full"
+            poster="https://res.cloudinary.com/kcsommers/image/upload/v1682438827/M%20Kacy%20Sommers/joni-still.jpg"
             autoPlay
             loop
             onError={(e) => logger.error('joni video error:::: ', e)}

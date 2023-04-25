@@ -37,6 +37,7 @@ const appImages = [
   'https://res.cloudinary.com/kcsommers/image/upload/v1682393412/M%20Kacy%20Sommers/joni_logo_black_sm.png',
   'https://res.cloudinary.com/kcsommers/image/upload/v1682436152/M%20Kacy%20Sommers/joni_logo_white_sm_solid.png',
   'https://res.cloudinary.com/kcsommers/image/upload/v1682436150/M%20Kacy%20Sommers/joni_logo_black_sm_solid.png',
+  'https://res.cloudinary.com/kcsommers/image/upload/v1682438827/M%20Kacy%20Sommers/joni-still.jpg',
 ];
 
 const appVideos = [
