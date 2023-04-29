@@ -20,9 +20,13 @@ export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
   return (
     <div className="flex relative z-20 text-foreground transition-colors">
       <div className="py-24 flex-1">
-        <Link href="/work" className="inline-flex items-center" scroll={false}>
+        <Link
+          href="/work"
+          className="inline-flex items-center hover:opacity-70"
+          scroll={false}
+        >
           <span className="mr-2">
-            <ChevronLeftIcon className="fill-foreground transition-colors" />
+            <ChevronLeftIcon className="fill-secondary transition-colors" />
           </span>
           Back to projects
         </Link>
@@ -47,14 +51,14 @@ export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
           <p className="text-2xl mt-12 mb-8">{project.blurb}</p>
           <h3 className="inline-block uppercase font-medium spacing tracking-widest text-lg leading-3">
             Technologies
-            <span className="inline-block w-full h-[2px] bg-foreground transition-colors"></span>
+            <span className="inline-block w-full h-[2px] bg-secondary transition-colors"></span>
           </h3>
           <p>{project.tools.join(', ')}</p>
           {project.links && (
             <div className="mt-8">
               <h3 className="inline-block uppercase font-medium spacing tracking-widest text-lg leading-3">
                 Links
-                <span className="inline-block w-full h-[2px] bg-foreground transition-colors"></span>
+                <span className="inline-block w-full h-[2px] bg-secondary transition-colors"></span>
               </h3>
               <div>
                 {project.links.github && (

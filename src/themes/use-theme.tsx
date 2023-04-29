@@ -26,11 +26,20 @@ const setTheme = (themeName: THEME_NAME) => {
   });
 };
 
+const THEME_STORAGE_KEY = '__kc__theme___';
+
 export const ThemeProvider = ({ children }: PropsWithChildren<{}>) => {
-  const [currentTheme, setCurrentTheme] = useState<THEME_NAME>('LIGHT');
+  const [currentTheme, setCurrentTheme] = useState<THEME_NAME>(() => {
+    if (typeof localStorage === 'undefined') {
+      return 'LIGHT';
+    }
+    const themeFromStorage = localStorage.getItem(THEME_STORAGE_KEY);
+    return (themeFromStorage || 'LIGHT') as THEME_NAME;
+  });
 
   useEffect(() => {
     setTheme(currentTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, currentTheme);
   }, [currentTheme]);
 
   const memoizedValue = useMemo(
