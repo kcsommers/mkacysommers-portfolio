@@ -20,12 +20,14 @@ import {
   projects,
 } from '../projects/projects';
 import { blurVariants } from '../utils/animations/blur-variants';
+import { useDeviceDetect } from '../utils/hooks/use-device-detect';
 
 const WorkPage = () => {
   const router = useRouter();
   const { imageCache } = useAssetCache();
   const [showJoni, setShowJoni] = useState(false);
   const [joniSelected, setJoniSelected] = useState(false);
+  const { isMobile } = useDeviceDetect();
 
   const [selectedProject, setSelectedProject] = useState<Project>(
     getProject(router.query?.p as string)
@@ -68,7 +70,9 @@ const WorkPage = () => {
         joniSelected={joniSelected}
         setJoniSelected={setJoniSelected}
       />
-      <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
+      {!isMobile && (
+        <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
+      )}
       <AppBackground />
       <AnimatePresence exitBeforeEnter>
         {!selectedProject ? (

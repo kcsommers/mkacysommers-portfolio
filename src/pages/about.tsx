@@ -7,6 +7,7 @@ import { MainLayout } from '../components/MainLayout/MainLayout';
 import { SharedHead } from '../components/SharedHead/SharedHead';
 import { TransitionView } from '../components/TransitionView/TransitionView';
 import { useAssetCache } from '../context/use-asset-cache';
+import { useDeviceDetect } from '../utils/hooks/use-device-detect';
 
 const MKACY_IMG_URL =
   'https://res.cloudinary.com/kcsommers/image/upload/v1643868947/M%20Kacy%20Sommers/mkacy-beach.jpg';
@@ -15,6 +16,7 @@ const AboutPage = () => {
   const { imageCache } = useAssetCache();
   const [showJoni, setShowJoni] = useState(false);
   const [joniSelected, setJoniSelected] = useState(false);
+  const { isMobile } = useDeviceDetect();
 
   return (
     <>
@@ -28,7 +30,9 @@ const AboutPage = () => {
         joniSelected={joniSelected}
         setJoniSelected={setJoniSelected}
       />
-      <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
+      {!isMobile && (
+        <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
+      )}
       <AppBackground />
       <div className="flex flex-1 min-w-[80%] max-w-[80%] mx-auto">
         <MainLayout

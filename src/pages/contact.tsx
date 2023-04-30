@@ -7,6 +7,7 @@ import { JoniVideo } from '../components/JoniVideo/JoniVideo';
 import { MainLayout } from '../components/MainLayout/MainLayout';
 import { SharedHead } from '../components/SharedHead/SharedHead';
 import { TransitionView } from '../components/TransitionView/TransitionView';
+import { useDeviceDetect } from '../utils/hooks/use-device-detect';
 
 type ContactParams = {
   name: string;
@@ -18,6 +19,7 @@ type ContactParams = {
 const ContactPage = () => {
   const [showJoni, setShowJoni] = useState(false);
   const [joniSelected, setJoniSelected] = useState(false);
+  const { isMobile } = useDeviceDetect();
 
   const onFormSubmit = (
     params: ContactParams
@@ -37,7 +39,9 @@ const ContactPage = () => {
         joniSelected={joniSelected}
         setJoniSelected={setJoniSelected}
       />
-      <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
+      {!isMobile && (
+        <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
+      )}
       <AppBackground />
       <div className="flex flex-1 min-w-[80%] max-w-[80%] mx-auto">
         <MainLayout

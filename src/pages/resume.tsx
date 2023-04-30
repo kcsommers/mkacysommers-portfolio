@@ -9,6 +9,7 @@ import { SharedHead } from '../components/SharedHead/SharedHead';
 import { TransitionView } from '../components/TransitionView/TransitionView';
 import DownloadIcon from '../components/svg/download-solid.svg';
 import { useAssetCache } from '../context/use-asset-cache';
+import { useDeviceDetect } from '../utils/hooks/use-device-detect';
 
 const RESUME_IMG_URL =
   'https://res.cloudinary.com/kcsommers/image/upload/v1674185811/M%20Kacy%20Sommers/MKacySommers-resume.png';
@@ -17,6 +18,7 @@ const ResumePage = () => {
   const { imageCache } = useAssetCache();
   const [showJoni, setShowJoni] = useState(false);
   const [joniSelected, setJoniSelected] = useState(false);
+  const { isMobile } = useDeviceDetect();
 
   const downloadResume = () => {
     const a: HTMLAnchorElement = document.createElement('a');
@@ -38,7 +40,9 @@ const ResumePage = () => {
         joniSelected={joniSelected}
         setJoniSelected={setJoniSelected}
       />
-      <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
+      {!isMobile && (
+        <JoniVideo isVisible={showJoni} isSelected={joniSelected} />
+      )}
       <AppBackground />
       <div className="flex flex-1 min-w-[80%] max-w-[80%] mx-auto">
         <MainLayout

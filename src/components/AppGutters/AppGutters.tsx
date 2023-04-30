@@ -7,6 +7,7 @@ import { useAssetCache } from '../../context/use-asset-cache';
 import { useTransition } from '../../context/use-transition';
 import { useTheme } from '../../themes/use-theme';
 import { blurVariants } from '../../utils/animations/blur-variants';
+import { useDeviceDetect } from '../../utils/hooks/use-device-detect';
 import GithubIcon from '../svg/github.svg';
 import LinkedInIcon from '../svg/linkedin-in.svg';
 import MoonIcon from '../svg/moon-solid.svg';
@@ -39,6 +40,7 @@ export const AppGutters = ({
   const { currentTheme, setCurrentTheme } = useTheme();
 
   const { imageCache } = useAssetCache();
+  const { isMobile } = useDeviceDetect();
 
   const themeToggleVariants: Variants = {
     initial: {
@@ -161,45 +163,48 @@ export const AppGutters = ({
           >
             kacysommers@gmail.com
           </a>
-          <span
-            className="my-2 cursor-pointer"
-            onMouseOver={() => setShowJoni(true)}
-            onMouseOut={() => !joniSelected && setShowJoni(false)}
-            onClick={() => setJoniSelected((prev) => !prev)}
-          >
-            <div
-              className="w-[30px] tablet-portrait-up:w-[35px] relative"
-              style={{
-                aspectRatio: '200 / 166',
-              }}
+          {!isMobile && (
+            <span
+              className="my-2 cursor-pointer"
+              onMouseOver={() => setShowJoni(true)}
+              onMouseOut={() => !joniSelected && setShowJoni(false)}
+              onClick={() => setJoniSelected((prev) => !prev)}
             >
-              {joniSelected ? (
-                <Image
-                  src={
-                    currentTheme === 'LIGHT'
-                      ? imageCache.get(JONI_LOGO_BLACK_SOLID) ||
-                        JONI_LOGO_BLACK_SOLID
-                      : imageCache.get(JONI_LOGO_WHITE_SOLID) ||
-                        JONI_LOGO_WHITE_SOLID
-                  }
-                  alt="Joni logo"
-                  fill={true}
-                  className="object-cover"
-                />
-              ) : (
-                <Image
-                  src={
-                    currentTheme === 'LIGHT'
-                      ? imageCache.get(JONI_LOGO_BLACK) || JONI_LOGO_BLACK
-                      : imageCache.get(JONI_LOGO_WHITE) || JONI_LOGO_WHITE
-                  }
-                  alt="Joni logo"
-                  fill={true}
-                  className="object-cover"
-                />
-              )}
-            </div>
-          </span>
+              <div
+                className="w-[30px] tablet-portrait-up:w-[35px] relative"
+                style={{
+                  aspectRatio: '200 / 166',
+                }}
+              >
+                {joniSelected ? (
+                  <Image
+                    src={
+                      currentTheme === 'LIGHT'
+                        ? imageCache.get(JONI_LOGO_BLACK_SOLID) ||
+                          JONI_LOGO_BLACK_SOLID
+                        : imageCache.get(JONI_LOGO_WHITE_SOLID) ||
+                          JONI_LOGO_WHITE_SOLID
+                    }
+                    alt="Joni logo"
+                    fill={true}
+                    className="object-cover"
+                  />
+                ) : (
+                  <Image
+                    src={
+                      currentTheme === 'LIGHT'
+                        ? imageCache.get(JONI_LOGO_BLACK) || JONI_LOGO_BLACK
+                        : imageCache.get(JONI_LOGO_WHITE) || JONI_LOGO_WHITE
+                    }
+                    alt="Joni logo"
+                    fill={true}
+                    className="object-cover"
+                  />
+                )}
+              </div>
+            </span>
+          )}
+
           <div className="h-[22vh] w-[1px] mt-2 bg-primary"></div>
         </div>
       </motion.div>
