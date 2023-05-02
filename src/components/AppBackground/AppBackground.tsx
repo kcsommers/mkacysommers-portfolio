@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { Variants, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useMemo, useRef } from 'react';
-import { isMobile } from 'react-device-detect';
 import { useAssetCache } from '../../context/use-asset-cache';
 import { useTransition } from '../../context/use-transition';
 import { getTheme } from '../../themes/themes';
@@ -25,16 +24,13 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
 
   const { currentTheme } = useTheme();
   const logoFilter = useMemo(() => {
-    if (isMobile) {
-      return 'none';
-    }
     const theme = getTheme(currentTheme);
     let color = new Color(theme.primary[0], theme.primary[1], theme.primary[2]);
     let solver = new Solver(color);
     let result = solver.solve();
     let filterCSS = result.filter;
     return filterCSS;
-  }, [isMobile]);
+  }, []);
 
   const logoCount = useMemo(() => {
     if (windowDims.width > 1600) {
