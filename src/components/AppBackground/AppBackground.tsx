@@ -24,6 +24,10 @@ export const AppBackground = ({ isTransitionView }: AppBackgroundProps) => {
 
   const { currentTheme } = useTheme();
   const logoFilter = useMemo(() => {
+    if (!currentTheme) {
+      return '';
+    }
+
     const theme = getTheme(currentTheme);
     let color = new Color(theme.primary[0], theme.primary[1], theme.primary[2]);
     let solver = new Solver(color);

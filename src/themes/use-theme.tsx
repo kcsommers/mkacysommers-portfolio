@@ -31,15 +31,31 @@ const THEME_STORAGE_KEY = '__kc__theme___';
 export const ThemeProvider = ({ children }: PropsWithChildren<{}>) => {
   const [currentTheme, setCurrentTheme] = useState<THEME_NAME>(() => {
     if (typeof localStorage === 'undefined') {
-      return 'LIGHT';
+      return '' as THEME_NAME;
     }
+
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+      .matches
+      ? 'DARK'
+      : 'LIGHT';
+
     const themeFromStorage = localStorage.getItem(THEME_STORAGE_KEY);
-    return (themeFromStorage || 'LIGHT') as THEME_NAME;
+    return (themeFromStorage || systemTheme) as THEME_NAME;
   });
 
   useEffect(() => {
     setTheme(currentTheme);
-    localStorage.setItem(THEME_STORAGE_KEY, currentTheme);
+
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+      .matches
+      ? 'DARK'
+      : 'LIGHT';
+
+    if (systemTheme !== currentTheme) {
+      localStorage.setItem(THEME_STORAGE_KEY, currentTheme);
+    } else {
+      localStorage.removeItem(THEME_STORAGE_KEY);
+    }
   }, [currentTheme]);
 
   const memoizedValue = useMemo(
