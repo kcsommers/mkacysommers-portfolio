@@ -32,7 +32,7 @@ const appImages = [
   ...allProjectImages(),
   'https://res.cloudinary.com/kcsommers/image/upload/v1681933306/M%20Kacy%20Sommers/mkacysommers_logo2.png',
   'https://res.cloudinary.com/kcsommers/image/upload/v1643868947/M%20Kacy%20Sommers/mkacy-beach.jpg',
-  'https://res.cloudinary.com/kcsommers/image/upload/v1674185811/M%20Kacy%20Sommers/MKacySommers-resume.png',
+  'https://res.cloudinary.com/kcsommers/image/upload/v1735403392/M%20Kacy%20Sommers/nlsqm0ocdkdsgxizgt8u.png',
   'https://res.cloudinary.com/kcsommers/image/upload/v1682393420/M%20Kacy%20Sommers/joni_logo_white_sm.png',
   'https://res.cloudinary.com/kcsommers/image/upload/v1682393412/M%20Kacy%20Sommers/joni_logo_black_sm.png',
   'https://res.cloudinary.com/kcsommers/image/upload/v1682436152/M%20Kacy%20Sommers/joni_logo_white_sm_solid.png',

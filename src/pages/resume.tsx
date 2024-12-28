@@ -12,7 +12,7 @@ import { useAssetCache } from '../context/use-asset-cache';
 import { useDeviceDetect } from '../utils/hooks/use-device-detect';
 
 const RESUME_IMG_URL =
-  'https://res.cloudinary.com/kcsommers/image/upload/v1674185811/M%20Kacy%20Sommers/MKacySommers-resume.png';
+  'https://res.cloudinary.com/kcsommers/image/upload/v1735403392/M%20Kacy%20Sommers/nlsqm0ocdkdsgxizgt8u.png';
 
 const ResumePage = () => {
   const { imageCache } = useAssetCache();
@@ -22,7 +22,7 @@ const ResumePage = () => {
 
   const downloadResume = () => {
     const a: HTMLAnchorElement = document.createElement('a');
-    a.href = '/MKacySommers-resume.pdf';
+    a.href = '/MKacySommers_resume.pdf';
     a.download = 'M Kacy Sommers Resume';
     a.target = '_blank';
     a.click();
