@@ -48,34 +48,38 @@ const AboutPage = () => {
               </p>
               <br />
               <p className="">
-                In other words, I love JavaScript. I first started learning it
-                in 2017 when my tolerance for delivering food and slinging
-                lattes had officially run out. I read Jon Duckett's JavaScript
-                and JQuery cover to cover, buried myself in Youtube tutorials,
-                and eventually signed up for a web development bootcamp in
-                Seattle, WA. And even though my experience until then was not
-                computer science focused, my artistic experiences prepared me
-                well for the creative challenges of web development. I
-                discovered quickly that my brain was well suited for the blend
-                of logic and creativity that writing code requires, and I've
-                been in love with it ever since.
+                I first discovered my love for JavaScript in 2017 when my
+                patience for customer service jobs had officially run out. I
+                read Jon Duckett's JavaScript and JQuery cover to cover, buried
+                myself in Youtube tutorials, and eventually signed up for a web
+                development bootcamp in Seattle, WA. And even though my
+                experience until then was not computer science focused, my
+                artistic experiences prepared me well for the creative
+                challenges of web development. I discovered quickly that my
+                brain was well suited for the blend of logic and creativity that
+                writing code demands, and I've been in love with it ever since.
               </p>
               <br />
               <p className="">
-                A few months and a grueling job search later, I landed my first
-                full-time front-end engineering role at Adaptiva, an endpoint
+                In 2018 I landed my first role at Adaptiva, a leading endpoint
                 management software company based in Kirkland, WA. Once I was
                 immersed in a professional environment and surrounded by
-                engineers far more talented than me, I was able to rapidly
-                absorb new knowledge and moved from entry level to senior
-                engineer in two years. Alongside this full time role I've
-                continuously taken on projects as a freelancer, contributing to
-                or building from scratch a number of complex and unique
-                applications. This additional work has helped me keep pace with
-                the ever-changing landscape of front-end web development, and
-                with every day and every google search I'm learning more and
-                more. I couldn't be more grateful to work in a field that allows
-                me to do just that.
+                engineers far more talented than me, I rapidly grew from entry
+                level to senior engineer in my three and a half years there. I
+                accepted a new challenge in 2021 when I joined the team at
+                Peerspace, learning how to navigate the fast-paced,
+                feature-driven world of an ambitious startup. There I learned a
+                great deal about frontend architecture, and the balance between
+                building for scale and building for speed.
+                <br />
+                Alongside my full time roles I've continuously taken on projects
+                as a freelancer, building complex applications that challenge me
+                to stay on top of the ever-evolving frontend landscape. With
+                clients such as Ave Maria University and the San Jose Sharks,
+                I've had the opportunity to work on far-reaching projects that
+                have pushed me to grow and adapt in new ways. I'm endlessly
+                grateful to work in a field that allows me to be creative, to
+                learn, and to solve problems every day.
               </p>
             </div>
           }
