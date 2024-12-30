@@ -1,3 +1,4 @@
+import { deleteCookie, setCookie } from 'cookies-next/client';
 import {
   Dispatch,
   PropsWithChildren,
@@ -26,12 +27,19 @@ const setTheme = (themeName: THEME_NAME) => {
   });
 };
 
-const THEME_STORAGE_KEY = '__kc__theme___';
+export const THEME_COOKIE_KEY = '__kc__theme___';
 
-export const ThemeProvider = ({ children }: PropsWithChildren<{}>) => {
+export const ThemeProvider = ({
+  children,
+  initialTheme,
+}: PropsWithChildren<{
+  initialTheme?: THEME_NAME;
+}>) => {
+  console.log('initialTheme::::', initialTheme);
+
   const [currentTheme, setCurrentTheme] = useState<THEME_NAME>(() => {
     if (typeof localStorage === 'undefined') {
-      return '' as THEME_NAME;
+      return initialTheme as THEME_NAME;
     }
 
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
@@ -39,8 +47,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren<{}>) => {
       ? 'DARK'
       : 'LIGHT';
 
-    const themeFromStorage = localStorage.getItem(THEME_STORAGE_KEY);
-    return (themeFromStorage || systemTheme) as THEME_NAME;
+    return (initialTheme || systemTheme) as THEME_NAME;
   });
 
   useEffect(() => {
@@ -52,9 +59,9 @@ export const ThemeProvider = ({ children }: PropsWithChildren<{}>) => {
       : 'LIGHT';
 
     if (systemTheme !== currentTheme) {
-      localStorage.setItem(THEME_STORAGE_KEY, currentTheme);
+      setCookie(THEME_COOKIE_KEY, currentTheme);
     } else {
-      localStorage.removeItem(THEME_STORAGE_KEY);
+      deleteCookie(THEME_COOKIE_KEY);
     }
   }, [currentTheme]);
 

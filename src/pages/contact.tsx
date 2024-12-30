@@ -1,4 +1,5 @@
 import { EmailJSResponseStatus, send } from 'emailjs-com';
+import { GetServerSideProps } from 'next';
 import { ReactElement, useState } from 'react';
 import { AppBackground } from '../components/AppBackground/AppBackground';
 import { AppGutters } from '../components/AppGutters/AppGutters';
@@ -65,6 +66,15 @@ const ContactPage = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const headers = context.req.headers;
+  return {
+    props: {
+      theme: headers['x-theme'] || 'LIGHT',
+    },
+  };
 };
 
 ContactPage.getLayout = function getLayout(page: ReactElement) {

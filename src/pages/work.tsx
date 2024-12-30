@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -146,6 +147,15 @@ const WorkPage = () => {
       </AnimatePresence>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const headers = context.req.headers;
+  return {
+    props: {
+      theme: headers['x-theme'] || 'LIGHT',
+    },
+  };
 };
 
 WorkPage.getLayout = function getLayout(page: ReactElement) {

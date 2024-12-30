@@ -49,7 +49,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <ThemeProvider>
+    <ThemeProvider initialTheme={pageProps?.theme}>
       <AssetCacheProvider imageUrls={appImages} videoUrls={appVideos}>
         <TransitionProvider>
           <main

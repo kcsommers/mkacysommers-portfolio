@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next';
 import { ReactElement, useState } from 'react';
 import { AppBackground } from '../components/AppBackground/AppBackground';
 import { AppGutters } from '../components/AppGutters/AppGutters';
@@ -36,6 +37,15 @@ const HomePage = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const headers = context.req.headers;
+  return {
+    props: {
+      theme: headers['x-theme'] || 'LIGHT',
+    },
+  };
 };
 
 HomePage.getLayout = function getLayout(page: ReactElement) {

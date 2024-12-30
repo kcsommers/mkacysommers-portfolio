@@ -1,3 +1,4 @@
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { ReactElement, useState } from 'react';
 import { AppBackground } from '../components/AppBackground/AppBackground';
@@ -102,6 +103,15 @@ const AboutPage = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const headers = context.req.headers;
+  return {
+    props: {
+      theme: headers['x-theme'] || 'LIGHT',
+    },
+  };
 };
 
 AboutPage.getLayout = function getLayout(page: ReactElement) {
