@@ -44,31 +44,34 @@ const AboutPage = () => {
                 Hi, I'm Kacy!
               </h3>
               <p>
-                I'm a software engineer who specializes in building scalable and
-                intuitive web-based applications.
+                I’m a frontend engineer specializing in building scalable,
+                intuitive, and user-focused web platforms. In my professional
+                experience I’ve had the opportunity to lead architectural
+                initiatives, collaborate with diverse teams, and deliver
+                impactful solutions across industries.
               </p>
               <br />
               <p className="">
                 I first discovered my love for JavaScript in 2017 when my
-                patience for customer service jobs had officially run out. I
-                read Jon Duckett's JavaScript and JQuery cover to cover, buried
-                myself in Youtube tutorials, and eventually signed up for a web
-                development bootcamp in Seattle, WA. And even though my
-                experience until then was not computer science focused, my
-                artistic experiences prepared me well for the creative
-                challenges of web development. I discovered quickly that my
-                brain was well suited for the blend of logic and creativity that
-                writing code demands, and I've been in love with it ever since.
+                patience for the service industry had officially run out. I
+                started out self-teaching, reading Jon Duckett's JavaScript and
+                JQuery cover to cover, and burying myself in Youtube tutorials,
+                but eventually signed up for a web development bootcamp in
+                Seattle, WA. And even though my experience until then was not
+                computer science focused, my artistic experiences prepared me
+                well for the creative challenges of web development. I
+                discovered quickly that my brain was well suited for the blend
+                of logic and creativity that writing code demands, and I've been
+                in love with it ever since.
               </p>
               <br />
               <p className="">
                 In 2018 I landed my first role at Adaptiva, a leading endpoint
                 management software company based in Kirkland, WA. Once I was
                 immersed in a professional environment and surrounded by
-                engineers far more talented than me, I rapidly grew from entry
-                level to senior engineer in my three and a half years there. I
-                accepted a new challenge in 2021 when I joined the team at
-                Peerspace, learning how to navigate the fast-paced,
+                engineers far more talented than me, my knowledge and skillset
+                rapidly grew. I accepted a new challenge in 2021 when I joined
+                the team at Peerspace, learning how to navigate the fast-paced,
                 feature-driven world of an ambitious startup. There I learned a
                 great deal about frontend architecture, and the balance between
                 building for scale and building for speed.
