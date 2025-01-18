@@ -48,14 +48,14 @@ export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
           />
         </div>
         <LazyItem>
-          <p className="text-2xl mt-12 mb-8">{project.blurb}</p>
+          <p className="text-2xl mt-16 mb-12">{project.blurb}</p>
           <h3 className="inline-block uppercase font-medium spacing tracking-widest text-lg leading-3">
             Technologies
             <span className="inline-block w-full h-[2px] bg-secondary transition-colors"></span>
           </h3>
           <p>{project.tools.join(', ')}</p>
           {project.links && (
-            <div className="mt-8">
+            <div className="mt-12">
               <h3 className="inline-block uppercase font-medium spacing tracking-widest text-lg leading-3">
                 Links
                 <span className="inline-block w-full h-[2px] bg-secondary transition-colors"></span>
@@ -70,17 +70,19 @@ export const ProjectLayout = ({ project }: ProjectLayoutProps) => {
           )}
         </LazyItem>
 
-        <div className="mt-12">
+        <div className="mt-16">
           {project.sections.map((section, i) => (
             <div key={Math.random()}>
               <LazyItem key={`project_section_text_${i}`}>
-                {section.text && <p className="my-8">{section.text.content}</p>}
+                {section.text && (
+                  <p className="my-12">{section.text.content}</p>
+                )}
               </LazyItem>
               {(section.images || []).map((url: string) => (
                 <LazyItem key={`project_section_img_${i}`}>
                   <div
                     key={url}
-                    className="relative my-8"
+                    className="relative my-12"
                     style={{
                       aspectRatio: '999 / 545',
                     }}
