@@ -35,7 +35,7 @@ export const TransitionView = ({ children }: PropsWithChildren<{}>) => {
             animateState: {
               clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
               transition: {
-                delay: SLIDE_DURATION,
+                delay: SLIDE_DURATION / 2,
                 duration: SLIDE_DURATION,
                 ease: SLIDE_EASE,
               },
